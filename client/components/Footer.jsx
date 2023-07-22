@@ -1,7 +1,11 @@
+import estilo from "../styles/Footer.module.scss";
+
 export default function Home() {
     return (
       <>
-        <div>Rodapé</div>
+        <footer className={estilo.footer}>
+          <p>Privacy Policy & Copy rights</p>
+        </footer>
       </>
     )
   }

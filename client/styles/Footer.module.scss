@@ -1,5 +1,6 @@
+@import '_variables.module';
 .footer{
-    background-color: #0DB760;
+    background-color: $cor-primaria;
     min-height: 5.625rem;
     width: 100vw;
     display: flex;

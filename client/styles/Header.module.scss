@@ -1,3 +1,5 @@
+@import '_variables.module';
+
 .header{
     width: 100vw;
     height: auto;
@@ -40,14 +42,15 @@
             .link:hover{
                 box-sizing: border-box;
                 padding-bottom: 0.25rem;
-                border-bottom: 2px solid rgb(13, 183, 96, 0.8);
-                color: rgb(13, 183, 96, 0.8);
+                border-bottom: 2px solid $cor-primaria;
+                opacity: 0.8;
+                color: $cor-primaria;
             }
 
             .active{
-                color: #0db760;
+                color: $cor-primaria;
                 padding-bottom: 0.25rem;
-                border-bottom: 2px solid #0db760;
+                border-bottom: 2px solid $cor-primaria;
             }
         }
     }

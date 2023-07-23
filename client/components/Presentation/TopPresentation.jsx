@@ -1,5 +1,5 @@
 import Link from "next/link";
-import estilo from "../styles/presentation.module.scss";
+import estilo from "../../styles/TopPresentation.module.scss";
 
 export default function presentation(){
     return(

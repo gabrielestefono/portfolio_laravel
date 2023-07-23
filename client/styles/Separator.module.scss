@@ -1,0 +1,25 @@
+@import '_variables.module';
+
+.separator{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    .left{
+        width: 16rem;
+        height: .125rem;
+        background-image: linear-gradient(to left, $cor-primaria, transparent);
+    }
+
+    .center{
+        color: $cor-secundaria;
+        font-size: 2.25rem;
+        font-weight: 600;
+    }
+
+    .right{
+        width: 16rem;
+        height: .125rem;
+        background-image: linear-gradient(to right, $cor-primaria, transparent);
+    }
+}

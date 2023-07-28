@@ -1,4 +1,4 @@
-import estilo from "../../styles/About.module.scss";
+import estilo from "./About.module.scss";
 import ItemList from "./ItemsList";
 
 export default function About(){

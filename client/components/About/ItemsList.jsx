@@ -1,4 +1,4 @@
-import estilo from "@/styles/ItemList.module.scss";
+import estilo from "./ItemList.module.scss";
 
 export default function ItemList(props){
     return(

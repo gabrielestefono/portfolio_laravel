@@ -1,4 +1,4 @@
-import estilo from "@/styles/ProjectEsquerda.module.scss";
+import estilo from "./ProjectEsquerda.module.scss";
 
 export default function Esquerda(){
     return(

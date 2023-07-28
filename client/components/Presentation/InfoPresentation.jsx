@@ -1,4 +1,4 @@
-import estilo from "../../styles/InfoPresentation.module.scss";
+import estilo from "./InfoPresentation.module.scss";
 
 export default function InfoPresentation(){
     return(

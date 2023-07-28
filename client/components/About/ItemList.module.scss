@@ -1,4 +1,4 @@
-@import '_variables.module';
+@import '../../styles/variables.module';
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
 .itemList{
     display: flex;
@@ -9,7 +9,7 @@
         width: 1.3125rem;
         height: 1.3125rem;
         border-radius: 1rem;
-        background-image: url("../public/images/icons/Check.svg");
+        background-image: url("./Check.svg");
         background-size: .625rem .4375rem;
         background-position: 50%;
         background-repeat: no-repeat;

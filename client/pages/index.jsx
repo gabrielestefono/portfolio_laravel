@@ -3,6 +3,7 @@ import estilo from "../styles/Index.module.scss";
 import About from "@/components/About/About";
 import Separator from "@/components/Separator";
 import Project from "@/components/Projects/Project";
+import Skills from "@/components/skills/Skills";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <Separator titulo="My Projects"/>
       <Project/>
       <Separator titulo="My Skills"/>
+      <Skills/>
     </>
   )
 }

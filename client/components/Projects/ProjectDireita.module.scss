@@ -1,0 +1,13 @@
+.swiperDireita{
+    max-width: 57.625rem;
+    height: 34.1875rem;
+
+    .slides{
+        background-color: red;
+        height: 27.5rem;
+    }
+
+    .swiper-slide-active{
+        height: 34.1875rem !important;
+    }
+}

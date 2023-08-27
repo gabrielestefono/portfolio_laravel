@@ -4,15 +4,32 @@ import estilo from "./ProjectDireita.module.scss";
 
 SwiperCore.use([Pagination, Navigation]);
 
-export default function Direita(){
-    let slidesQuery = document.querySelectorAll(estilo.slides);
-    let slides = Array.from(slidesQuery);
-    console.log(slides);
+export default function Direita() {
+  const mudarAltura = (swiper) => {
+    const slides = swiper.slides;
+
+    slides.forEach((slide, index) => {
+      if (index === swiper.activeIndex) {
+        setTimeout(() => {
+          slide.style.transition = '300ms';
+          slide.style.maxHeight = '34rem';
+          swiper.slideTo(swiper.activeIndex, 0, false);
+        }, 10);
+        slide.style.transition = '';
+      } else {
+        slide.style.maxHeight = '20rem';
+        slide.style.transition = '';
+      }
+    });
+  };
+
   return (
     <Swiper className={estilo.swiperDireita} 
-    spaceBetween={15} 
-    slidesPerView={2.65}
+    slidesPerView={'auto'}
+    spaceBetween={15}
     loop={true}
+    onInit={mudarAltura}
+    onTransitionEnd={mudarAltura}
     >
       <SwiperSlide className={estilo.slides}> Slide 1</SwiperSlide>
       <SwiperSlide className={estilo.slides}> Slide 2</SwiperSlide>

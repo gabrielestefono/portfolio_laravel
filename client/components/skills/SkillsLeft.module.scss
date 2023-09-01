@@ -6,10 +6,11 @@
     line-height: 3.6875rem;
     font-weight: 600;
     color: $cor-secundaria;
-    max-width: 29.6875rem;
+    max-width: 34rem;
 
     span{
         color: $cor-primaria;
+        max-width: 29.6875rem;
     }
 
     p{
@@ -18,8 +19,7 @@
         margin-top: 1.625rem;
         color: $cor-secundaria;
         line-height: 1.5;
-        min-width: 34.375rem;
-        max-width: 34.375rem;
+        max-width: 29.6875rem;
     }
 
     button{

@@ -2,8 +2,12 @@
 
 .background {
     position: relative;
+    width: 17.25rem;
+    min-height: 10.75rem;
+    display: flex;
+    flex-direction: column;
 
-    .background::before {
+    &::before {
         content: "";
         position: absolute;
         top: 0;
@@ -11,8 +15,40 @@
         width: 100%;
         height: 100%;
         background-color: $cor-primaria;
-        opacity: 0.08;
+        opacity: 0.20;
         z-index: -1; 
+    }
+
+    div{
+        margin-top: 1.375rem;
+        margin-left: 1.25rem;
+        display: block;
+        margin-bottom: 1.125rem;
+        width: 1.9375rem;
+        height: 1.9375rem;
+
+        img{
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    h3{
+        margin-left: 1.25rem;
+        color: $cor-secundaria;
+        font-family: $poppins;
+        font-size: 1.375rem;
+        font-weight: 600;
+        line-height: 1.375rem;
+    }
+
+    p{
+        margin: 0 1.25rem;
+        font-family: $poppins;
+        line-height: 1.5;
+        font-size: 1rem;
+        color: #323433;
+        margin-top: .75rem;
     }
 }
 

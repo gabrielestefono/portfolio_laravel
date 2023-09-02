@@ -1,0 +1,32 @@
+@import '../../styles/variables.module';
+
+.title{
+	width: 100vw;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	h3{
+		color: $cor-secundaria;
+		font-family: $poppins;
+		font-size: 2.5rem;
+		font-weight: 600;
+		line-height: 3.375rem;
+
+		span{
+			color: $cor-primaria;
+		}
+	}
+
+	p{
+		font-size: 1rem;
+		line-height: 1.5;
+		font-weight: 400;
+		font-family: $poppins;
+		color: $cor-secundaria;
+		text-align: center;
+		max-width: 34rem;
+		margin-top: 1.5rem;
+	}
+}

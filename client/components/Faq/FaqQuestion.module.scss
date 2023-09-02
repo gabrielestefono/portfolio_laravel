@@ -1,0 +1,92 @@
+@import "../../styles/variables.module";
+
+.closedQuestion{
+	display: flex;
+	min-height: 5.125rem;
+	align-items: center;
+	justify-content: space-between;
+	width: 50.8125rem;
+	border: 1px solid #505050;
+	border-radius: .75rem;
+
+
+	h2{
+		color: $cor-secundaria;
+		font-family: $poppins;
+		font-size: 1.375rem;
+		font-weight: 600;
+		line-height: 1.75rem;
+		margin-left: 2.25rem;
+	}
+
+	div{
+		background-color: $cor-primaria;
+		width: 2rem;
+		height: 2rem;
+		border-radius: 50%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-right: 2.25rem;
+	}
+}
+
+.openedQuestion{
+	display: flex;
+	width: 50.8125rem;
+	min-height: 9.5rem;
+	border-radius: .75rem;
+	position: relative;
+
+	& > div:first-child{
+		margin-left: 2.25rem;
+
+		h2{
+			margin-top: 1.5rem;
+			color: $cor-secundaria;
+			font-family: $poppins;
+			font-size: 1.375rem;
+			font-weight: 600;
+			line-height: 1.75rem;
+		}
+
+		p{
+			color: $cor-secundaria;
+			font-size: 1.125rem;
+			font-weight: 400;
+			font-family: $poppins;
+			line-height: 1.875rem;
+			margin-top: 1rem;
+		}
+	}
+
+	& > div:last-child{
+		display: flex;
+		align-items: center;
+
+		div{
+			width: 2rem;
+			height: 2rem;
+			background-color: $cor-secundaria;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			border-radius: 50%;
+			margin-right: 2.25rem;
+			margin-left: 2.25rem;
+		}
+	}
+
+	&::before{
+		content: "";
+		width: 100%;
+		height: 100%;
+		background-color: $cor-primaria;
+		opacity: 0.15;
+		position: absolute;
+		top: 0;
+		left: 0;
+		border-radius: .75rem;
+		z-index: -1;
+	}
+}

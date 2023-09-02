@@ -1,4 +1,55 @@
+@import "../../styles/variables.module";
+
 .card{
 	width: 21.875rem;
-	height: 6.5rem;
+	height: auto;
+	display: flex;
+	background-color: #FAFAFA;
+	border-radius: .5rem;
+	min-height: 6.5rem;
+	justify-content: flex-start;
+	align-items: center;
+
+	& > div:first-child{
+		margin-left: 1.5rem;
+
+		& > div{
+			&:first-child{
+				background-color: $cor-primaria;
+				width: 3.5rem;
+				height: 3.5rem;
+				border-radius: .75rem;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+
+		}
+	}
+
+	& > div:last-child {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		margin-left: 1.125rem;
+		min-height: 3.5rem;
+		max-height: 3.5rem;
+
+		h3{
+			margin-top: .25rem;
+			color: #92929D;
+			font-family: $poppins;
+			font-weight: 400;
+			font-size: 1rem;
+		}
+
+		p{
+			font-family: $poppins;
+			font-size: 1rem;
+			font-weight: 500;
+			line-height: 1.125rem;
+			color: #11142D;
+			margin-bottom: .25rem;
+		}
+	}
 }

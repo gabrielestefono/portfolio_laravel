@@ -18,6 +18,7 @@ export default function Home() {
       <Skills />
       <Separator titulo="Contact me" />
       <ContactMe />
+      <Separator titulo="Frequently Asked Questions" />
     </>
   )
 }

@@ -14,7 +14,8 @@ export default function Home() {
       <Separator titulo="My Projects"/>
       <Project/>
       <Separator titulo="My Skills"/>
-      <Skills/>
+      <Skills />
+      <Separator titulo="Contact me"/>
     </>
   )
 }

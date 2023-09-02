@@ -5,6 +5,7 @@ import Separator from "@/components/Separator";
 import Project from "@/components/Projects/Project";
 import Skills from "@/components/Skills/Skills";
 import ContactMe from "@/components/ContactMe/ContactMe";
+import Faq from "@/components/Faq/Faq";
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
       <Separator titulo="Contact me" />
       <ContactMe />
       <Separator titulo="Frequently Asked Questions" />
+      <Faq />
     </>
   )
 }

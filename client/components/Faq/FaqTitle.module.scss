@@ -1,0 +1,13 @@
+@import "../../styles/variables.module";
+
+.title{
+	p{
+		font-size: 1.125rem;
+		font-weight: 400;
+		line-height: 1.875rem;
+		font-family: $poppins;
+		color: $cor-secundaria;
+		max-width: 37.5rem;
+		text-align: center;
+	}
+}

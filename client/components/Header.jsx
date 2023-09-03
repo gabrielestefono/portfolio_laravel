@@ -26,7 +26,8 @@ export default function header(){
                 <meta name="twitter:card" content="summary_large_image"/>
                 <meta name="twitter:title" content="Portfólio de Desenvolvedor - Webest"/>
                 <meta name="twitter:description" content="Confira o portfólio de desenvolvedor da Webest para explorar projetos inovadores, experiência em desenvolvimento web e habilidades técnicas. Descubra como podemos transformar suas ideias em realidade!"/>
-                <meta name="twitter:image" content={imagem}/>
+                <meta name="twitter:image" content={imagem} />
+                <title>WeBest - Página Inicial</title>
             </Head>
             <div className={estilo.header}>
                 <div>

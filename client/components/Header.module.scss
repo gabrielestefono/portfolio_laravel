@@ -47,6 +47,7 @@
     height: 3.8125rem;
     display: flex;
     justify-content: space-between;
+    position: relative;
 
     @include LaptopHD{
         justify-content: center;
@@ -84,6 +85,10 @@
             font-size: 1.25rem;
             gap: 3.125rem;
 
+            @include tabletPaisagem{
+                margin-right: 1rem;
+            }
+
             .link{
                 display: none;
 
@@ -102,12 +107,12 @@
                     opacity: 0.8;
                     color: $cor-primaria;
                 }
-    
-                .active{
-                    color: $cor-primaria;
-                    padding-bottom: 0.25rem;
-                    border-bottom: 2px solid $cor-primaria;
-                }
+            }
+
+            .active {
+                color: $cor-primaria;
+                padding-bottom: 0.25rem;
+                border-bottom: 2px solid $cor-primaria;
             }
 
 

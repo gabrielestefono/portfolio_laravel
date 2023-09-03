@@ -1,4 +1,4 @@
-import estilo from "../styles/Footer.module.scss";
+import estilo from "./Footer.module.scss";
 
 export default function Home() {
     return (

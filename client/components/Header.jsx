@@ -1,15 +1,19 @@
 import estilo from './Header.module.scss';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 
 export default function header(){
     const {asPath } = useRouter();
     return(
         <>
+            <Head>
+                <html lang="pt-BR" />
+            </Head>
             <div className={estilo.header}>
                 <div>
                     <div className={estilo.left}>
-                        <a href="/"><img src="./images/logo.svg"/></a>
+                        <a href="/"><img src="./images/logo.svg" alt='Logotipo WebEst' loading="lazy"/></a>
                     </div>
                     <div className={estilo.right}>
                         <Link className={`${estilo.link} ${estilo.active}`} href="/">Início</Link>

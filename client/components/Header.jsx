@@ -31,7 +31,7 @@ export default function header(){
             <div className={estilo.header}>
                 <div>
                     <div className={estilo.left}>
-                        <a href="/"><img src={imagem.src} alt='Logotipo WebEst' loading="lazy"/></a>
+                        <a href="/"><img src={imagem.src} alt='Logotipo WeBest'/></a>
                     </div>
                     <div className={estilo.right}>
                         <Link className={`${estilo.link} ${estilo.active}`} href="/">Início</Link>

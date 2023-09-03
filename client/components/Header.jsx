@@ -1,11 +1,15 @@
 import estilo from './Header.module.scss';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import imagem from '../public/images/logo.svg';
 import Head from 'next/head';
+import { useState } from 'react';
 
-export default function header(){
-    const { asPath } = useRouter();
+export default function header() {
+    const [clicked, setClicked] = useState(false);
+
+    const handleSideBar = () => {
+        setClicked(!clicked);
+    }
     return(
         <>
             <Head>
@@ -39,10 +43,20 @@ export default function header(){
                         <Link className={estilo.link} href="/projetos">Projetos</Link>
                         <Link className={estilo.link} href="/habilidades">Habilidades</Link>
                         <Link className={estilo.link} href="/contato">Contato</Link>
-                    <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                        </svg>
+                    <div onClick={handleSideBar}>
+                        {clicked ? (
+                            <>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.75 4.75l14.5 14.5M19.25 4.75L4.75 19.25" />
+                                </svg>
+                            </>
+                        ) : (
+                            <>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                                </svg>
+                            </>
+                        )}
                     </div>
                     </div>
                 </div>

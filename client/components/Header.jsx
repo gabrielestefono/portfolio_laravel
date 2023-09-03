@@ -1,15 +1,14 @@
 import estilo from './Header.module.scss';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import Head from 'next/head';
 import imagem from '../public/images/logo.svg';
+import Head from 'next/head';
 
 export default function header(){
-    const {asPath } = useRouter();
+    const { asPath } = useRouter();
     return(
         <>
             <Head>
-                <html lang="pt-BR"/>
                 <meta charset="UTF-8"/>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
                 <meta name="description" content="Confira o portfólio de desenvolvedor da Webest para explorar projetos inovadores, experiência em desenvolvimento web e habilidades técnicas. Descubra como podemos transformar suas ideias em realidade!"/>
@@ -19,20 +18,20 @@ export default function header(){
                 <meta http-equiv="content-language" content="pt-BR"/>
                 <meta property="og:title" content="Portfólio de Desenvolvedor - Webest"/>
                 <meta property="og:description" content="Confira o portfólio de desenvolvedor da Webest para explorar projetos inovadores, experiência em desenvolvimento web e habilidades técnicas. Descubra como podemos transformar suas ideias em realidade!"/>
-                <meta property="og:image" content={imagem}/>
+                <meta property="og:image" content={imagem.src}/>
                 <meta property="og:image:alt" content="Webest Portfólio"/>
                 <meta property="og:type" content="website"/>
                 <meta property="og:url" content="https://www.gabrielestefono.com.br/"/>
                 <meta name="twitter:card" content="summary_large_image"/>
                 <meta name="twitter:title" content="Portfólio de Desenvolvedor - Webest"/>
                 <meta name="twitter:description" content="Confira o portfólio de desenvolvedor da Webest para explorar projetos inovadores, experiência em desenvolvimento web e habilidades técnicas. Descubra como podemos transformar suas ideias em realidade!"/>
-                <meta name="twitter:image" content={imagem} />
+                <meta name="twitter:image" content={imagem.src} />
                 <title>WeBest - Página Inicial</title>
             </Head>
             <div className={estilo.header}>
                 <div>
                     <div className={estilo.left}>
-                        <a href="/"><img src="./images/logo.svg" alt='Logotipo WebEst' loading="lazy"/></a>
+                        <a href="/"><img src={imagem.src} alt='Logotipo WebEst' loading="lazy"/></a>
                     </div>
                     <div className={estilo.right}>
                         <Link className={`${estilo.link} ${estilo.active}`} href="/">Início</Link>

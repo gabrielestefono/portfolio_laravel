@@ -10,7 +10,7 @@ import Faq from "@/components/Faq/Faq";
 export default function Home() {
   return (
     <>
-      {/* <Presentation/>
+      <Presentation/>
       <Separator titulo="About"/>
       <About/>
       <Separator titulo="My Projects"/>
@@ -20,7 +20,7 @@ export default function Home() {
       <Separator titulo="Contact me" />
       <ContactMe />
       <Separator titulo="Frequently Asked Questions" />
-      <Faq /> */}
+      <Faq />
     </>
   )
 }

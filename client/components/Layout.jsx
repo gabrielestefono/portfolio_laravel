@@ -8,7 +8,7 @@ export default function Home({children}) {
         <main>
             {children}
         </main>
-        {/* <Footer></Footer> */}
+        <Footer></Footer>
       </>
     )
   }

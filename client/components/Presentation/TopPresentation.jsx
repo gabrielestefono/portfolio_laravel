@@ -1,5 +1,6 @@
-import Link from "next/link";
 import estilo from "./TopPresentation.module.scss";
+import Image from "next/image";
+import perfil from './perfil.avif';
 
 export default function presentation(){
     return(
@@ -16,7 +17,12 @@ export default function presentation(){
                     <div className={estilo.ball2}></div>
                     <div className={estilo.ball3}></div>
                     <div className={estilo.image}>
-                        <img src="/images/perfil.png" alt="Foto de perfil" />
+                        <Image src={perfil}
+                            className={estilo.img}
+                            alt="Programador" width={510}
+                            height={486}
+                            sizes="(min-width: 768px) 308px, (min-width: 1280px) 439px, (min-width: 1280px) 510px, 510px"
+                        />
                     </div>
                 </div>
             </div>

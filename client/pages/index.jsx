@@ -10,8 +10,8 @@ import Faq from "@/components/Faq/Faq";
 export default function Home() {
   return (
     <>
-      {/* <Presentation/>
-      <Separator titulo="About"/>
+      <Presentation/>
+      {/* <Separator titulo="About"/>
       <About/>
       <Separator titulo="My Projects"/>
       <Project/>

@@ -6,17 +6,17 @@ export default function presentation(){
         <section className={estilo.presentation}>
             <div className={estilo.center}>
                 <div className={estilo.left}>
-                    <h1>Hi, I'm</h1>
-                    <h2>Full Stack Developer</h2>
-                    <p>Full stack developers possess a wide range of skills and can work on both the client-side (front-end) and server-side (back-end) of web applications. This versatility makes them valuable assets in a development team.</p>
-                    <a href="/projetos"><button>View My Projects</button></a>
+                    <h1>Olá! Eu sou</h1>
+                    <h2>Desenvolvedor Full Stack</h2>
+                    <p>Um desenvolvedor full stack é um profissional versátil que possui habilidades tanto no desenvolvimento do lado do cliente (front-end) quanto no lado do servidor (back-end) de aplicações web. Sua capacidade de trabalhar em ambas as áreas os torna ativos valiosos em equipes de desenvolvimento, pois podem abordar uma ampla gama de desafios de programação em um projeto. Eles são como "poliglotas" da programação, dominando várias linguagens e tecnologias para criar aplicativos web completos e funcionais.</p>
+                    <a href="/projetos"><button>Veja meus projetos</button></a>
                 </div>
                 <div className={estilo.right}>
                     <div className={estilo.ball1}></div>
                     <div className={estilo.ball2}></div>
                     <div className={estilo.ball3}></div>
                     <div className={estilo.image}>
-                        <img src="/images/perfil.png" alt="" />
+                        <img src="/images/perfil.png" alt="Foto de perfil" />
                     </div>
                 </div>
             </div>

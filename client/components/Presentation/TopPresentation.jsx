@@ -1,8 +1,8 @@
 import estilo from "./TopPresentation.module.scss";
-import perfilSmaller from './perfil_smaller.avif';
-import perfilSmall from './perfil_small.avif';
-import perfilMedium from './perfil_medium.avif';
-import perfilLarge from './perfil_large.avif';
+import perfilSmaller from './perfil_smaller.webp';
+import perfilSmall from './perfil_small.webp';
+import perfilMedium from './perfil_medium.webp';
+import perfilLarge from './perfil_large.webp';
 
 export default function presentation(){
     return(

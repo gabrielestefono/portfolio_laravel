@@ -1,6 +1,8 @@
 import estilo from "./TopPresentation.module.scss";
-import Image from "next/image";
-import perfil from './perfil.avif';
+import perfilSmaller from './perfil_smaller.avif';
+import perfilSmall from './perfil_small.avif';
+import perfilMedium from './perfil_medium.avif';
+import perfilLarge from './perfil_large.avif';
 
 export default function presentation(){
     return(
@@ -17,12 +19,30 @@ export default function presentation(){
                     <div className={estilo.ball2}></div>
                     <div className={estilo.ball3}></div>
                     <div className={estilo.image}>
-                        <Image src={perfil}
-                            className={estilo.img}
-                            alt="Programador" width={510}
-                            height={486}
-                            sizes="(min-width: 768px) 308px, (min-width: 1280px) 439px, (min-width: 1280px) 510px, 510px"
-                        />
+                        <picture>
+                            <source
+                                media="(max-width: 767px)"
+                                srcSet={perfilSmaller.src}
+                            />
+                            <source
+                                media="(min-width: 768px) and (max-width: 1023px)"
+                                srcSet={perfilSmall.src}
+                            />
+                            <source
+                                media="(min-width: 1024px) and (max-width: 1279px)"
+                                srcSet={perfilMedium.src}
+                            />
+                            <source
+                                media="(min-width: 1280px)"
+                                srcSet={perfilLarge.src}
+                            />
+                            <img
+                                src={perfilLarge.src}
+                                className={estilo.img}
+                                alt="Imagem do programador do site"
+                            />
+                        </picture>
+
                     </div>
                 </div>
             </div>

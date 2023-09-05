@@ -1,17 +1,23 @@
-import dynamic from "next/dynamic";
-import Footer from "./Footer";
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
 
-const Header = dynamic(() => import('./Header'));
+import Header from './Header';
+import Footer from './Footer';
 
-export default function Home({children}) {
-    return (
-      <>
-        <Header></Header>
-        <main>
-            {children}
-        </main>
-        <Footer></Footer>
-      </>
-    )
-  }
-  
+export default function Layout({ children }) {
+  const router = useRouter();
+
+  useEffect(() => {
+    router.prefetch('/header');
+  }, []);
+
+  return (
+    <>
+      <Header></Header>
+      <main>
+        {children}
+      </main>
+      <Footer></Footer>
+    </>
+  );
+}

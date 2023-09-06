@@ -42,7 +42,6 @@ export default function presentation(){
                                 alt="Imagem do programador do site"
                             />
                         </picture>
-
                     </div>
                 </div>
             </div>

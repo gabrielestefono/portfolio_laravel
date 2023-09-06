@@ -1,4 +1,4 @@
-// import Presentation from "@/components/Presentation/Presentation";
+import Presentation from "@/components/Presentation/Presentation";
 import estilo from "../styles/Index.module.scss";
 import About from "@/components/About/About";
 import Separator from "@/components/Separator";
@@ -6,10 +6,6 @@ import Project from "@/components/Projects/Project";
 import Skills from "@/components/Skills/Skills";
 import ContactMe from "@/components/ContactMe/ContactMe";
 import Faq from "@/components/Faq/Faq";
-
-import dynamic from "next/dynamic";
-
-const Presentation = dynamic(() => import("../components/Presentation/Presentation"));
 
 export default function Home() {
   return (

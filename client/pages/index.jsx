@@ -1,4 +1,4 @@
-import Presentation from "@/components/Presentation/Presentation";
+// import Presentation from "@/components/Presentation/Presentation";
 import estilo from "../styles/Index.module.scss";
 import About from "@/components/About/About";
 import Separator from "@/components/Separator";
@@ -7,10 +7,16 @@ import Skills from "@/components/Skills/Skills";
 import ContactMe from "@/components/ContactMe/ContactMe";
 import Faq from "@/components/Faq/Faq";
 
+import React, { Suspense } from "react";
+
+const Presentation = React.lazy(() => import("../components/Presentation/Presentation"));
+
 export default function Home() {
   return (
     <>
-      <Presentation/>
+      <Suspense fallback={<div>Carregando...</div>}>
+          <Presentation/>
+      </Suspense>
       {/* <Separator titulo="About"/>
       <About/>
       <Separator titulo="My Projects"/>

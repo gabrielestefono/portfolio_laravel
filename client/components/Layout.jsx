@@ -1,16 +1,7 @@
-import { useEffect } from 'react';
-import { useRouter } from 'next/router';
+import Header from "./Header";
+import Footer from "./Footer";
 
-import Header from './Header';
-import Footer from './Footer';
-
-export default function Layout({ children }) {
-  const router = useRouter();
-
-  useEffect(() => {
-    router.prefetch('/header');
-  }, []);
-
+export default function Home({ children }) {
   return (
     <>
       <Header></Header>

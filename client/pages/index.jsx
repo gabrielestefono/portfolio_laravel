@@ -7,16 +7,14 @@ import Skills from "@/components/Skills/Skills";
 import ContactMe from "@/components/ContactMe/ContactMe";
 import Faq from "@/components/Faq/Faq";
 
-import React, { Suspense } from "react";
+import dynamic from "next/dynamic";
 
-const Presentation = React.lazy(() => import("../components/Presentation/Presentation"));
+const Presentation = dynamic(() => import("../components/Presentation/Presentation"));
 
 export default function Home() {
   return (
     <>
-      <Suspense fallback={<div>Carregando...</div>}>
-          <Presentation/>
-      </Suspense>
+      <Presentation/>
       {/* <Separator titulo="About"/>
       <About/>
       <Separator titulo="My Projects"/>

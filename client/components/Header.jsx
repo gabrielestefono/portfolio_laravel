@@ -42,11 +42,11 @@ export default function header() {
                         <a href="/"><img src={imagem.src} alt='Logotipo WeBest' width={132} height={61}/></a>
                     </div>
                     <div className={estilo.right}>
-                        <Link className={`${estilo.link} ${rotaAtual.pathname == "/" ? estilo.active : ""}`} href="/">Início</Link>
-                        <Link className={`${estilo.link} ${rotaAtual.pathname == "/sobre" ? estilo.active : ""}`} href="/sobre">Sobre mim</Link>
-                        <Link className={`${estilo.link} ${rotaAtual.pathname == "/projetos" ? estilo.active : ""}`} href="/projetos">Projetos</Link>
-                        <Link className={`${estilo.link} ${rotaAtual.pathname == "/habilidades" ? estilo.active : ""}`} href="/habilidades">Habilidades</Link>
-                        <Link className={`${estilo.link} ${rotaAtual.pathname == "/contato" ? estilo.active : ""}`} href="/contato">Contato</Link>
+                        <Link rel='preload' className={`${estilo.link} ${rotaAtual.pathname == "/" ? estilo.active : ""}`} href="/">Início</Link>
+                        <Link rel='preload' className={`${estilo.link} ${rotaAtual.pathname == "/sobre" ? estilo.active : ""}`} href="/sobre">Sobre mim</Link>
+                        <Link rel='preload' className={`${estilo.link} ${rotaAtual.pathname == "/projetos" ? estilo.active : ""}`} href="/projetos">Projetos</Link>
+                        <Link rel='preload' className={`${estilo.link} ${rotaAtual.pathname == "/habilidades" ? estilo.active : ""}`} href="/habilidades">Habilidades</Link>
+                        <Link rel='preload' className={`${estilo.link} ${rotaAtual.pathname == "/contato" ? estilo.active : ""}`} href="/contato">Contato</Link>
                         <div onClick={handleSideBar}>
                             {clicked ? (
                                 <>

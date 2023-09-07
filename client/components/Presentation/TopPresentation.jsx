@@ -1,6 +1,9 @@
 import estilo from "./TopPresentation.module.scss";
+import perfilSmaller from './perfil_smaller.webp';
+import perfilSmall from './perfil_small.webp';
+import perfilMedium from './perfil_medium.webp';
 import perfilLarge from './perfil_large.webp';
-import Image from "next/image";
+import Image from 'next/image';
 
 export default function presentation(){
     return(
@@ -20,11 +23,17 @@ export default function presentation(){
                         <div className={estilo.image}>
                             <Image
                                 className={estilo.img}
-                                src={perfilLarge}
+                                src={perfilLarge.src}
                                 alt="Foto de perfil"
-                                width={154} // Tamanho padrão
-                                height={146} // Tamanho padrão
-                                sizes="(min-width: 360px) 308px, (min-width: 768px) 27.4375rem, (min-width: 1440px) 31.875rem, (min-width: 2560px) 31.875rem"
+                                width={510}
+                                height={486}
+                                srcSet={`
+                                    ${perfilSmaller.src} 154w,
+                                    ${perfilSmall.src} 300w,
+                                    ${perfilMedium.src} 508w,
+                                    ${perfilLarge.src} 907w
+                                `}
+                                sizes="(max-width: 767px) 154px, (min-width: 768px) and (max-width: 1279px) 300px, (min-width: 1280px) and (max-width: 1440px) 508px, 907px"
                             />
                         </div>
                     </div>

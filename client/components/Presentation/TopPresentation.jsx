@@ -34,6 +34,7 @@ export default function presentation(){
                                     ${perfilLarge.src} 907w
                                 `}
                                 sizes="(max-width: 767px) 154px, (min-width: 768px) and (max-width: 1279px) 300px, (min-width: 1280px) and (max-width: 1440px) 508px, 907px"
+                                loading="eager"
                             />
                         </div>
                     </div>

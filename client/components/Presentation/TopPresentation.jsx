@@ -1,8 +1,6 @@
 import estilo from "./TopPresentation.module.scss";
-import perfilSmaller from './perfil_smaller.webp';
-import perfilSmall from './perfil_small.webp';
-import perfilMedium from './perfil_medium.webp';
 import perfilLarge from './perfil_large.webp';
+import Image from "next/image";
 
 export default function presentation(){
     return(
@@ -19,29 +17,16 @@ export default function presentation(){
                     <div className={estilo.ball2}></div>
                     <div className={estilo.ball3}></div>
                     <div className={estilo.image}>
-                        <picture>
-                            <source
-                                media="(max-width: 767px)"
-                                srcSet={perfilSmaller.src}
-                            />
-                            <source
-                                media="(min-width: 768px) and (max-width: 1023px)"
-                                srcSet={perfilSmall.src}
-                            />
-                            <source
-                                media="(min-width: 1024px) and (max-width: 1279px)"
-                                srcSet={perfilMedium.src}
-                            />
-                            <source
-                                media="(min-width: 1280px)"
-                                srcSet={perfilLarge.src}
-                            />
-                            <img
-                                src={perfilLarge.src}
+                        <div className={estilo.image}>
+                            <Image
                                 className={estilo.img}
-                                alt="Imagem do programador do site"
+                                src={perfilLarge}
+                                alt="Foto de perfil"
+                                width={154} // Tamanho padrão
+                                height={146} // Tamanho padrão
+                                sizes="(min-width: 360px) 308px, (min-width: 768px) 27.4375rem, (min-width: 1440px) 31.875rem, (min-width: 2560px) 31.875rem"
                             />
-                        </picture>
+                        </div>
                     </div>
                 </div>
             </div>

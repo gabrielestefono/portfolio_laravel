@@ -5,6 +5,7 @@ import Head from 'next/head';
 import { useState } from 'react';
 import SideBar from './HeaderComponents/SideBar';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 
 export default function header() {
     const rotaAtual = useRouter();
@@ -23,7 +24,7 @@ export default function header() {
                 <meta name="keywords" content="desenvolvedor, desenvolvimento web, portfólio, Webest, projetos web"/>
                 <meta name="author" content="Gabriel Estéfono"/>
                 <meta name="robots" content="index, follow"/>
-                <meta http-equiv="content-language" content="pt-BR"/>
+                <meta httpEquiv="content-language" content="pt-BR"/>
                 <meta property="og:title" content="Portfólio de Desenvolvedor - Webest"/>
                 <meta property="og:description" content="Confira o portfólio de desenvolvedor da Webest para explorar projetos inovadores, experiência em desenvolvimento web e habilidades técnicas. Descubra como podemos transformar suas ideias em realidade!"/>
                 <meta property="og:image" content={imagem.src}/>
@@ -39,7 +40,7 @@ export default function header() {
             <div className={estilo.header}>
                 <div>
                     <div className={estilo.left}>
-                        <a href="/"><img src={imagem.src} alt='Logotipo WeBest' width={132} height={61}/></a>
+                        <a href="/"><Image src={imagem} alt='Logotipo WeBest' width={132} height={61}/></a>
                     </div>
                     <div className={estilo.right}>
                         <Link rel='preload' className={`${estilo.link} ${rotaAtual.pathname == "/" ? estilo.active : ""}`} href="/">Início</Link>

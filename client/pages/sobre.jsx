@@ -1,7 +1,9 @@
+import HeroSection from "@/components/HeroSection/HeroSection";
+
 export default function contato(){
     return(
         <>
-            <div>Está é a página de sobre!</div>
+            <HeroSection text="About me"/>
         </>
     )
 }

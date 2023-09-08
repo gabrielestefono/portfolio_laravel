@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <>
       <Presentation/>
-      {/* <Separator titulo="About"/>
+      <Separator titulo="About"/>
       <About/>
       <Separator titulo="My Projects"/>
       <Project/>
@@ -20,7 +20,7 @@ export default function Home() {
       <Separator titulo="Contact me" />
       <ContactMe />
       <Separator titulo="Frequently Asked Questions" />
-      <Faq /> */}
+      <Faq />
     </>
   )
 }

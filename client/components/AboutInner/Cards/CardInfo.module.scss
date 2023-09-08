@@ -1,0 +1,29 @@
+@import "../../../styles/variables.module";
+
+.cardinfo {
+	width: 50vw;
+	height: 40rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+
+	h2{
+		color: $cor-primaria;
+		line-height: 2.875rem;
+		font-size: 2.25rem;
+		font-family: $poppins;
+		font-weight: 700;
+		width: 33.125rem;
+	}
+
+	p{
+		color: $cor-secundaria;
+		font-family: $poppins;
+		font-size: 1.125rem;
+		line-height: 1.875rem;
+		font-weight: 500;
+		width: 33.125rem;
+		margin-top: 1rem;
+	}
+}

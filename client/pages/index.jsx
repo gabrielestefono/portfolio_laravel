@@ -11,9 +11,9 @@ export default function Home() {
   return (
     <>
       <Presentation/>
-      {/* <Separator titulo="About"/>
-      <About/>
-      <Separator titulo="My Projects"/>
+      <Separator titulo="Sobre"/>
+      {/* <About/> */}
+      {/* <Separator titulo="My Projects"/>
       <Project/>
       <Separator titulo="My Skills"/>
       <Skills />

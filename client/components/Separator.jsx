@@ -1,4 +1,4 @@
-import estilo from "../styles/Separator.module.scss";
+import estilo from "./Separator.module.scss";
 export default function Separator(props){
     return (
         <div className={estilo.about}>

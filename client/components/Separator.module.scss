@@ -1,0 +1,82 @@
+@import '../styles/variables.module';
+
+@mixin mobile {
+    @media (min-width: 360px) {
+        @content;
+    }
+}
+
+@mixin tabletNormal {
+    @media (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin tabletPaisagem {
+    @media (min-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin LaptopPadrao {
+    @media (min-width: 1280px) {
+        @content;
+    }
+}
+
+@mixin LaptopHD {
+    @media (min-width: 1440px) {
+        @content;
+    }
+}
+
+@mixin DesktopPadrao {
+    @media (min-width: 1920px) {
+        @content;
+    }
+}
+
+@mixin DesktopHd {
+    @media (min-width: 2560px) {
+        @content;
+    }
+}
+
+.about{
+    
+    .titulo{
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        margin-top: 7.5rem;
+        margin-bottom: 3.125rem;
+
+        .separator{
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        
+            .left{
+                width: 25vw;
+                height: .125rem;
+                background-image: linear-gradient(to left, $cor-primaria, transparent);
+            }
+        
+            .center{
+                color: $cor-secundaria;
+                font-size: 1.5rem;
+                font-weight: 600;
+
+                @include tabletNormal(){
+                    font-size: 2.25rem;
+                }
+            }
+        
+            .right{
+                width: 25vw;
+                height: .125rem;
+                background-image: linear-gradient(to right, $cor-primaria, transparent);
+            }
+        }
+    }
+}

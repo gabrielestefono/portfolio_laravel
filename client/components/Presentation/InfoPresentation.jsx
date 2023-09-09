@@ -7,8 +7,8 @@ export default function InfoPresentation(){
                 <div>
                     <div className={`${estilo.primaryIcon} ${estilo.icon1}`}></div>
                     <div className={estilo.text}>
-                        <h3>8 years job</h3>
-                        <p>Experience</p>
+                        <h3>2 anos</h3>
+                        <p>Experiência</p>
                     </div>
                 </div>
             </div>
@@ -16,8 +16,8 @@ export default function InfoPresentation(){
                 <div>
                     <div className={`${estilo.primaryIcon} ${estilo.icon2}`}></div>
                     <div className={estilo.text}>
-                        <h3>500+ Projects</h3>
-                        <p>Completed</p>
+                        <h3>60+ Projetos</h3>
+                        <p>Completos</p>
                     </div>
                 </div>
             </div>
@@ -25,8 +25,8 @@ export default function InfoPresentation(){
                 <div>
                     <div className={`${estilo.primaryIcon} ${estilo.icon3}`}></div>
                     <div className={estilo.text}>
-                        <h3>Online 24/7</h3>
-                        <p>Support</p>
+                        <h3>Disponível</h3>
+                        <p>Suporte</p>
                     </div>
                 </div>
             </div>

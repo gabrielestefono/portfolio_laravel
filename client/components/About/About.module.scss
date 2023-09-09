@@ -1,4 +1,47 @@
 @import '../../styles/variables.module';
+
+@mixin mobile {
+    @media (min-width: 360px) {
+        @content;
+    }
+}
+
+@mixin tabletNormal {
+    @media (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin tabletPaisagem {
+    @media (min-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin LaptopPadrao {
+    @media (min-width: 1280px) {
+        @content;
+    }
+}
+
+@mixin LaptopHD {
+    @media (min-width: 1440px) {
+        @content;
+    }
+}
+
+@mixin DesktopPadrao {
+    @media (min-width: 1920px) {
+        @content;
+    }
+}
+
+@mixin DesktopHd {
+    @media (min-width: 2560px) {
+        @content;
+    }
+}
+
 .about {
     display: flex;
     position: relative;
@@ -23,9 +66,14 @@
         display: flex;
         justify-content: center;
         gap: 9.125rem;
+        flex-direction: column;
+
+        @include tabletNormal(){
+            flex-direction: row;
+        }
 
         .left {
-                margin-top: 5.4375rem;
+            margin-top: 5.4375rem;
         
         
             .title {
@@ -40,15 +88,24 @@
             .list {
                 margin-top: 2.25rem;
                 display: grid;
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(1, 1fr);
                 grid-column-gap: 0px;
                 grid-row-gap: 1.625rem;
+
+                @include tabletNormal(){
+                    grid-template-columns: repeat(2, 1fr);
+                }
             }
     
             .buttons {
                 margin-top: 3.75rem;
                 display: flex;
                 gap: 1.5rem;
+                flex-direction: column;
+
+                @include tabletNormal(){
+                    flex-direction: row;
+                }
     
                 .first {
                     background-color: $cor-primaria;

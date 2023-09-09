@@ -12,7 +12,7 @@ export default function Home() {
     <>
       <Presentation/>
       <Separator titulo="Sobre"/>
-      {/* <About/> */}
+      <About/>
       {/* <Separator titulo="My Projects"/>
       <Project/>
       <Separator titulo="My Skills"/>

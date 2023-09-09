@@ -22,9 +22,9 @@ export default function About(){
                         <a href="/sobre"><button className={estilo.second}>Read More</button></a>
                     </div>
                 </div>
-                <div className={estilo.right}>
+                {/* <div className={estilo.right}>
                     <img src="/images/illustrative1.png"/>
-                    </div>
+                </div> */}
             </div>
         </section>
     )

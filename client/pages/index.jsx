@@ -11,16 +11,16 @@ export default function Home() {
   return (
     <>
       <Presentation/>
-      <Separator titulo="About"/>
+      {/* <Separator titulo="About"/>
       <About/>
       <Separator titulo="My Projects"/>
       <Project/>
       <Separator titulo="My Skills"/>
       <Skills />
       <Separator titulo="Contact me" />
-      <ContactMe />
+      <ContactMe/>
       <Separator titulo="Frequently Asked Questions" />
-      <Faq />
+      <Faq/> */}
     </>
   )
 }

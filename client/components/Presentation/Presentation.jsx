@@ -7,7 +7,7 @@ export default function presentation(){
     return(
         <>
             <TopPresentation/>
-            {/* <InfoPresentation/> */}
+            <InfoPresentation/>
         </>
         )
 }

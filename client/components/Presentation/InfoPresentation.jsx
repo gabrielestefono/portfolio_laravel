@@ -11,13 +11,17 @@ export default function InfoPresentation(){
                         <p>Experience</p>
                     </div>
                 </div>
-                <div className={estilo.border}>
+            </div>
+            <div>
+                <div>
                     <div className={`${estilo.primaryIcon} ${estilo.icon2}`}></div>
                     <div className={estilo.text}>
                         <h3>500+ Projects</h3>
                         <p>Completed</p>
                     </div>
                 </div>
+            </div>
+            <div>
                 <div>
                     <div className={`${estilo.primaryIcon} ${estilo.icon3}`}></div>
                     <div className={estilo.text}>

@@ -7,24 +7,24 @@ export default function About(){
             <div className={estilo.container}>
                 <div className={estilo.left}>
                     <div className={estilo.title}>
-                        <h3>Hello!</h3>
-                        <h3>My name is Gabriel Estefono.</h3>
+                        <h3>Olá!</h3>
+                        <h3>Meu nome é Gabriel Estéfono.</h3>
                     </div>
                     <div className={estilo.list}>
-                        <ItemList texto="Full Stack Developer"/>
-                        <ItemList texto="Front-end Developer"/>
-                        <ItemList texto="Back-end Developer"/>
+                        <ItemList texto="Desenvolvedor Full-Stack"/>
+                        <ItemList texto="Desenvolvedor Front-end"/>
+                        <ItemList texto="Desenvolvedor Back-end"/>
                         <ItemList texto="HTML, CSS"/>
                         <ItemList texto="JavaScript"/>
                     </div>
                     <div className={estilo.buttons}>
-                        <button className={estilo.first}>Download My Resume</button>
-                        <a href="/sobre"><button className={estilo.second}>Read More</button></a>
+                        <button className={estilo.first}>Baixar currículo</button>
+                        <a href="/sobre"><button className={estilo.second}>Leia mais</button></a>
                     </div>
                 </div>
-                {/* <div className={estilo.right}>
+                <div className={estilo.right}>
                     <img src="/images/illustrative1.png"/>
-                </div> */}
+                </div>
             </div>
         </section>
     )

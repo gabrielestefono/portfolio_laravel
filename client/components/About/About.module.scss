@@ -62,18 +62,26 @@
     }
 
     .container{
-        width: calc(100% - 7.5rem);
+        width: 100%;
         display: flex;
         justify-content: center;
         gap: 9.125rem;
         flex-direction: column;
+        align-items: center;
 
-        @include tabletNormal(){
+        @include LaptopPadrao(){
             flex-direction: row;
+            width: calc(100% - 7.5rem);
         }
 
         .left {
             margin-top: 5.4375rem;
+            margin-left: 3.75rem;
+            max-width: 34.375rem;
+
+            @include tabletNormal(){
+                margin-left: 0;
+            }
         
         
             .title {
@@ -138,13 +146,20 @@
         }
 
         .right {
-            width: 34.4375rem;
-            height: 27.9375rem;
+            width: 100vw;
+            height: auto;
             margin-top: 5.4375rem;
+            display: flex;
+            justify-content: center;
 
             img {
-                width: 100%;
+                width: 100vw;
                 height: auto;
+                max-width: 34.375rem;
+
+                @include tabletNormal(){
+                    width: 100%;
+                }
             }
         }
     }

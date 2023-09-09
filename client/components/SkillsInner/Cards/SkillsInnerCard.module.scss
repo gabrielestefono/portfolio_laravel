@@ -1,0 +1,54 @@
+@import "../../../styles/variables.module";
+
+.card{
+	width: 17.6875rem;
+	height: 17.6875rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+
+	&::before{
+		content: "";
+		width: 100%;
+		height: 100%;
+		left: 0;
+		top: 0;
+		border: 1px solid $cor-secundaria;
+		border-radius: 1.25rem;
+		position: absolute;
+		opacity: 0.5;
+	}
+
+	div{
+		width: 4.5rem;
+		height: 4.5rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: relative;
+
+		&::before{
+			content: "";
+			width: 100%;
+			height: 100%;
+			left: 0;
+			top: 0;
+			background-color: $cor-primaria;
+			position: absolute;
+			z-index: -1;
+			border-radius: 1.25rem;
+			opacity: 0.1;
+		}
+	}
+
+	h2{
+		margin-top: .75rem;
+		font-size: 1.75rem;
+		line-height: 2.375rem;
+		font-weight: 700;
+		font-family: $dm-sans;
+		color: $cor-secundaria;
+	}
+}

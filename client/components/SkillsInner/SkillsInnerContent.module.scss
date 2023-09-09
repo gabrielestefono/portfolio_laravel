@@ -1,0 +1,14 @@
+.content{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 4rem;
+	margin-bottom: 4rem;
+
+	& > div{
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		row-gap: 1.5rem;
+		column-gap: 1.6875rem;
+	}
+}

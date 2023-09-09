@@ -8,7 +8,6 @@ export default function ContactMe(props) {
 			<ContactMeTop/>
 			<ContactMeMiddle />
 			{props.espaco ? <ContactMeBottom espaco={true}/> : <ContactMeBottom/>}
-			
 		</div>
 	)
 }

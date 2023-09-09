@@ -1,0 +1,20 @@
+@import "../../../styles/variables.module";
+
+.card{
+	width: fit-content;
+
+	h2{
+		margin-left: 3.125rem;
+		font-size: 1.75rem;
+		line-height: 2.375rem;
+		font-weight: 700;
+		font-family: $dm-sans;
+		color: $cor-secundaria;
+		opacity: 0.8;
+	}
+
+	.imagem{
+		width: 34.25rem;
+		height: 31.25rem;		
+	}
+}

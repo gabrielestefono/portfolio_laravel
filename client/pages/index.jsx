@@ -18,7 +18,7 @@ export default function Home() {
       <Separator titulo="Habilidades"/>
       <Skills/>
       <Separator titulo="Contato"/>
-      {/* <ContactMe/> */}
+      <ContactMe/>
       <Separator titulo="Perguntas Frequentes"/>
       {/* <Faq/> */}
     </>

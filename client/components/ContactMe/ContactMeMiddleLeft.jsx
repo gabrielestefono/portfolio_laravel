@@ -7,9 +7,9 @@ import estilo from "./ContactMeMiddleLeft.module.scss";
 export default function ContactMeMiddleLeft() {
 	return (
 		<div className={estilo.contact}>
-			<ContactMeMiddleLeftCard img={phone} title="Call me" text="+8801613968687"/>
-			<ContactMeMiddleLeftCard img={email} title="Email me" text="ahmedtanvir8687@gmail.com"/>
-			<ContactMeMiddleLeftCard img={address} title="Address" text="Zakigonj, Sylhet, Bangladesh."/>
+			<ContactMeMiddleLeftCard img={phone} title="Telefone" text="(45) 9-9153-2214	"/>
+			<ContactMeMiddleLeftCard img={email} title="Email" text="gabrielestefono@hotmail.com"/>
+			<ContactMeMiddleLeftCard img={address} title="Endereço" text="Mal. Cdo. Rondon"/>
 		</div>
 	)
 }

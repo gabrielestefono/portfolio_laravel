@@ -1,5 +1,47 @@
 @import '../../styles/variables.module';
 
+@mixin mobile {
+    @media (min-width: 360px) {
+        @content;
+    }
+}
+
+@mixin tabletNormal {
+    @media (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin tabletPaisagem {
+    @media (min-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin LaptopPadrao {
+    @media (min-width: 1280px) {
+        @content;
+    }
+}
+
+@mixin LaptopHD {
+    @media (min-width: 1440px) {
+        @content;
+    }
+}
+
+@mixin DesktopPadrao {
+    @media (min-width: 1920px) {
+        @content;
+    }
+}
+
+@mixin DesktopHd {
+    @media (min-width: 2560px) {
+        @content;
+    }
+}
+
 .title{
 	width: 100vw;
 	height: auto;
@@ -13,6 +55,11 @@
 		font-size: 2.5rem;
 		font-weight: 600;
 		line-height: 3.375rem;
+		text-align: center;
+
+		@include tabletPaisagem(){
+			text-align: left;
+		}
 
 		span{
 			color: $cor-primaria;

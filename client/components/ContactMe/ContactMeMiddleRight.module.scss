@@ -1,21 +1,81 @@
 @import '../../styles/variables.module';
 
+@mixin mobile {
+    @media (min-width: 360px) {
+        @content;
+    }
+}
+
+@mixin tabletNormal {
+    @media (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin tabletPaisagem {
+    @media (min-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin LaptopPadrao {
+    @media (min-width: 1280px) {
+        @content;
+    }
+}
+
+@mixin LaptopHD {
+    @media (min-width: 1440px) {
+        @content;
+    }
+}
+
+@mixin DesktopPadrao {
+    @media (min-width: 1920px) {
+        @content;
+    }
+}
+
+@mixin DesktopHd {
+    @media (min-width: 2560px) {
+        @content;
+    }
+}
+
 .form{
 	display: flex;
 	flex-direction: column;
 	gap: 1.5rem;
 
-	div{
+	> div{
 		display: flex;
 		gap: 1.5rem;
-		width: 44.125rem;
+		width: 100vw;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
 
-		div{
-			height: 3.5rem;
+		&:last-child{
+			flex-direction: row;
+			gap: 0;
+		}
+
+		@include tabletNormal(){
+			width: 100%;
+			flex-direction: row;
+		}
+
+		> div{
+			display: flex;
+			justify-content: center;
 			flex-grow: 1;
 
+			@include tabletNormal(){
+				height: 3.5rem;
+			}
+
 			input{
-				width: 100%;
+				width: calc(100vw - 6rem);
 				padding: 0 1.5rem;
 				outline-color: $cor-primaria;
 				color: #000;
@@ -25,6 +85,11 @@
 				line-height: 1.5;
 				border-radius: 0.5rem;
 				border: 1px solid #BEC0BF;
+				height: 3.5rem;
+
+				@include tabletNormal(){
+					width: 100%;
+				}
 
 				&::placeholder{
 					color: #92929D;
@@ -37,7 +102,7 @@
 		}
 
 		textArea{
-			width: 100%;
+			width: calc(100vw - 6rem);
 			outline-color: $cor-primaria;
 			padding: 1.5rem 1.5rem;
 			color: #000;
@@ -49,6 +114,10 @@
 			border: 1px solid #BEC0BF;
 			height: 100%;
 			max-height: 9.5rem;
+
+			@include tabletNormal(){
+				width: 100%;
+			}
 
 			&::placeholder{
 				color: #92929D;

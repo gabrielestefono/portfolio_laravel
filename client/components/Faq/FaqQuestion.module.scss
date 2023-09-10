@@ -1,13 +1,59 @@
 @import "../../styles/variables.module";
 
+@mixin mobile {
+    @media (min-width: 360px) {
+        @content;
+    }
+}
+
+@mixin tabletNormal {
+    @media (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin tabletPaisagem {
+    @media (min-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin LaptopPadrao {
+    @media (min-width: 1280px) {
+        @content;
+    }
+}
+
+@mixin LaptopHD {
+    @media (min-width: 1440px) {
+        @content;
+    }
+}
+
+@mixin DesktopPadrao {
+    @media (min-width: 1920px) {
+        @content;
+    }
+}
+
+@mixin DesktopHd {
+    @media (min-width: 2560px) {
+        @content;
+    }
+}
+
 .closedQuestion{
 	display: flex;
 	min-height: 5.125rem;
 	align-items: center;
 	justify-content: space-between;
-	width: 50.8125rem;
+	width: calc(100vw - 3rem);
 	border: 1px solid #505050;
 	border-radius: .75rem;
+
+	@include tabletPaisagem(){
+		width: 50.8125rem;
+	}
 
 
 	h2{
@@ -33,10 +79,14 @@
 
 .openedQuestion{
 	display: flex;
-	width: 50.8125rem;
+	width: calc(100vw - 3rem);
 	min-height: 9.5rem;
 	border-radius: .75rem;
 	position: relative;
+
+	@include tabletPaisagem(){
+		width: 50.8125rem;
+	}
 
 	& > div:first-child{
 		margin-left: 2.25rem;

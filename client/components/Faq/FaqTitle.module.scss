@@ -1,5 +1,47 @@
 @import "../../styles/variables.module";
 
+@mixin mobile {
+    @media (min-width: 360px) {
+        @content;
+    }
+}
+
+@mixin tabletNormal {
+    @media (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin tabletPaisagem {
+    @media (min-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin LaptopPadrao {
+    @media (min-width: 1280px) {
+        @content;
+    }
+}
+
+@mixin LaptopHD {
+    @media (min-width: 1440px) {
+        @content;
+    }
+}
+
+@mixin DesktopPadrao {
+    @media (min-width: 1920px) {
+        @content;
+    }
+}
+
+@mixin DesktopHd {
+    @media (min-width: 2560px) {
+        @content;
+    }
+}
+
 .title{
 	p{
 		font-size: 1.125rem;
@@ -7,7 +49,11 @@
 		line-height: 1.875rem;
 		font-family: $poppins;
 		color: $cor-secundaria;
-		max-width: 37.5rem;
+		max-width: calc(100vw - 3rem);
 		text-align: center;
+
+		@include tabletPaisagem(){
+			max-width: 37.5rem;
+		}
 	}
 }

@@ -14,13 +14,13 @@ export default function Home() {
       <Separator titulo="Sobre"/>
       <About/>
       <Separator titulo="Projetos"/>
-      {/* <Project/> */}
+      <Project/>
       <Separator titulo="Habilidades"/>
       <Skills/>
       <Separator titulo="Contato"/>
       <ContactMe/>
       <Separator titulo="Perguntas Frequentes"/>
-      {/* <Faq/> */}
+      <Faq/>
     </>
   )
 }

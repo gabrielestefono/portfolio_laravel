@@ -1,7 +1,57 @@
+@mixin mobile {
+    @media (min-width: 360px) {
+        @content;
+    }
+}
+
+@mixin tabletNormal {
+    @media (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin tabletPaisagem {
+    @media (min-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin LaptopPadrao {
+    @media (min-width: 1280px) {
+        @content;
+    }
+}
+
+@mixin LaptopHD {
+    @media (min-width: 1440px) {
+        @content;
+    }
+}
+
+@mixin DesktopPadrao {
+    @media (min-width: 1920px) {
+        @content;
+    }
+}
+
+@mixin DesktopHd {
+    @media (min-width: 2560px) {
+        @content;
+    }
+}
+
 .skills{
 	display: flex;
-	max-width: calc(100% - 7.5rem);
 	margin: 0 auto;
+	max-width: calc(100% - 3rem);
 	margin-top: 3.125rem;
 	justify-content: space-between;
+	flex-direction: column;
+    align-items: center;
+
+	@include tabletPaisagem(){
+		flex-direction: row;
+		max-width: calc(100% - 7.5rem);
+        align-items: inherit;
+	}
 }

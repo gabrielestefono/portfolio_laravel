@@ -1,11 +1,57 @@
 @import '../../styles/variables.module';
 
+@mixin mobile {
+    @media (min-width: 360px) {
+        @content;
+    }
+}
+
+@mixin tabletNormal {
+    @media (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin tabletPaisagem {
+    @media (min-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin LaptopPadrao {
+    @media (min-width: 1280px) {
+        @content;
+    }
+}
+
+@mixin LaptopHD {
+    @media (min-width: 1440px) {
+        @content;
+    }
+}
+
+@mixin DesktopPadrao {
+    @media (min-width: 1920px) {
+        @content;
+    }
+}
+
+@mixin DesktopHd {
+    @media (min-width: 2560px) {
+        @content;
+    }
+}
+
 .background {
     position: relative;
-    width: 17.25rem;
-    min-height: 10.75rem;
+    width: 100%;
+    height: 10.75rem;
     display: flex;
     flex-direction: column;
+
+    @include tabletNormal(){
+        width: 17.25rem;
+    }
 
     &::before {
         content: "";

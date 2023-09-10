@@ -13,9 +13,9 @@ export default function Home() {
       <Presentation/>
       <Separator titulo="Sobre"/>
       <About/>
-      {/* <Separator titulo="My Projects"/>
+      <Separator titulo="Projetos"/>
       <Project/>
-      <Separator titulo="My Skills"/>
+      {/* <Separator titulo="Habilidades"/>
       <Skills />
       <Separator titulo="Contact me" />
       <ContactMe/>

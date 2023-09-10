@@ -1,12 +1,90 @@
 @import "../../../styles/variables.module";
 
+@mixin mobile {
+    @media (min-width: 360px) {
+        @content;
+    }
+}
+
+@mixin tabletNormal {
+    @media (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin tabletPaisagem {
+    @media (min-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin LaptopPadrao {
+    @media (min-width: 1280px) {
+        @content;
+    }
+}
+
+@mixin LaptopHD {
+    @media (min-width: 1440px) {
+        @content;
+    }
+}
+
+@mixin DesktopPadrao {
+    @media (min-width: 1920px) {
+        @content;
+    }
+}
+
 .cardinfo {
-	width: 50vw;
-	height: 40rem;
+	width: 100vw;
+	height: 100%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
+	min-height: 50vh;
+
+	@include tabletPaisagem(){
+
+	}
+
+	&:nth-child(1){
+		grid-area: a;
+
+		@include tabletPaisagem(){
+			grid-area: initial;
+		}
+	}
+
+	&:nth-child(2){
+		grid-area: b;
+
+		@include tabletPaisagem(){
+			grid-area: initial;
+		}
+	}
+
+	&:nth-child(3){
+		grid-area: d;
+
+		@include tabletPaisagem(){
+			grid-area: initial;
+		}
+	}
+
+	&:nth-child(4){
+		grid-area: c;
+
+		@include tabletPaisagem(){
+			grid-area: initial;
+		}
+	}
+
+	@include tabletPaisagem(){
+		width: initial;
+		height: 100%;
+	}
 
 	h2{
 		color: $cor-primaria;
@@ -14,7 +92,12 @@
 		font-size: 2.25rem;
 		font-family: $poppins;
 		font-weight: 700;
-		width: 33.125rem;
+		width: calc(100vw - 3rem);
+		text-align: center;
+
+		@include tabletNormal(){
+			width: calc(100% - 7.5rem);
+		}
 	}
 
 	p{
@@ -23,7 +106,15 @@
 		font-size: 1.125rem;
 		line-height: 1.875rem;
 		font-weight: 500;
-		width: 33.125rem;
+		width: calc(100vw - 3rem);
 		margin-top: 1rem;
+
+		@include tabletPaisagem(){
+			width: calc(100% - 6rem);
+		}
+
+		@include LaptopPadrao(){
+			width: calc(100% - 7.5rem);
+		}
 	}
 }

@@ -1,7 +1,55 @@
+@mixin mobile {
+    @media (min-width: 360px) {
+        @content;
+    }
+}
+
+@mixin tabletNormal {
+    @media (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin tabletPaisagem {
+    @media (min-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin LaptopPadrao {
+    @media (min-width: 1280px) {
+        @content;
+    }
+}
+
+@mixin LaptopHD {
+    @media (min-width: 1440px) {
+        @content;
+    }
+}
+
+@mixin DesktopPadrao {
+    @media (min-width: 1920px) {
+        @content;
+    }
+}
+
 .aboutinner{
 	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	grid-template-rows: repeat(2, 1fr);
-	grid-column-gap: 0px;
-	grid-row-gap: 0px;
+    margin-top: 2rem;
+	grid-template-columns: 1fr;
+    align-items: stretch;
+    grid-template-areas: "a" "b" "c" "d";
+    justify-content: center;
+    row-gap: 2rem;
+	grid-auto-rows: minmax(auto, max-content);
+    grid-auto-columns: minmax(auto, max-content);
+
+	@include tabletPaisagem(){
+        margin-top: 0;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: repeat(2, 1fr);
+        grid-area: initial;
+        gap: 0;
+	}
 }

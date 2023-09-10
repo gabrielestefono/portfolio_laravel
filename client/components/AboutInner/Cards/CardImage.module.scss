@@ -1,5 +1,51 @@
+@mixin mobile {
+    @media (min-width: 360px) {
+        @content;
+    }
+}
+
+@mixin tabletNormal {
+    @media (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin tabletPaisagem {
+    @media (min-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin LaptopPadrao {
+    @media (min-width: 1280px) {
+        @content;
+    }
+}
+
+@mixin LaptopHD {
+    @media (min-width: 1440px) {
+        @content;
+    }
+}
+
+@mixin DesktopPadrao {
+    @media (min-width: 1920px) {
+        @content;
+    }
+}
+
 .cardimage{
-	width: 50vw;
-	height: 40rem;
+	width: 100vw;
 	position: relative;
+
+	@include tabletPaisagem(){
+		width: 50vw;
+        height: 100%;
+	}
+
+    .image{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 }

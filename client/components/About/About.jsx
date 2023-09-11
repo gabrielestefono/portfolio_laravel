@@ -5,7 +5,6 @@ import illustracao1 from "./illustrative1.webp";
 import illustracao2 from "./illustrative2.webp";
 
 export default function About(){
-    console.log(illustracao2);
     return (
         <section className={estilo.about}>
             <div className={estilo.container}>

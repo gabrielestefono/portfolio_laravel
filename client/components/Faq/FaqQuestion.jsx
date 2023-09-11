@@ -1,6 +1,7 @@
 import estilo from "./FaqQuestion.module.scss";
 import icon from "./icon.png";
 import close from "./close.png";
+import Image from "next/image";
 
 export default function FaqQuestion(props) {
 	let resposta;
@@ -9,7 +10,7 @@ export default function FaqQuestion(props) {
 			<div className={estilo.closedQuestion}>
 				<h2>LOREM IPSUM</h2>
 				<div>
-					<img src={icon.src}/>
+					<Image src={icon} width={icon.width} height={icon.height} alt="Ícone mostrar"/>
 				</div>
 			</div>
 		)
@@ -22,7 +23,7 @@ export default function FaqQuestion(props) {
 				</div>
 				<div>
 					<div>
-						<img src={close.src}/>
+						<Image src={close} width={close.width} height={close.height} alt="Ícone fechar"/>
 					</div>
 				</div>
 			</div>

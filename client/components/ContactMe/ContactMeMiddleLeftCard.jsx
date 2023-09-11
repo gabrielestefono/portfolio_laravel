@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import estilo from './ContactMeMiddleLeftCard.module.scss';
 
 export default function ContactMeMiddleLeftCard(props) {
@@ -6,7 +7,7 @@ export default function ContactMeMiddleLeftCard(props) {
 			<div>
 				<div>
 					<div>
-						<img src={props.img.src}/>
+						<Image src={props.img} width={props.img.width} height={props.img.height} alt={props.altText}/>
 					</div>
 				</div>
 			</div>

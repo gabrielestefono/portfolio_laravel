@@ -1,5 +1,8 @@
 import estilo from "./About.module.scss";
 import ItemList from "./ItemsList";
+import Image from "next/image";
+import illustracao1 from "./illustrative1.webp";
+import illustracao2 from "./illustrative2.webp";
 
 export default function About(){
     return (
@@ -23,7 +26,13 @@ export default function About(){
                     </div>
                 </div>
                 <div className={estilo.right}>
-                    <img src="/images/illustrative1.png"/>
+                    <Image src={illustracao1}
+                    alt="Ilustração" 
+                    width={536}
+                    height={435}
+                    srcSet={`${illustracao2.src} 300w`}
+                    sizes="(max-width: 767px) 360px, 536px"
+                    loading="eager"/>
                 </div>
             </div>
         </section>

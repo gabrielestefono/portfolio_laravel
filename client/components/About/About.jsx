@@ -5,6 +5,7 @@ import illustracao1 from "./illustrative1.webp";
 import illustracao2 from "./illustrative2.webp";
 
 export default function About(){
+    console.log(illustracao2);
     return (
         <section className={estilo.about}>
             <div className={estilo.container}>
@@ -30,7 +31,7 @@ export default function About(){
                     alt="Ilustração" 
                     width={536}
                     height={435}
-                    srcSet={`${illustracao2.src} 300w`}
+                    srcSet={`${illustracao2.src} 540w`}
                     sizes="(max-width: 767px) 360px, 536px"
                     loading="eager"/>
                 </div>

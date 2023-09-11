@@ -9,8 +9,6 @@ export default function ProjectsContent() {
 			<div>
 				<ProjectsCard img={project1} title={titulo}/>
 				<ProjectsCard img={project1} title={titulo}/>
-				<ProjectsCard img={project1} title={titulo}/>
-				<ProjectsCard img={project1} title={titulo}/>
 			</div>
 		</div>
 	)

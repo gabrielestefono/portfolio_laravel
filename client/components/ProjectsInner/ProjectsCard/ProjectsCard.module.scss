@@ -1,20 +1,79 @@
 @import "../../../styles/variables.module";
 
+@mixin mobile {
+    @media (min-width: 360px) {
+        @content;
+    }
+}
+
+@mixin tabletNormal {
+    @media (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin tabletPaisagem {
+    @media (min-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin LaptopPadrao {
+    @media (min-width: 1280px) {
+        @content;
+    }
+}
+
+@mixin LaptopHD {
+    @media (min-width: 1440px) {
+        @content;
+    }
+}
+
+@mixin DesktopPadrao {
+    @media (min-width: 1920px) {
+        @content;
+    }
+}
+
+@mixin DesktopHd {
+    @media (min-width: 2560px) {
+        @content;
+    }
+}
+
 .card{
-	width: fit-content;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	@include tabletNormal(){
+		width: 400px;
+	}
 
 	h2{
 		margin-left: 3.125rem;
-		font-size: 1.75rem;
+		font-size: 1rem;
 		line-height: 2.375rem;
 		font-weight: 700;
 		font-family: $dm-sans;
 		color: $cor-secundaria;
 		opacity: 0.8;
+
+		@include tabletNormal(){
+			font-size: 1.75rem;
+		}
 	}
 
 	.imagem{
-		width: 34.25rem;
-		height: 31.25rem;		
+		width: calc(100vw - 3rem);
+		height: auto;
+		max-width: 25rem;
+		
+		
+		@include tabletNormal(){
+			width: 34.25rem;
+			height: auto;
+		}
 	}
 }

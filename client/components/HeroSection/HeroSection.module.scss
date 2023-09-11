@@ -55,17 +55,23 @@
 	margin-top: 1rem;
 
 	div{
-		width: 22.625rem;
+		width: calc(100vw - 3rem);
 		height: 5.8125rem;
 		border: 3px solid white;
 		font-family: $poppins;
-		font-size: 3rem;
+		font-size: 1.5rem;
 		font-weight: 600;
 		color: white;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		position: relative;
+		max-width: 22.625rem;
+
+		@include tabletNormal(){
+			font-size: 3rem;
+			width: 22.625rem;
+		}
 
 		&::after{
 			width: 100%;

@@ -1,5 +1,47 @@
 @import "../../styles/variables.module";
 
+@mixin mobile {
+    @media (min-width: 360px) {
+        @content;
+    }
+}
+
+@mixin tabletNormal {
+    @media (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin tabletPaisagem {
+    @media (min-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin LaptopPadrao {
+    @media (min-width: 1280px) {
+        @content;
+    }
+}
+
+@mixin LaptopHD {
+    @media (min-width: 1440px) {
+        @content;
+    }
+}
+
+@mixin DesktopPadrao {
+    @media (min-width: 1920px) {
+        @content;
+    }
+}
+
+@mixin DesktopHd {
+    @media (min-width: 2560px) {
+        @content;
+    }
+}
+
 .title{
 	width: 100vw;
 	display: flex;
@@ -7,12 +49,16 @@
 
 	p{
 		text-align: center;
-		max-width: 38.375rem;
 		font-size: 1.125rem;
 		line-height: 1.875rem;
 		font-weight: 400;
 		font-family: $dm-sans;
 		color: $cor-secundaria;
 		opacity: 0.8;
+		max-width: calc(100vw - 3rem);
+
+		@include tabletNormal(){
+			max-width: 38.375rem;
+		}
 	}
 }

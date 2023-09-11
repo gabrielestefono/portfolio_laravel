@@ -9,6 +9,16 @@ export default function SkillsInnerContent() {
 			<div>
 				<SkillsInnerCard img={diamons} text={texto}/>
 				<SkillsInnerCard img={diamons} text={texto}/>
+				<SkillsInnerCard img={diamons} text={texto}/>
+				<SkillsInnerCard img={diamons} text={texto}/>
+				<SkillsInnerCard img={diamons} text={texto}/>
+				<SkillsInnerCard img={diamons} text={texto}/>
+				<SkillsInnerCard img={diamons} text={texto}/>
+				<SkillsInnerCard img={diamons} text={texto}/>
+				<SkillsInnerCard img={diamons} text={texto}/>
+				<SkillsInnerCard img={diamons} text={texto}/>
+				<SkillsInnerCard img={diamons} text={texto}/>
+				<SkillsInnerCard img={diamons} text={texto}/>
 			</div>
 		</div>
 	)

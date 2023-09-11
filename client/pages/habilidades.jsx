@@ -6,8 +6,8 @@ import SkillTitle from "@/components/SkillsInner/SkillsTitle";
 export default function contato(){
     return(
         <>
-            <HeroSection text="Skills" />
-            <Separator titulo="My Skills" />
+            <HeroSection text="Habilidades"/>
+            <Separator titulo="Minhas Habilidades"/>
             <SkillTitle/>
             <SkillsInnerContent/>
         </>

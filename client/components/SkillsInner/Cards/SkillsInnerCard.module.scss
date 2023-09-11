@@ -1,13 +1,57 @@
 @import "../../../styles/variables.module";
 
+@mixin mobile {
+    @media (min-width: 360px) {
+        @content;
+    }
+}
+
+@mixin tabletNormal {
+    @media (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin tabletPaisagem {
+    @media (min-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin LaptopPadrao {
+    @media (min-width: 1280px) {
+        @content;
+    }
+}
+
+@mixin LaptopHD {
+    @media (min-width: 1440px) {
+        @content;
+    }
+}
+
+@mixin DesktopPadrao {
+    @media (min-width: 1920px) {
+        @content;
+    }
+}
+
+@mixin DesktopHd {
+    @media (min-width: 2560px) {
+        @content;
+    }
+}
+
 .card{
-	width: 17.6875rem;
-	height: 17.6875rem;
+	width: calc(50vw - 1.5rem);
+	height: calc(50vw - 1.5rem);
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	position: relative;
+	max-width: 17.6875rem;
+	max-height: 17.6875rem;
 
 	&::before{
 		content: "";
@@ -45,10 +89,14 @@
 
 	h2{
 		margin-top: .75rem;
-		font-size: 1.75rem;
+		font-size: 1.2rem;
 		line-height: 2.375rem;
 		font-weight: 700;
 		font-family: $dm-sans;
 		color: $cor-secundaria;
+
+		@include tabletNormal(){
+			font-size: 1.75rem;
+		}
 	}
 }

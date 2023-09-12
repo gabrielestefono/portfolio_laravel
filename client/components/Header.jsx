@@ -12,8 +12,16 @@ export default function header() {
 
     const [clicked, setClicked] = useState(false);
 
+    const [rota, setRota] = useState(rotaAtual.pathname);
+
+    if(rotaAtual.pathname != rota){
+        setClicked(false);
+        setRota(rotaAtual.pathname);
+    }
+
     const handleSideBar = () => {
         setClicked(!clicked);
+        console.log(clicked);
     }
     return(
         <>
@@ -37,7 +45,7 @@ export default function header() {
                 <meta name="twitter:image" content={imagem.src} />
                 <title>WeBest - Página Inicial</title>
             </Head>
-            <div className={estilo.header}>
+            <div className={`${estilo.header} ${clicked ? estilo.fixed : ''}`}>
                 <div>
                     <div className={estilo.left}>
                         <a href="/"><Image src={imagem} alt='Logotipo WeBest' width={132} height={61}/></a>

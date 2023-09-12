@@ -49,12 +49,13 @@
     
     .center{
         display: flex;
-        width: calc(100% - 7.5rem);
+        width: calc(100% - 3rem);
         flex-direction: column;
         align-items: center;
 
         @include tabletPaisagem{
             flex-direction: row;
+            width: calc(100% - 7.5rem);
             justify-content: flex-start;
         }
 

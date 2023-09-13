@@ -21,7 +21,7 @@ export default function HeroSection(props) {
 	// 	}
 	// }
 	return (
-		<div className={estilo.herosection} ref={divBg}>
+		<div className={estilo.herosection}>
 			<div>{ props.text }</div>
 		</div>
 	)

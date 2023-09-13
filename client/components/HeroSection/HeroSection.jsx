@@ -8,18 +8,18 @@ import bg5 from "./bg5.webp";
 
 export default function HeroSection(props) {
 
-	const divBg = useRef(null);
+	// const divBg = useRef(null);
 
-	useEffect(() => {
-		carregar(divBg.current);
-	}, []);
+	// useEffect(() => {
+	// 	carregar(divBg.current);
+	// }, []);
 
-	let carregar = (elementoRecebido) => {
-		let tamanho = elementoRecebido.getBoundingClientRect().width;
-		if(tamanho <= 768){
-			elementoRecebido.style.backgroundImage = `url(${bg1.src})`;
-		}
-	}
+	// let carregar = (elementoRecebido) => {
+	// 	let tamanho = elementoRecebido.getBoundingClientRect().width;
+	// 	if(tamanho <= 768){
+	// 		elementoRecebido.style.backgroundImage = `url(${bg1.src})`;
+	// 	}
+	// }
 	return (
 		<div className={estilo.herosection} ref={divBg}>
 			<div>{ props.text }</div>

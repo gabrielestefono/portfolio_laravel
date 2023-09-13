@@ -56,6 +56,7 @@
 		font-weight: 600;
 		line-height: 3.375rem;
 		text-align: center;
+		max-width: calc(100vw - 3rem);
 
 		@include tabletPaisagem(){
 			text-align: left;
@@ -75,5 +76,6 @@
 		text-align: center;
 		max-width: 34rem;
 		margin-top: 1.5rem;
+		max-width: calc(100vw - 3rem);
 	}
 }

@@ -45,7 +45,7 @@
 .herosection{
 	width: 100vw;
 	height: 60vh;
-	background-image: url(./bg.webp);
+	background-image: url(./bg1.webp);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 50%;
@@ -53,6 +53,22 @@
 	justify-content: center;
 	align-items: center;
 	margin-top: 1rem;
+
+	@include tabletNormal(){
+		background-image: url(./bg2.webp);
+	}
+
+	@include tabletPaisagem(){
+		background-image: url(./bg3.webp);
+	}
+
+	@include LaptopPadrao(){
+		background-image: url(./bg4.webp);
+	}
+
+	@include LaptopHD(){
+		background-image: url(./bg5.webp);
+	}
 
 	div{
 		width: calc(100vw - 3rem);

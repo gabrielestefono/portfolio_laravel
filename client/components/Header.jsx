@@ -21,7 +21,6 @@ export default function header() {
 
     const handleSideBar = () => {
         setClicked(!clicked);
-        console.log(clicked);
     }
     return(
         <>

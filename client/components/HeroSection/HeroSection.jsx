@@ -1,6 +1,10 @@
 import estilo from "./HeroSection.module.scss";
 import { useEffect, useRef, useState } from "react";
-import Image from 'next/image'; // Importa o componente Image do Next.js
+import bg1 from "./bg1.webp";
+import bg2 from "./bg2.webp";
+import bg3 from "./bg3.webp";
+import bg4 from "./bg4.webp";
+import bg5 from "./bg5.webp";
 
 export default function HeroSection(props) {
   const divBg = useRef(null);
@@ -10,31 +14,31 @@ export default function HeroSection(props) {
     const elementoRecebido = divBg.current;
     const larguraTela = window.innerWidth;
 
-    // Determine qual imagem de fundo carregar com base na largura da tela
     let backgroundImageSrc = "";
 
     if (larguraTela <= 768) {
-      backgroundImageSrc = "/bg1.webp"; // Caminho relativo da imagem
+      backgroundImageSrc = bg1.src;
     } else if (larguraTela <= 1024) {
-      backgroundImageSrc = "/bg2.webp";
+      backgroundImageSrc = bg2.src;
     } else if (larguraTela <= 1280) {
-      backgroundImageSrc = "/bg3.webp";
+      backgroundImageSrc = bg3.src;
     } else if (larguraTela <= 1440) {
-      backgroundImageSrc = "/bg4.webp";
+      backgroundImageSrc = bg4.src;
     } else {
-      backgroundImageSrc = "/bg5.webp";
+      backgroundImageSrc = bg5.src;
     }
 
-    // Aplica a imagem de fundo
-    elementoRecebido.style.backgroundImage = `url(${backgroundImageSrc})`;
-    setBgLoaded(true);
+    const backgroundImage = new Image();
+    backgroundImage.loading = "eager";geSrc;
+    backgroundImage.onload = () => {
+      elementoRecebido.style.backgroundImage = `url(${backgroundImageSrc})`;
+      setBgLoaded(true);
+    };
   }, []);
 
   return (
     <div className={estilo.herosection} ref={divBg}>
       {bgLoaded && <div>{props.text}</div>}
-      {/* Usa a tag <Image> do Next.js para carregar a imagem otimizada */}
-      {bgLoaded && <Image src={bgLoaded} alt="Imagem de fundo" width={1920} height={1080} />}
     </div>
   );
 }

@@ -52,27 +52,27 @@
 	justify-content: center;
 	align-items: center;
 	margin-top: 1rem;
-	background-image: url(./bg1.webp);
+	// background-image: url(./bg1.webp);
 
-	@include tabletNormal(){
-		background-image: url(./bg2.webp);
-	}
+	// @include tabletNormal(){
+	// 	background-image: url(./bg2.webp);
+	// }
 
-	@include tabletPaisagem(){
-		background-image: url(./bg3.webp);
-	}
+	// @include tabletPaisagem(){
+	// 	background-image: url(./bg3.webp);
+	// }
 
-	@include LaptopPadrao(){
-		background-image: url(./bg4.webp);
-	}
+	// @include LaptopPadrao(){
+	// 	background-image: url(./bg4.webp);
+	// }
 
-	@include LaptopHD(){
-		background-image: url(./bg5.webp);
-	}
+	// @include LaptopHD(){
+	// 	background-image: url(./bg5.webp);
+	// }
 
-	@include DesktopPadrao(){
-		background-image: url(./bg6.webp);
-	}
+	// @include DesktopPadrao(){
+	// 	background-image: url(./bg6.webp);
+	// }
 
 	div{
 		width: calc(100vw - 3rem);

@@ -47,7 +47,7 @@ export default function header() {
             <div className={`${estilo.header} ${clicked ? estilo.fixed : ''}`}>
                 <div>
                     <div className={estilo.left}>
-                        <a href="/"><Image src={imagem} alt='Logotipo WeBest' width={132} height={61} loading='eager' priority={true}/></a>
+                        <a href="/"><Image src={imagem} alt='Logotipo WeBest' width={132} height={61} priority={true}/></a>
                     </div>
                     <div className={estilo.right}>
                         <Link rel='preload' className={`${estilo.link} ${rotaAtual.pathname == "/" ? estilo.active : ""}`} href="/">Início</Link>

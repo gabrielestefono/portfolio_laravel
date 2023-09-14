@@ -1,6 +1,6 @@
 import estilo from './Header.module.scss';
 import Link from 'next/link';
-import imagem from '../public/images/logo.avif';
+import imagem from './logo.webp';
 import Head from 'next/head';
 import { useState } from 'react';
 import SideBar from './HeaderComponents/SideBar';
@@ -47,7 +47,7 @@ export default function header() {
             <div className={`${estilo.header} ${clicked ? estilo.fixed : ''}`}>
                 <div>
                     <div className={estilo.left}>
-                        <a href="/"><Image src={imagem} alt='Logotipo WeBest' width={132} height={61}/></a>
+                        <a href="/"><Image src={imagem} alt='Logotipo WeBest' width={132} height={61} loading='eager' priority={true}/></a>
                     </div>
                     <div className={estilo.right}>
                         <Link rel='preload' className={`${estilo.link} ${rotaAtual.pathname == "/" ? estilo.active : ""}`} href="/">Início</Link>

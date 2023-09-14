@@ -27,9 +27,9 @@ export default function HeroSection(props) {
     } else {
       backgroundImageSrc = bg5.src;
     }
-
     const backgroundImage = new Image();
-    backgroundImage.loading = "eager";geSrc;
+    backgroundImage.loading = "eager";
+    backgroundImage.src = backgroundImageSrc;
     backgroundImage.onload = () => {
       elementoRecebido.style.backgroundImage = `url(${backgroundImageSrc})`;
       setBgLoaded(true);

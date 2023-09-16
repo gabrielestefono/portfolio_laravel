@@ -5,7 +5,7 @@
 	display: flex;
 	justify-content: center;
 	margin-top: 3.125rem;
-	
+
 	button{
 		background-color: $cor-primaria;
 		border: none;
@@ -17,6 +17,7 @@
 		line-height: 1.5;
 		font-family: $poppins;
 		font-weight: 500;
+        cursor: pointer;
 	}
 
 	.espaco {

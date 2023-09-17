@@ -4,15 +4,16 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\AboutResource\Pages;
 // use App\Filament\Resources\AboutResource\RelationManagers;
-use App\Models\About;
 // use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
+use App\Models\About;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Filament\Forms\Form;
+use Filament\Resources\Resource;
 use Filament\Forms\Components\TextInput;
-// use Filament\Forms\Components\
 use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\Checkbox;
+use Filament\Forms\Components\FileUpload;
 // use Illuminate\Database\Eloquent\Builder;
 // use Illuminate\Database\Eloquent\SoftDeletingScope;
 
@@ -31,8 +32,10 @@ class AboutResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('Título'),
-                Textarea::make('Descrição'),
+                TextInput::make('title')->name('Título'),
+                Textarea::make('description')->name('Descrição'),
+                FileUpload::make('image')->name('Imagem'),
+                Checkbox::make('status')->name('Status'),
             ])->columns(1);
     }
 

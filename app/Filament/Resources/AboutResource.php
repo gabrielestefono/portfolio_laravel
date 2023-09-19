@@ -36,6 +36,7 @@ class AboutResource extends Resource
                 Textarea::make('description')->name('Descrição'),
                 FileUpload::make('image')->name('Imagem'),
                 Checkbox::make('status')->name('Status'),
+                TextInput::make('alt_image')->name('Alt Imagem'),
             ])->columns(1);
     }
 

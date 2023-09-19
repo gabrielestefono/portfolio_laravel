@@ -17,6 +17,7 @@ return new class extends Migration
             $table->text('description');
             $table->string('image');
             $table->enum('status', ['active', 'inactive'])->default('active');
+            $table->string('alt_image');
             $table->timestamps();
             $table->softDeletes();
         });

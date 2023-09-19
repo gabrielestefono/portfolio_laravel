@@ -15,5 +15,6 @@ class About extends Model
         'description',
         'image',
         'status',
+        'alt_image'
     ];
 }

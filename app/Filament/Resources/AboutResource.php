@@ -6,13 +6,16 @@ use App\Filament\Resources\AboutResource\Pages;
 // use App\Filament\Resources\AboutResource\RelationManagers;
 // use Filament\Forms;
 use App\Models\About;
+use Faker\Provider\ar_EG\Text;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
+// Tipo de Texto input
 use Filament\Forms\Components\TextInput;
+// Tipo de Texto area
 use Filament\Forms\Components\Textarea;
-use Filament\Forms\Components\Checkbox;
+// Tipo de Imagem
 use Filament\Forms\Components\FileUpload;
 // use Illuminate\Database\Eloquent\Builder;
 // use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -33,10 +36,12 @@ class AboutResource extends Resource
         return $form
             ->schema([
                 TextInput::make('title')->name('Título'),
+                TextInput::make('subtitle')->name('Subtítulo'),
                 Textarea::make('description')->name('Descrição'),
-                FileUpload::make('image')->name('Imagem'),
-                Checkbox::make('status')->name('Status'),
-                TextInput::make('alt_image')->name('Alt Imagem'),
+                FileUpload::make('image')->directory('about')->image()->name('Imagem'),
+                TextInput::make('image_alt')->name('Alt Imagem'),
+                TextInput::make('experience')->name('Experiência'),
+                TextInput::make('projects')->type('number')->name('Projetos'),
             ])->columns(1);
     }
 

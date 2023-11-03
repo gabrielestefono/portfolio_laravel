@@ -43,7 +43,7 @@
 }
 
 .about{
-    
+
     .titulo{
         width: 100vw;
         display: flex;
@@ -56,13 +56,13 @@
             display: flex;
             align-items: center;
             gap: 1rem;
-        
+
             .left{
                 width: 25vw;
                 height: .125rem;
                 background-image: linear-gradient(to left, $cor-primaria, transparent);
             }
-        
+
             .center{
                 color: $cor-secundaria;
                 font-size: 1.5rem;
@@ -72,7 +72,7 @@
                     font-size: 2.25rem;
                 }
             }
-        
+
             .right{
                 width: 25vw;
                 height: .125rem;

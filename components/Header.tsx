@@ -38,14 +38,14 @@ export default function header() {
         <meta property="og:url" content="https://gabrielestefono.com.br/" />
         <meta property="og:title" content="Desenvolvedor Web em Cascavel | Gabriel Estéfono" />
         <meta property="og:description" content="Sites, sistemas e aplicações web criadas sob medida. Atuação em Cascavel e para todo o Brasil." />
-        <meta property="og:image" content="/images/profile.png" />
+        <meta property="og:image" content="/images/profile-og.png" />
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:url" content="https://gabrielestefono.com.br/" />
         <meta name="twitter:title" content="Desenvolvedor Web em Cascavel | Gabriel Estéfono" />
         <meta name="twitter:description" content="Soluções web funcionais e bem pensadas para empresas e profissionais de todo o Brasil." />
-        <meta name="twitter:image" content="/images/profile.png" />
+        <meta name="twitter:image" content="/images/profile-og.png" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `
           {
             "@context": "https://schema.org",

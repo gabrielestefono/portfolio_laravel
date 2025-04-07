@@ -26,40 +26,45 @@ export default function header() {
       <Head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta
-          name="description"
-          content="Confira o portfólio de desenvolvedor da Webest para explorar projetos inovadores, experiência em desenvolvimento web e habilidades técnicas. Descubra como podemos transformar suas ideias em realidade!"
-        />
-        <meta
-          name="keywords"
-          content="desenvolvedor, desenvolvimento web, portfólio, Webest, projetos web"
-        />
+        <title>Desenvolvedor Web em Cascavel | Gabriel Estéfono</title>
+        <meta name="description" content="Desenvolvedor Web em Cascavel focado em soluções úteis e funcionais. Sites, sistemas e aplicações sob medida para você." />
+        <meta name="keywords" content="desenvolvedor, desenvolvimento web, portfólio, Webest, projetos web" />
         <meta name="author" content="Gabriel Estéfono" />
         <meta name="robots" content="index, follow" />
         <meta httpEquiv="content-language" content="pt-BR" />
-        <meta
-          property="og:title"
-          content="Portfólio de Desenvolvedor - Webest"
-        />
-        <meta
-          property="og:description"
-          content="Confira o portfólio de desenvolvedor da Webest para explorar projetos inovadores, experiência em desenvolvimento web e habilidades técnicas. Descubra como podemos transformar suas ideias em realidade!"
-        />
-        <meta property="og:image" content={imagem.src} />
-        <meta property="og:image:alt" content="Webest Portfólio" />
+
+        {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.gabrielestefono.com.br/" />
+        <meta property="og:url" content="https://gabrielestefono.com.br/" />
+        <meta property="og:title" content="Desenvolvedor Web em Cascavel | Gabriel Estéfono" />
+        <meta property="og:description" content="Sites, sistemas e aplicações web criadas sob medida. Atuação em Cascavel e para todo o Brasil." />
+        <meta property="og:image" content="/images/profile.png" />
+
+        {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content="Portfólio de Desenvolvedor - Webest"
-        />
-        <meta
-          name="twitter:description"
-          content="Confira o portfólio de desenvolvedor da Webest para explorar projetos inovadores, experiência em desenvolvimento web e habilidades técnicas. Descubra como podemos transformar suas ideias em realidade!"
-        />
-        <meta name="twitter:image" content={imagem.src} />
-        <title>WeBest - Página Inicial</title>
+        <meta name="twitter:url" content="https://gabrielestefono.com.br/" />
+        <meta name="twitter:title" content="Desenvolvedor Web em Cascavel | Gabriel Estéfono" />
+        <meta name="twitter:description" content="Soluções web funcionais e bem pensadas para empresas e profissionais de todo o Brasil." />
+        <meta name="twitter:image" content="/images/profile.png" />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `
+          {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Gabriel Estéfono",
+            "url": "https://gabrielestefono.com.br",
+            "jobTitle": "Desenvolvedor Full Stack",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Cascavel",
+              "addressRegion": "PR",
+              "addressCountry": "BR"
+            },
+            "sameAs": [
+              "https://github.com/gabrielestefono",
+              "https://www.linkedin.com/in/gabrielestefono/"
+            ]
+          }
+        ` }} />
       </Head>
       <div className={`${estilo.header} ${clicked ? estilo.fixed : ""}`}>
         <div>

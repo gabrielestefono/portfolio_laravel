@@ -3,7 +3,7 @@ import Footer from "./Footer";
 import { PropsWithChildren } from "react";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import styles from "./Layout.module.css";
+import styles from "./Layout.module.scss";
 
 export default function Home({ children }: Readonly<PropsWithChildren>) {
   return (

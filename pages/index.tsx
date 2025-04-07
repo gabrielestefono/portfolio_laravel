@@ -1,4 +1,5 @@
 import Presentation from "@/components/Presentation/Presentation";
+import WhatsAppButton from "@/components/temp/WhatsAppButton";
 // import About from "@/components/About/About";
 // import Separator from "@/components/Separator";
 // import Skills from "@/components/Skills/Skills";
@@ -10,6 +11,7 @@ export default function Home() {
   return (
     <>
       <Presentation {...indexMocks.presentation} />
+      <WhatsAppButton />
       {/* <Separator titulo="Sobre" />
       <About />
       <Separator titulo="Projetos" />

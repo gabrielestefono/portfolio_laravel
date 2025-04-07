@@ -1,0 +1,23 @@
+.button {
+  position: "fixed";
+  bottom: "150px";
+  right: "20px";
+  background-color: "#006732";
+  color: "#ffffff";
+  border-radius: "50%";
+  width: "60px";
+  height: "60px";
+  display: "flex";
+  justify-content: "center";
+  align-items: "center";
+  box-shadow: "0 4px 12px rgba(0, 0, 0, 0.3)";
+  text-decoration: "none";
+  z-index: 999;
+  transition: "transform 0.3s ease";
+}
+
+.icon {
+  width: "28px";
+  height: "28px";
+  fill: "white";
+}

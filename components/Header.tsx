@@ -27,7 +27,7 @@ export default function header() {
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Desenvolvedor Web em Cascavel | Gabriel Estéfono</title>
-        <meta name="description" content="Desenvolvedor Web em Cascavel focado em soluções úteis e funcionais. Sites, sistemas e aplicações sob medida para você." />
+        <meta name="description" content="Desenvolvedor Web em Cascavel, focado em soluções eficientes e personalizadas. Criação de sites, sistemas e aplicativos sob medida para negócios e projetos de todos os tamanhos." />
         <meta name="keywords" content="desenvolvedor, desenvolvimento web, portfólio, Webest, projetos web" />
         <meta name="author" content="Gabriel Estéfono" />
         <meta name="robots" content="index, follow" />

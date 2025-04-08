@@ -11,7 +11,7 @@ export default function InfoPresentation({
   const dateDiff = today.getFullYear() - initialDateObj.getFullYear();
   return (
     <div className={styles.infopresentation}>
-      {/* <div>
+      <div>
         <div>
           <div className={`${styles.primaryIcon} ${styles.icon1}`}></div>
           <div className={styles.text}>
@@ -21,7 +21,7 @@ export default function InfoPresentation({
             <p>Experiência</p>
           </div>
         </div>
-      </div> */}
+      </div>
       {/* <div>
         <div>
           <div className={`${styles.primaryIcon} ${styles.icon2}`}></div>

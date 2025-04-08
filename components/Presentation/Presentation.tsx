@@ -9,7 +9,7 @@ export default function presentation({
   return (
     <>
       <TopPresentation {...presentationTop} />
-      <InfoPresentation {...presentationBottom} />
+      {/* <InfoPresentation {...presentationBottom} /> */}
     </>
   );
 }

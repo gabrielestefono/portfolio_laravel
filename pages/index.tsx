@@ -10,8 +10,8 @@ import { indexMocks } from "@/mocks/Index";
 export default function Home() {
   return (
     <>
-      <Presentation {...indexMocks.presentation} />
-      <WhatsAppButton />
+      {/* <Presentation {...indexMocks.presentation} /> */}
+      {/* <WhatsAppButton /> */}
       {/* <Separator titulo="Sobre" />
       <About />
       <Separator titulo="Projetos" />

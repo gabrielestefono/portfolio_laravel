@@ -1,5 +1,5 @@
 import { PresentationBottom } from "@/types";
-import estilo from "./InfoPresentation.module.scss";
+import styles from "./InfoPresentation.module.scss";
 
 export default function InfoPresentation({
   initialDate,
@@ -10,11 +10,11 @@ export default function InfoPresentation({
   const initialDateObj = new Date(initialDate);
   const dateDiff = today.getFullYear() - initialDateObj.getFullYear();
   return (
-    <div className={estilo.infopresentation}>
+    <div className={styles.infopresentation}>
       <div>
         <div>
-          <div className={`${estilo.primaryIcon} ${estilo.icon1}`}></div>
-          <div className={estilo.text}>
+          <div className={`${styles.primaryIcon} ${styles.icon1}`}></div>
+          <div className={styles.text}>
             <h3>
               {dateDiff} {dateDiff > 0 ? "anos" : "ano"}
             </h3>
@@ -24,8 +24,8 @@ export default function InfoPresentation({
       </div>
       <div>
         <div>
-          <div className={`${estilo.primaryIcon} ${estilo.icon2}`}></div>
-          <div className={estilo.text}>
+          <div className={`${styles.primaryIcon} ${styles.icon2}`}></div>
+          <div className={styles.text}>
             <h3>{projects}+ Projetos</h3>
             <p>Completos</p>
           </div>
@@ -33,8 +33,8 @@ export default function InfoPresentation({
       </div>
       <div>
         <div>
-          <div className={`${estilo.primaryIcon} ${estilo.icon3}`}></div>
-          <div className={estilo.text}>
+          <div className={`${styles.primaryIcon} ${styles.icon3}`}></div>
+          <div className={styles.text}>
             <h3>{support}</h3>
             <p>Suporte</p>
           </div>

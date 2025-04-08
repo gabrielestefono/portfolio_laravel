@@ -11,15 +11,13 @@ export default function InfoPresentation({
       <div>
         <div>
           <div className={`${styles.primaryIcon} ${styles.icon1}`}></div>
-          {/* <div className={styles.text}> */}
-            {/* <h3>
-              {initialDate} {initialDate > 0 ? "anos" : "ano"}
-            </h3>
-            <p>Experiência</p> */}
-          {/* </div> */}
+          <div className={styles.text}>
+            {/* <h3> {initialDate} {initialDate > 0 ? "anos" : "ano"}</h3> */}
+            <p>Experiência</p>
+          </div>
         </div>
       </div>
-      {/* <div>
+      <div>
         <div>
           <div className={`${styles.primaryIcon} ${styles.icon2}`}></div>
           <div className={styles.text}>
@@ -27,8 +25,8 @@ export default function InfoPresentation({
             <p>Completos</p>
           </div>
         </div>
-      </div> */}
-      {/* <div>
+      </div>
+      <div>
         <div>
           <div className={`${styles.primaryIcon} ${styles.icon3}`}></div>
           <div className={styles.text}>
@@ -36,7 +34,7 @@ export default function InfoPresentation({
             <p>Suporte</p>
           </div>
         </div>
-      </div> */}
+      </div>
     </div>
   );
 }

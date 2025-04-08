@@ -1,3 +1,5 @@
+'use client"';
+
 import { PresentationBottom } from "@/types";
 import styles from "./InfoPresentation.module.scss";
 
@@ -12,7 +14,9 @@ export default function InfoPresentation({
         <div>
           <div className={`${styles.primaryIcon} ${styles.icon1}`}></div>
           <div className={styles.text}>
-            {/* <h3> {initialDate} {initialDate > 0 ? "anos" : "ano"}</h3> */}
+            <h3>
+              {initialDate} {initialDate > 0 ? "anos" : "ano"}
+            </h3>
             <p>Experiência</p>
           </div>
         </div>

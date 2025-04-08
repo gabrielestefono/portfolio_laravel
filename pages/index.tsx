@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <>
       <Presentation {...indexMocks.presentation} />
-      {/* <WhatsAppButton /> */}
+      <WhatsAppButton />
       {/* <Separator titulo="Sobre" />
       <About />
       <Separator titulo="Projetos" />

@@ -8,6 +8,7 @@ export default function InfoPresentation({
   projects,
   support,
 }: Readonly<PresentationBottom>) {
+  const yearText = Number(initialDate) > 1 ? "anos" : "ano";
   return (
     <div className={styles.infopresentation}>
       <div>
@@ -15,7 +16,7 @@ export default function InfoPresentation({
           <div className={`${styles.primaryIcon} ${styles.icon1}`}></div>
           <div className={styles.text}>
             <h3>
-              {initialDate} {initialDate > 0 ? "anos" : "ano"}
+              {initialDate} {yearText}
             </h3>
             <p>Experiência</p>
           </div>

@@ -50,6 +50,9 @@ export default function header() {
         {/* Tag canonical */}
         <link rel="canonical" href="https://gabrielestefono.com.br/" />
 
+        {/* Google Search Console */}
+        <meta name="google-site-verification" content="tHTpJFyNsORoFLqxGlxzifhSOXA2mvkkf1T9_F6GeZY" />
+
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `
           {
             "@context": "https://schema.org",

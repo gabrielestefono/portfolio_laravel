@@ -34,9 +34,9 @@ export default function presentation({
                 className={styles.img}
                 src="/images/profile.png"
                 alt="Foto de perfil"
-                width={510}
-                height={486}
-                sizes="(max-width: 767px) 154px, (min-width: 768px) and (max-width: 1279px) 300px, (min-width: 1280px) and (max-width: 1440px) 508px, 907px"
+                width={504}
+                height={495}
+                sizes="(max-width: 767px) 88px, (min-width: 768px) and (max-width: 1279px) 309px, (min-width: 1280px) and (max-width: 1440px) 440px, 510px"
                 loading="eager"
               />
             </div>

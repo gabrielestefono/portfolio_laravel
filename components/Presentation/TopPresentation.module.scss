@@ -203,22 +203,19 @@
                     position: absolute;
                     bottom: 0;
                     left: 0;
-                    width: 154px;
-                    height: 146px;
+                    width: auto;
+                    height: 9.4375rem;
 
                     @include tabletNormal(){
-                        width: 308px;
-                        height: 293px;
+                        height: 18.9375rem;
                     }
                 
                     @include LaptopPadrao() {
-                        width: 27.4375rem;
                         height: 26.125rem;
                     }
                 
                     @include LaptopHD() {
-                        width: 31.875rem;
-                        height: 30.375rem;
+                        height: 30.9375rem;
                     }
                 }
             }

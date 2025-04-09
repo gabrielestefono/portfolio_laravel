@@ -19,7 +19,7 @@ export interface Description {
 }
 
 export interface PresentationBottom {
-  initialDate: Date;
+  initialDate: number;
   projects: number;
   support: string;
 }

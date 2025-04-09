@@ -21,7 +21,7 @@ export const indexMocks: Dashboard = {
       ],
     },
     presentationBottom: {
-      initialDate: new Date("2023-01-01"),
+      initialDate: 3,
       projects: 60,
       support: "Online",
     },

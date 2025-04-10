@@ -10,4 +10,24 @@
     color: white;
     font-size: 1.125rem;
     font-weight: 500;
+
+    > div{
+        width: calc(100% - 7.5rem);
+        display: flex;
+        justify-content: space-between;
+
+        ul{
+            display: flex;
+            gap: 1.875rem;
+            
+            li{
+                width: 30px;
+                height: 30px;
+    
+                svg{
+                    fill: white;
+                }
+            }
+        }
+    }
 }

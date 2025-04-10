@@ -1,166 +1,172 @@
-@import '../../styles/variables.module';
+@import "../../styles/variables.module";
 
 @mixin mobile {
-    @media (min-width: 360px) {
-        @content;
-    }
+  @media (min-width: 360px) {
+    @content;
+  }
 }
 
 @mixin tabletNormal {
-    @media (min-width: 768px) {
-        @content;
-    }
+  @media (min-width: 768px) {
+    @content;
+  }
 }
 
 @mixin tabletPaisagem {
-    @media (min-width: 1024px) {
-        @content;
-    }
+  @media (min-width: 1024px) {
+    @content;
+  }
 }
 
 @mixin LaptopPadrao {
-    @media (min-width: 1280px) {
-        @content;
-    }
+  @media (min-width: 1280px) {
+    @content;
+  }
 }
 
 @mixin LaptopHD {
-    @media (min-width: 1440px) {
-        @content;
-    }
+  @media (min-width: 1440px) {
+    @content;
+  }
 }
 
 @mixin DesktopPadrao {
-    @media (min-width: 1920px) {
-        @content;
-    }
+  @media (min-width: 1920px) {
+    @content;
+  }
 }
 
 @mixin DesktopHd {
-    @media (min-width: 2560px) {
-        @content;
-    }
+  @media (min-width: 2560px) {
+    @content;
+  }
 }
 
 .about {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  gap: 9.125rem;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: $cor-primaria;
+    opacity: 0.1;
+    z-index: -1;
+  }
+
+  .container {
     display: flex;
-    position: relative;
     justify-content: center;
-    gap: 9.125rem;
-    padding-bottom: 8.125rem;
-  
-    &::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      background-color: $cor-primaria;
-      opacity: 0.1;
-      z-index: -1;
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+    width: calc(100% - 3rem);
+    padding-top: 2.6875rem;
+    padding-bottom: 2.6875rem;
+
+    @include LaptopPadrao() {
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+      gap: 9.125rem;
+      flex-direction: row;
+      width: calc(100% - 7.5rem);
     }
 
-    .container{
-        width: 100%;
+    .left {
+      max-width: 34.375rem;
+      flex-shrink: 0;
+
+      .title {
+        font-family: $dm-sans;
+        color: $cor-secundaria;
+        font-size: 1.5rem;
+        line-height: 2.875rem;
+        font-weight: 700;
+
+        @include tabletNormal() {
+          font-size: 3.5rem;
+          line-height: 4.375rem;
+        }
+      }
+
+      .list {
+        margin-top: 2.25rem;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 1.625rem;
+
+        @include tabletNormal() {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 1rem;
+        }
+      }
+
+      .buttons {
+        margin-top: 3.75rem;
         display: flex;
-        justify-content: center;
-        gap: 9.125rem;
+        gap: 1.5rem;
         flex-direction: column;
-        align-items: center;
 
-        @include LaptopPadrao(){
-            flex-direction: row;
-            width: calc(100% - 7.5rem);
+        @include tabletNormal() {
+          flex-direction: row;
         }
 
-        .left {
-            margin-top: 5.4375rem;
-            margin-left: 3.75rem;
-            max-width: 34.375rem;
-
-            @include tabletNormal(){
-                margin-left: 0;
-            }
-        
-        
-            .title {
-                font-family: $dm-sans;
-                color: $cor-secundaria;
-                font-size: 2.25rem;
-                line-height: 2.875rem;
-                font-weight: 700;
-                margin-top: 2.6875rem;
-            }
-    
-            .list {
-                margin-top: 2.25rem;
-                display: grid;
-                grid-template-columns: repeat(1, 1fr);
-                grid-column-gap: 0px;
-                grid-row-gap: 1.625rem;
-
-                @include tabletNormal(){
-                    grid-template-columns: repeat(2, 1fr);
-                }
-            }
-    
-            .buttons {
-                margin-top: 3.75rem;
-                display: flex;
-                gap: 1.5rem;
-                flex-direction: column;
-
-                @include tabletNormal(){
-                    flex-direction: row;
-                }
-    
-                .first {
-                    background-color: $cor-primaria;
-                    border: none;
-                    border-radius: .25rem;
-                    color: white;
-                    font-family: $dm-sans;
-                    font-size: 1.125rem;
-                    line-height: 1.125rem;
-                    font-weight: 700;
-                    width: 16.375rem;
-                    height: 4.125rem;
-                    cursor: pointer;
-                }
-    
-                .second {
-                    background-color: transparent;
-                    border: 2px solid $cor-secundaria;
-                    border-radius: .25rem;
-                    color: $cor-secundaria;
-                    font-family: $dm-sans;
-                    font-size: 1.125rem;
-                    line-height: 1.125rem;
-                    font-weight: 400;
-                    width: 10rem;
-                    height: 4.125rem;
-                    cursor: pointer;
-                }
-            }
+        .first {
+          background-color: $cor-primaria;
+          border: none;
+          border-radius: 0.25rem;
+          color: white;
+          font-family: $dm-sans;
+          font-size: 1.125rem;
+          line-height: 1.125rem;
+          font-weight: 700;
+          width: 16.375rem;
+          height: 4.125rem;
+          cursor: pointer;
         }
 
-        .right {
-            width: 100%;
-            height: auto;
-            margin-top: 5.4375rem;
-            display: flex;
-            justify-content: center;
-
-            img {
-                width: 100%;
-                height: auto;
-                max-width: 34.375rem;
-
-                @include tabletNormal(){
-                    width: 100%;
-                }
-            }
+        .second {
+          background-color: transparent;
+          border: 2px solid $cor-secundaria;
+          border-radius: 0.25rem;
+          color: $cor-secundaria;
+          font-family: $dm-sans;
+          font-size: 1.125rem;
+          line-height: 1.125rem;
+          font-weight: 400;
+          width: 10rem;
+          height: 4.125rem;
+          cursor: pointer;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          text-decoration: none;
         }
+      }
+    }
+
+    .right {
+      width: 100%;
+      height: auto;
+      display: flex;
+      justify-content: center;
+
+      img {
+        width: 100%;
+        height: auto;
+        max-width: 34.375rem;
+
+        @include tabletNormal() {
+          width: 100%;
+        }
+      }
     }
   }
+}

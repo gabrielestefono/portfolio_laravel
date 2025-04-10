@@ -1,5 +1,5 @@
 import estilo from "./Header.module.scss";
-/*import Link from "next/link"; */ // NOSONAR
+import Link from "next/link"; // NOSONAR
 import imagem from "./logo.webp";
 import Head from "next/head";
 import { useState } from "react";
@@ -87,7 +87,7 @@ export default function header() {
             </a>
           </div>
           <div className={estilo.right}>
-            {/* <Link
+            <Link
               rel="preload"
               className={`${estilo.link} ${
                 rotaAtual.pathname == "/" ? estilo.active : ""
@@ -101,11 +101,11 @@ export default function header() {
               className={`${estilo.link} ${
                 rotaAtual.pathname == "/sobre" ? estilo.active : ""
               }`}
-              href="/sobre"
+              href="#sobre"
             >
               Sobre mim
             </Link>
-            <Link
+            {/* <Link
               rel="preload"
               className={`${estilo.link} ${
                 rotaAtual.pathname == "/projetos" ? estilo.active : ""

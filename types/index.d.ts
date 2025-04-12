@@ -1,5 +1,6 @@
 export interface Dashboard {
   presentation: Presentation;
+  skills: Skills;
 }
 
 export interface Presentation {
@@ -22,4 +23,16 @@ export interface PresentationBottom {
   initialDate: number;
   projects: number;
   support: string;
+}
+
+export interface Skills {
+  SkillsElements: SkillsElement[];
+}
+
+export interface SkillsElement {
+  id: number;
+  image: string;
+  title: string;
+  text: string;
+  alt: string;
 }

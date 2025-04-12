@@ -26,4 +26,36 @@ export const indexMocks: Dashboard = {
       support: "Online",
     },
   },
+  skills: {
+    SkillsElements: [
+      {
+        id: 1,
+        alt: "Laravel",
+        title: "Laravel",
+        text: "Criação de aplicações web e apis Laravel.",
+        image: "/images/laravel.svg",
+      },
+      {
+        id: 2,
+        alt: "Next.js",
+        title: "Next.js",
+        text: "Criação de páginas responsivas com Next.js.",
+        image: "/images/nextjs.svg",
+      },
+      {
+        id: 3,
+        alt: "Nest.js",
+        title: "Nest.js",
+        text: "Criação de apis com o Nest.js.",
+        image: "/images/nestjs.svg",
+      },
+      {
+        id: 4,
+        alt: "Angular",
+        title: "Angular",
+        text: "Criação de páginas responsivas com Angular.",
+        image: "/images/angular.svg",
+      },
+    ],
+  },
 };

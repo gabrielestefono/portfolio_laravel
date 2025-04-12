@@ -6,6 +6,7 @@ import WhatsAppButton from "@/components/temp/WhatsAppButton";
 import { indexMocks } from "@/mocks/Index";
 import Separator from "@/components/Separator";
 import { lazy, Suspense } from "react";
+import Skills from "@/components/Skills/Skills";
 
 const About = lazy(() => import("@/components/About/About"));
 
@@ -17,15 +18,15 @@ export default function Home() {
       <Suspense fallback={<div>Carregando...</div>}>
         <Separator titulo="Sobre" />
         <About />
-      </Suspense>
-      {/* <Separator titulo="Projetos" />
-      <Project/>
-      <Separator titulo="Habilidades" />
-      <Skills />
+        <Separator titulo="Habilidades" />
+        <Skills {...indexMocks.skills}/>
+        {/* <Separator titulo="Projetos" />
+      <Project/> 
       <Separator titulo="Contato" />
       <ContactMe />
       <Separator titulo="Perguntas Frequentes" />
       <Faq /> */}
+      </Suspense>
     </>
   );
 }

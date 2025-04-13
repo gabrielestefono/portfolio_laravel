@@ -130,22 +130,23 @@ export default function header() {
               Sobre mim
             </Link>
             <Link
-              className={`${estilo.link} ${
-                rotaAtual.pathname == "/skills" ? estilo.active : ""
-              }`}
-              href="#skills"
-            >
-              Habilidades
-            </Link>
-            {/* <Link
               rel="preload"
               className={`${estilo.link} ${
                 rotaAtual.pathname == "/projetos" ? estilo.active : ""
               }`}
-              href="/projetos"
+              href="#projetos"
             >
               Projetos
             </Link>
+            <Link
+              className={`${estilo.link} ${
+                rotaAtual.pathname == "/skills" ? estilo.active : ""
+              }`}
+              href="#habilidades"
+            >
+              Habilidades
+            </Link>
+            {/* 
             <Link
               rel="preload"
               className={`${estilo.link} ${

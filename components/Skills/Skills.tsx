@@ -5,7 +5,7 @@ import { Skills as SkillProps } from "@/types";
 
 export default function Skills({ SkillsElements }: Readonly<SkillProps>) {
   return (
-    <div className={estilo.skills} id="skills">
+    <div className={estilo.skills} id="habilidades">
       <SkillsLeft />
       <SkillsRight SkillsElements={SkillsElements} />
     </div>

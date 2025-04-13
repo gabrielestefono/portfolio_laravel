@@ -7,6 +7,7 @@ import { indexMocks } from "@/mocks/Index";
 import Separator from "@/components/Separator";
 import { lazy, Suspense } from "react";
 import Skills from "@/components/Skills/Skills";
+import Project from "@/components/Projects/Project";
 
 const About = lazy(() => import("@/components/About/About"));
 
@@ -18,11 +19,11 @@ export default function Home() {
       <Suspense fallback={<div>Carregando...</div>}>
         <Separator titulo="Sobre" />
         <About />
+        <Separator titulo="Projetos" />
+        <Project />
         <Separator titulo="Habilidades" />
-        <Skills {...indexMocks.skills}/>
-        {/* <Separator titulo="Projetos" />
-      <Project/> 
-      <Separator titulo="Contato" />
+        <Skills {...indexMocks.skills} />
+        {/* <Separator titulo="Contato" />
       <ContactMe />
       <Separator titulo="Perguntas Frequentes" />
       <Faq /> */}

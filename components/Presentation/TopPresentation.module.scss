@@ -1,225 +1,227 @@
-@import '../../styles/variables.module';
+@import "../../styles/variables.module";
 
 @mixin mobile {
-    @media (min-width: 360px) {
-        @content;
-    }
+  @media (min-width: 360px) {
+    @content;
+  }
 }
 
 @mixin tabletNormal {
-    @media (min-width: 768px) {
-        @content;
-    }
+  @media (min-width: 768px) {
+    @content;
+  }
 }
 
 @mixin tabletPaisagem {
-    @media (min-width: 1024px) {
-        @content;
-    }
+  @media (min-width: 1024px) {
+    @content;
+  }
 }
 
 @mixin LaptopPadrao {
-    @media (min-width: 1280px) {
-        @content;
-    }
+  @media (min-width: 1280px) {
+    @content;
+  }
 }
 
 @mixin LaptopHD {
-    @media (min-width: 1440px) {
-        @content;
-    }
+  @media (min-width: 1440px) {
+    @content;
+  }
 }
 
 @mixin DesktopPadrao {
-    @media (min-width: 1920px) {
-        @content;
-    }
+  @media (min-width: 1920px) {
+    @content;
+  }
 }
 
 @mixin DesktopHd {
-    @media (min-width: 2560px) {
-        @content;
-    }
+  @media (min-width: 2560px) {
+    @content;
+  }
 }
 
-.presentation{
-    width: 100%;
-    justify-content: center;
+.presentation {
+  width: 100%;
+  justify-content: center;
+  display: flex;
+
+  .center {
     display: flex;
-    
-    .center{
-        display: flex;
-        width: calc(100% - 3rem);
-        flex-direction: column;
-        align-items: center;
+    width: calc(100% - 3rem);
+    flex-direction: column;
+    align-items: center;
 
-        @include tabletPaisagem{
-            flex-direction: row;
-            width: calc(100% - 7.5rem);
-            justify-content: flex-start;
-        }
-
-        .left{
-            margin-top: 60px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-start;
-
-            @include tabletPaisagem(){
-                width: 50%;
-            }
-
-            h1{
-                color: $cor-primaria;
-                font-size: 1.375rem;
-                line-height: 1.75rem;
-                font-weight: 700;
-            }
-
-            h2{
-                color: $cor-secundaria;
-                font-size: 1.25rem;
-                font-weight: 600;
-                line-height: 1.5rem;
-                margin-top: 3.75rem;
-            }
-
-            p{
-                font-size: .875rem;
-                font-weight: 500;
-                color: $cor-secundaria;
-                line-height: 1.5rem;
-                text-align: justify;
-                max-width: 36.875rem;
-            }
-
-            p:not(:first-of-type){
-                margin-top: .5rem;
-            }
-
-            p:first-of-type{
-                margin-top: 1.0625rem;
-            }
-
-            p:last-of-type{
-                margin-bottom: 1.5rem;
-            }
-
-            a{
-                align-self: center;
-
-                @include tabletPaisagem(){
-                    align-self: flex-start;
-                }
-
-                button {
-                    width: 9.375rem;
-                    height: 3.0625rem;
-                    background-color: $cor-primaria;
-                    color: white;
-                    border: none;
-                    border-radius: 0.25rem;
-                    cursor: pointer;
-                    font-size: 0.9375rem;
-                    font-weight: 500;
-                    align-self: center;
-                }
-            }
-        }
-
-        .right{
-            width: 75%;
-            height: 9rem;            
-            position: relative;
-            overflow: hidden;
-            margin-top: 2rem;
-            max-width: 11.25rem;
-
-            @include tabletNormal(){
-                height: 18rem;
-                width: 56%;
-                max-width: 22.6875rem;
-            }
-
-            @include tabletPaisagem(){
-                margin-top: 3.75rem;
-                height: 30.625rem;
-                width: 50%;
-                max-width: none;
-            }
-
-            .ball1, .ball2, .ball3{
-                width: 6.875rem;
-                height: 6.875rem;
-                border-radius: 100%;
-                position: absolute;
-                bottom: 0;
-                left: 0;
-
-                @include tabletNormal(){
-                    width: 13.9375rem;
-                    height: 13.9375rem;
-                }
-
-                @include LaptopPadrao(){
-                    width: 20rem;
-                    height: 20rem;
-                }
-
-                @include LaptopHD(){
-                    width: 23.25rem;
-                    height: 23.25rem;
-                }
-            }
-
-            .ball1{
-                background-color: $cor-primaria;
-                z-index: 3;
-                transform: translate(15%, 7%);
-            }
-
-            .ball2{
-                background-color: $cor-primaria;
-                opacity: 0.4;
-                transform: translate(37.1%, -6.2%);
-                z-index: 2;
-            }
-
-            .ball3{
-                background-color: $cor-primaria;
-                opacity: 0.22;
-                transform: translate(60.75%, -8.34%);
-                z-index: 1;
-            }
-
-            .image{
-                z-index: 4;
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                
-                .img{
-                    position: absolute;
-                    bottom: 0;
-                    left: 0;
-                    width: auto;
-                    height: 9.4375rem;
-
-                    @include tabletNormal(){
-                        height: 18.9375rem;
-                    }
-                
-                    @include LaptopPadrao() {
-                        height: 26.125rem;
-                    }
-                
-                    @include LaptopHD() {
-                        height: 30.9375rem;
-                    }
-                }
-            }
-        }
+    @include tabletPaisagem {
+      flex-direction: row;
+      width: calc(100% - 7.5rem);
+      justify-content: flex-start;
     }
-    
+
+    .left {
+      margin-top: 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+
+      @include tabletPaisagem() {
+        width: 50%;
+      }
+
+      h1 {
+        color: $cor-primaria;
+        font-size: 1.375rem;
+        line-height: 1.75rem;
+        font-weight: 700;
+      }
+
+      h2 {
+        color: $cor-secundaria;
+        font-size: 1.25rem;
+        font-weight: 600;
+        line-height: 1.5rem;
+        margin-top: 3.75rem;
+      }
+
+      p {
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: $cor-secundaria;
+        line-height: 1.5rem;
+        text-align: justify;
+        max-width: 36.875rem;
+      }
+
+      p:not(:first-of-type) {
+        margin-top: 0.5rem;
+      }
+
+      p:first-of-type {
+        margin-top: 1.0625rem;
+      }
+
+      p:last-of-type {
+        margin-bottom: 1.5rem;
+      }
+
+      a {
+        align-self: center;
+        width: 9.375rem;
+        height: 3.0625rem;
+        background-color: $cor-primaria;
+        color: white;
+        border: none;
+        border-radius: 0.25rem;
+        cursor: pointer;
+        font-size: 0.9375rem;
+        font-weight: 500;
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-inline: 20px;
+
+        @include tabletPaisagem() {
+          align-self: flex-start;
+        }
+      }
+    }
+
+    .right {
+      width: 75%;
+      height: 9rem;
+      position: relative;
+      overflow: hidden;
+      margin-top: 2rem;
+      max-width: 11.25rem;
+
+      @include tabletNormal() {
+        height: 18rem;
+        width: 56%;
+        max-width: 22.6875rem;
+      }
+
+      @include tabletPaisagem() {
+        margin-top: 3.75rem;
+        height: 30.625rem;
+        width: 50%;
+        max-width: none;
+      }
+
+      .ball1,
+      .ball2,
+      .ball3 {
+        width: 6.875rem;
+        height: 6.875rem;
+        border-radius: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+
+        @include tabletNormal() {
+          width: 13.9375rem;
+          height: 13.9375rem;
+        }
+
+        @include LaptopPadrao() {
+          width: 20rem;
+          height: 20rem;
+        }
+
+        @include LaptopHD() {
+          width: 23.25rem;
+          height: 23.25rem;
+        }
+      }
+
+      .ball1 {
+        background-color: $cor-primaria;
+        z-index: 3;
+        transform: translate(15%, 7%);
+      }
+
+      .ball2 {
+        background-color: $cor-primaria;
+        opacity: 0.4;
+        transform: translate(37.1%, -6.2%);
+        z-index: 2;
+      }
+
+      .ball3 {
+        background-color: $cor-primaria;
+        opacity: 0.22;
+        transform: translate(60.75%, -8.34%);
+        z-index: 1;
+      }
+
+      .image {
+        z-index: 4;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+
+        .img {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: auto;
+          height: 9.4375rem;
+
+          @include tabletNormal() {
+            height: 18.9375rem;
+          }
+
+          @include LaptopPadrao() {
+            height: 26.125rem;
+          }
+
+          @include LaptopHD() {
+            height: 30.9375rem;
+          }
+        }
+      }
+    }
+  }
 }

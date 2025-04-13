@@ -1,104 +1,106 @@
-@import '../../styles/variables.module';
+@import "../../styles/variables.module";
 
 @mixin mobile {
-    @media (min-width: 360px) {
-        @content;
-    }
+  @media (min-width: 360px) {
+    @content;
+  }
 }
 
 @mixin tabletNormal {
-    @media (min-width: 768px) {
-        @content;
-    }
+  @media (min-width: 768px) {
+    @content;
+  }
 }
 
 @mixin tabletPaisagem {
-    @media (min-width: 1024px) {
-        @content;
-    }
+  @media (min-width: 1024px) {
+    @content;
+  }
 }
 
 @mixin LaptopPadrao {
-    @media (min-width: 1280px) {
-        @content;
-    }
+  @media (min-width: 1280px) {
+    @content;
+  }
 }
 
 @mixin LaptopHD {
-    @media (min-width: 1440px) {
-        @content;
-    }
+  @media (min-width: 1440px) {
+    @content;
+  }
 }
 
 @mixin DesktopPadrao {
-    @media (min-width: 1920px) {
-        @content;
-    }
+  @media (min-width: 1920px) {
+    @content;
+  }
 }
 
 @mixin DesktopHd {
-    @media (min-width: 2560px) {
-        @content;
-    }
+  @media (min-width: 2560px) {
+    @content;
+  }
 }
 
-.left{
-    display: flex;
-    flex-direction: column;
+.left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  width: fit-content;
 
-    @include tabletPaisagem(){
-        margin-left: auto;
-        min-width: 50%;
+  @include tabletPaisagem() {
+    margin-left: auto;
+    min-width: 400px;
+  }
+
+  h2 {
+    color: $cor-secundaria;
+    font-size: 2.5rem;
+    line-height: 3.375rem;
+    font-weight: 600;
+    width: 100%;
+    text-align: center;
+    max-width: 24rem;
+
+    @include tabletPaisagem() {
+      width: fit-content;
     }
 
-    h2{
-        color: $cor-secundaria;
-        font-size: 2.5rem;
-        line-height: 3.375rem;
-        margin-top: 7.125rem;
-        font-weight: 600;
-        width: 100%;
-        text-align: center;
-        max-width: 24rem;
-        
-        @include tabletPaisagem(){
-            width: auto;
-            text-align: left;
-        }
-
-        span{
-            color: $cor-primaria;
-        }
+    span {
+      color: $cor-primaria;
     }
+  }
 
-    p{
-        color: #323433;
-        font-size: 1rem;
-        margin-top: 1.5rem;
-        max-width: 21.875rem;
-        width: 100%;
-        text-align: center;
+  p {
+    color: #323433;
+    font-size: 1rem;
+    max-width: 21.875rem;
+    width: 100%;
+    text-align: center;
+    line-height: 1.5;
 
-        @include tabletPaisagem(){
-            width: auto;
-            text-align: left;
-        }
+    @include tabletPaisagem() {
+      width: auto;
     }
-    
-    button{
-        margin-top: 2.5rem;
-        background-color: $cor-primaria;
-        color: white;
-        width: 8.625rem;
-        height: 3.5rem;
-        border: none;
-        border-radius: .25rem;
-        font-weight: 500;
-        cursor: pointer;
-        margin: 0 auto;
+  }
 
-        @include tabletPaisagem(){
-            margin: 0;
-        }
+  button {
+    background-color: $cor-primaria;
+    font-family: var(--dm-sans);
+    color: white;
+    width: 8.625rem;
+    height: 3.5rem;
+    border: none;
+    border-radius: 0.25rem;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1.125rem;
+
+    @include tabletPaisagem() {
+      margin: 0;
     }
+  }
 }

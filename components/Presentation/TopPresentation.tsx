@@ -21,7 +21,7 @@ export default function presentation({
             target="_blank"
             rel="noopener noreferrer"
           >
-            <button>Veja meus projetos</button>
+            Veja meus projetos
           </a>
         </div>
         <div className={styles.right}>

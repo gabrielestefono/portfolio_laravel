@@ -72,10 +72,9 @@
     max-width: 20.3125rem;
     position: relative;
 
-    a {
+    div {
       width: 100%;
       height: 100%;
-      text-decoration: none;
       display: flex;
 
       > img {
@@ -85,7 +84,7 @@
       }
     }
 
-    div {
+    div:last-child {
       position: absolute;
       top: 0;
       left: 0;
@@ -108,6 +107,7 @@
 
       > a {
         background-color: #006732;
+        text-decoration: none;
         font-family: var(--dm-sans);
         color: white;
         width: 8.625rem;

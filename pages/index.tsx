@@ -1,8 +1,5 @@
 import Presentation from "@/components/Presentation/Presentation";
 import WhatsAppButton from "@/components/temp/WhatsAppButton";
-// import Skills from "@/components/Skills/Skills";
-// import ContactMe from "@/components/ContactMe/ContactMe";
-// import Faq from "@/components/Faq/Faq";
 import { indexMocks } from "@/mocks/Index";
 import Separator from "@/components/Separator";
 import { lazy, Suspense } from "react";
@@ -20,7 +17,7 @@ export default function Home() {
         <Separator titulo="Sobre" />
         <About />
         <Separator titulo="Projetos" />
-        <Project />
+        <Project projects={indexMocks.projects} />
         <Separator titulo="Habilidades" />
         <Skills {...indexMocks.skills} />
         {/* <Separator titulo="Contato" />

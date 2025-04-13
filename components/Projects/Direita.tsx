@@ -1,8 +1,11 @@
 import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 import estilo from "./ProjectDireita.module.scss";
 import { useState } from "react";
+import { Project } from "@/types";
 
-export default function Direita() {
+export default function Direita({
+  projects,
+}: Readonly<{ projects: Project[] }>) {
   const [active, setActive] = useState(0);
 
   const handleSlideChange = (swiper: SwiperClass) => {
@@ -20,31 +23,33 @@ export default function Direita() {
         onSlideChange={handleSlideChange}
         breakpoints={{
           768: {
-            slidesPerView: 2
+            slidesPerView: 2,
           },
           1023: {
-            slidesPerView: 1
+            slidesPerView: 1,
           },
           1200: {
-            slidesPerView: 2
+            slidesPerView: 2,
           },
         }}
       >
-        <SwiperSlide className={estilo.slides}>
-          <a
-            href="https://github.com/gabrielestefono/blog_laravel"
-            aria-label="Blog feito em laravel"
-            target="_blank"
-          >
-            <img className={estilo.imagem} src="/images/Blog.png" alt="Blog" />
-          </a>
-          <div className={active === 0 ? estilo.active : estilo.inactive}>
-            <h3>Blog Laravel</h3>
-            <a href="https://github.com/gabrielestefono/" target="_blank">
-              Ver mais
-            </a>
-          </div>
-        </SwiperSlide>
+        {projects.map((project) => (
+          <SwiperSlide className={estilo.slides} key={project.id}>
+            <div>
+              <img
+                className={estilo.imagem}
+                src={project.image}
+                alt={project.alt}
+              />
+            </div>
+            <div className={active === 0 ? estilo.active : estilo.inactive}>
+              <h3>{project.title}</h3>
+              <a href={project.link} target="_blank">
+                Ver mais
+              </a>
+            </div>
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );

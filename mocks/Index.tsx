@@ -58,4 +58,13 @@ export const indexMocks: Dashboard = {
       },
     ],
   },
+  projects: [
+    {
+      id: 1,
+      image: "/images/Blog.png",
+      alt: "Blog Laravel",
+      title: "Blog Laravel",
+      link: "https://github.com/gabrielestefono/blog_laravel",
+    },
+  ],
 };

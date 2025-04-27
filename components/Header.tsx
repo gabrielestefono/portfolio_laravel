@@ -1,6 +1,6 @@
 import estilo from "./Header.module.scss";
 import Link from "next/link"; // NOSONAR
-import imagem from "./logo.webp";
+import imagem from "./logo.svg";
 import Head from "next/head";
 import { useState } from "react";
 /*import SideBar from "./HeaderComponents/SideBar"; */ // NOSONAR
@@ -25,6 +25,7 @@ export default function header() {
     <>
       <Head>
         <meta charSet="UTF-8" />
+        <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Desenvolvedor Web e Mobile em Cascavel | Gabriel Estéfono</title>
         <meta

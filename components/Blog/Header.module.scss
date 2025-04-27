@@ -1,0 +1,24 @@
+.header{
+  background-color: var(--cor-primaria);
+  color: var(--white);
+  padding: 64px 0;
+
+  > div{
+    margin: 0 auto;
+    padding-inline: 16px;
+    text-align: center;
+
+    > h1{
+      font-size: 2.25rem;
+      font-weight: 700;
+      margin: 0 auto;
+      margin-bottom: 1rem;
+    }
+
+    > p{
+      font-size: 1.25rem;
+      max-width: 42rem;
+      margin: 0 auto;
+    }
+  }
+}

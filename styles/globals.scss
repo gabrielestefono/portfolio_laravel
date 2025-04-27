@@ -1,3 +1,11 @@
+:root{
+  --cor-primaria: #006732;
+  --cor-secundaria: #15295F;
+  --white: #FFFFFF;
+  --dm-sans: 'DM Sans', sans-serif;
+  --poppins: 'Poppins', sans-serif;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
@@ -55,4 +63,24 @@ body{
 
 .swiper-wrapper{
 	margin-left: 15px;
+}
+
+.text-blue-400{
+  color: #3B82F6;
+}
+
+.text-green-400{
+  color: #22C55E;
+}
+
+.text-yellow-400{
+  color: #FBBF24;
+}
+
+.text-purple-400{
+  color: #A855F7;
+}
+
+.text-pink-400{
+  color: #EC4899;
 }

@@ -69,14 +69,26 @@
             border-radius: initial;
             max-width: 25rem;
 
+            @include tabletNormal(){
+                box-shadow: 0px 10px 10px -5px rgba(0, 0, 0, 0.2);
+            }
+
             &:first-child{
                 border-radius: 31.25rem 0 0 31.25rem;
                 box-shadow: -10px 0 10px -5px rgba(0, 0, 0, 0.2);
+
+                @include tabletNormal(){
+                    box-shadow: -10px 10px 20px -5px rgba(0, 0, 0, 0.2);
+                }
             }
     
             &:last-child{
                 border-radius: 0 31.25rem 31.25rem 0;
                 box-shadow: 10px 0 10px -5px rgba(0, 0, 0, 0.2);
+
+                @include tabletNormal(){
+                    box-shadow: -10px 10px 20px -5px rgba(0, 0, 0, 0.2);
+                }
             }
         }
 

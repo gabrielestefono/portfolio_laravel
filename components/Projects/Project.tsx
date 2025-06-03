@@ -8,8 +8,10 @@ export default function Project({
 }: Readonly<{ projects: ProjectArray[] }>) {
   return (
     <section className={estilo.projects} id="projetos">
-      <Esquerda />
-      <Direita projects={projects} />
+      <div>
+        <Esquerda />
+        <Direita projects={projects} />
+      </div>
     </section>
   );
 }

@@ -49,6 +49,7 @@
     flex-direction: column;
     align-items: center;
     gap: .625rem;
+    max-width: 90rem;
 
     @include tabletNormal(){
         flex-direction: row;

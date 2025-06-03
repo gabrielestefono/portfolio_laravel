@@ -13,42 +13,27 @@ import {
   Link2,
   FileText,
 } from "lucide-react";
-
-interface LinkItem {
-  text: string;
-  url: string;
-  type: "external" | "internal" | "skill" | "resource" | "documentation";
-}
-
-export interface RoadmapNodeData {
-  label: string;
-  description: string;
-  completed?: boolean;
-  type?: "start" | "end" | "skill" | "resource";
-  links?: LinkItem[];
-}
+import { LinkItem, Node } from "@/pages/estude-comigo/[slugpage]";
 
 interface RoadmapSidebarProps {
   isOpen: boolean;
   onClose: () => void;
-  nodeData: RoadmapNodeData | null;
-  nodeId: string | null;
-  onToggleCompletion: (nodeId: string) => void;
+  node: Node | null;
+  onToggleCompletion: (nodeId: Node) => void;
 }
 
 export default function RoadmapSidebar({
   isOpen,
   onClose,
-  nodeData,
-  nodeId,
+  node,
   onToggleCompletion,
 }: Readonly<RoadmapSidebarProps>) {
-  if (!isOpen || !nodeData || !nodeId) {
+  if (!isOpen || !node) {
     return null;
   }
 
   const handleToggleCompletion = () => {
-    onToggleCompletion(nodeId);
+    onToggleCompletion(node);
   };
 
   return (
@@ -59,10 +44,10 @@ export default function RoadmapSidebar({
             <X className="h-5 w-5 cursor-pointer" />
           </button>
         </div>
-        <h2>{nodeData.label}</h2>
+        <h2>{node.label}</h2>
 
-        <button onClick={handleToggleCompletion}>
-          {nodeData.completed ? (
+        {/* <button onClick={handleToggleCompletion}>
+          {node.completed ? (
             <>
               <CheckCircle className="h-5 w-5 text-emerald-400" />
               <span>Marcar como não concluído</span>
@@ -73,24 +58,24 @@ export default function RoadmapSidebar({
               <span>Marcar como concluído</span>
             </>
           )}
-        </button>
+        </button> */}
 
-        <p>{nodeData.description}</p>
+        <p>{node.description}</p>
 
-        {nodeData.links && nodeData.links.length > 0 && (
+        {node.links && node.links.length > 0 && (
           <div>
             <h3>Links</h3>
             <ul>
-              {nodeData.links.map((link, index) => (
-                <li key={index}>
+              {node.links.map((link) => (
+                <li key={link.id}>
                   <Link
                     href={link.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`${getLinkTypeColor(link.type)}`}
+                    style={{ color: link.link_type.color }}
                   >
-                    {getLinkTypeIcon(link.type)}
-                    <span>{link.text}</span>
+                    {link.link_type.icon ?? "Colocar um ícone aqui"}
+                    <span>{link.label}</span>
                   </Link>
                 </li>
               ))}
@@ -143,23 +128,5 @@ function getLinkTypeIcon(type: string) {
       return <FileText className="text-pink-400" />;
     default:
       return <ExternalLink className="text-blue-400" />;
-  }
-}
-
-// Função auxiliar para obter a cor do tipo de link
-function getLinkTypeColor(type: string): string {
-  switch (type) {
-    case "external":
-      return "text-blue-400";
-    case "internal":
-      return "text-green-400";
-    case "skill":
-      return "text-yellow-400";
-    case "resource":
-      return "text-purple-400";
-    case "documentation":
-      return "text-pink-400";
-    default:
-      return "text-blue-400";
   }
 }

@@ -1,0 +1,206 @@
+.frontend {
+  min-height: 100vh;
+  width: 100%;
+
+  > div:first-of-type {
+    background-color: #e6f0eb;
+    border-bottom: 1px solid#e5e7eb;
+
+    > div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 2rem 2rem;
+
+      > div {
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        justify-content: space-between;
+        gap: 2rem;
+
+        > div:first-child {
+          > nav {
+            display: flex;
+            align-items: center;
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-bottom: 1rem;
+
+            > a {
+              color: var(--cor-primaria);
+              font-weight: 500;
+              text-decoration: none;
+
+              &:hover {
+                text-decoration: underline;
+              }
+            }
+
+            > span.separator {
+              margin-inline: 1rem;
+            }
+          }
+
+          > h1 {
+            font-size: 2.25rem;
+            font-weight: bold;
+            color: var(--cor-secundaria);
+            font-family: "Poppins", sans-serif;
+          }
+
+          > p {
+            color: #6b7280;
+            margin-top: 1rem;
+          }
+        }
+
+        > div:last-child {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+
+          > button {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background-color: white;
+            color: #374151;
+            padding: 0.5rem 1rem;
+            border-radius: 12px;
+            border: 1px solid #d1d5db;
+            transition: all 0.2s ease-in-out;
+            cursor: pointer;
+
+            &:hover {
+              background-color: #ccc;
+              transition: all 0.2s ease-in-out;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  > div:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 3rem;
+    margin: 0 auto;
+    max-width: 80%;
+
+    > div:first-child {
+      width: 100%;
+      background-color: white;
+      border-radius: 0.5rem;
+      box-shadow: 0px 1px 23px 1px rgba(0, 0, 0, 0.1);
+      -webkit-box-shadow: 0px 1px 23px 1px rgba(0, 0, 0, 0.1);
+      -moz-box-shadow: 0px 1px 23px 1px rgba(0, 0, 0, 0.1);
+      padding: 1rem;
+      margin-bottom: 2rem;
+      box-sizing: border-box;
+
+      > h2 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--cor-secundaria);
+        margin-bottom: 1rem;
+        font-family: var(--poppins);
+      }
+
+      > p {
+        color: #4b5563;
+        margin-bottom: 1.5rem;
+      }
+
+      > div {
+        background-color: rgb(17, 24, 39);
+        border-radius: 0.5rem;
+        border: 1px solid rgb(209, 213, 219);
+        overflow: auto;
+
+        > div {
+          min-width: 800px;
+          min-height: 500px;
+        }
+      }
+    }
+  }
+}
+
+.gElement {
+  cursor: pointer;
+  transition: opacity 0.2s ease-in-out;
+  opacity: 1;
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  > text {
+    pointer-events: none;
+    user-select: none;
+  }
+}
+
+.instructions {
+  background-color: var(--white);
+  border-radius: 8px;
+  box-shadow: 0px 1px 23px 1px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px 1px 23px 1px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 1px 23px 1px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  width: 100%;
+  box-sizing: border-box;
+
+  > h2 {
+    color: var(--cor-secundaria);
+    font-size: 1.5rem;
+    font-family: var(--poppins);
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  > div {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+
+    > div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+
+      > div {
+        width: 3rem;
+        height: 3rem;
+        background-color: rgb(230, 240, 235);
+        border-radius: 3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 0.75rem;
+
+        > span {
+          color: var(--cor-primaria);
+          font-weight: 700;
+        }
+      }
+
+      > h3 {
+        font-size: 1.125rem;
+        font-weight: 700;
+        color: var(--cor-secundaria);
+        margin-bottom: 0.5rem;
+        font-family: var(--poppins);
+      }
+
+      > p {
+        color: rgb(75, 85, 99);
+      }
+    }
+  }
+}

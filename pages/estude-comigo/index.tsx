@@ -1,21 +1,25 @@
-"use client"
+"use client";
 
-import styles from './EstudeComigo.module.scss';
+import styles from "./EstudeComigo.module.scss";
 
-import { useState } from "react"
-import Link from "next/link"
-import Image from "next/image"
-import Header from "@/components/Blog/Header"
-import GradeTopicos from '@/components/Blog/GradeTopicos';
+import Header from "@/components/Blog/Header";
+import GradeTopicos from "@/components/Blog/GradeTopicos";
+import useController from "@/hooks/useController";
 // import { motion } from "framer-motion"
 
 export default function EstudeComigo() {
   // Dados de exemplo para os tópicos principais
-  
+
+  const { data, loading } = useController();
+
+  if (loading) {
+    return <div>Carregando...</div>;
+  }
+
   return (
     <div className={styles.estudeComigo}>
       {/* Header */}
-      <Header/>
+      <Header />
 
       {/* Conteúdo Principal */}
       <div>
@@ -23,7 +27,7 @@ export default function EstudeComigo() {
           <h2>Escolha um tópico para explorar</h2>
 
           {/* Grade de Tópicos */}
-          <GradeTopicos/>
+          <GradeTopicos topicos={data} />
 
           {/* Seção de Introdução */}
           {/* <div className="mt-16 bg-[#006732]/[0.1] p-8 rounded-lg">
@@ -93,5 +97,5 @@ export default function EstudeComigo() {
         </div>
       </div>
     </div>
-  )
+  );
 }

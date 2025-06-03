@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root{
   --cor-primaria: #006732;
   --cor-secundaria: #15295F;
@@ -82,4 +86,10 @@ body{
 
 .text-pink-400{
   color: #EC4899;
+}
+
+@keyframes dashmove {
+  to {
+    stroke-dashoffset: -15;
+  }
 }

@@ -399,29 +399,18 @@ function PostCard({
             </button>
           ))}
         </div>
-
-        <Link href={`/blog/${post.slug}`} className="flex-grow">
-          <h3 className="text-lg font-bold text-secondary mb-2 hover:text-primary transition-colors font-poppins">
-            {post.title}
-          </h3>
+        <Link href={`/blog/${post.slug}`}>
+          <h3>{post.title}</h3>
         </Link>
-
-        <p className="text-gray-600 mb-4 line-clamp-2">{post.excerpt}</p>
-
-        <div className="flex items-center justify-between mt-auto pt-4 border-t border-gray-100">
-          <div className="flex items-center gap-2">
-            <div className="relative w-6 h-6 rounded-full overflow-hidden">
-              <Image
-                src="/images/profile.png"
-                alt="Gabriel Estéfono"
-                fill
-                className="object-cover"
-              />
+        <p>{post.excerpt}</p>
+        <div>
+          <div>
+            <div>
+              <Image src="/images/profile.png" alt="Gabriel Estéfono" fill />
             </div>
-            <span className="text-xs text-gray-700">Gabriel Estéfono</span>
+            <span>Gabriel Estéfono</span>
           </div>
-
-          <div className="text-xs text-gray-500">{post.date.split(",")[0]}</div>
+          <div>{post.date.split(",")[0]}</div>
         </div>
       </div>
     </div>

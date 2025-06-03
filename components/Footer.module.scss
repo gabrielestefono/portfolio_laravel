@@ -1,5 +1,47 @@
 @import "../styles/variables.module";
 
+@mixin mobile {
+  @media (min-width: 360px) {
+    @content;
+  }
+}
+
+@mixin tabletNormal {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin tabletPaisagem {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin LaptopPadrao {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin LaptopHD {
+  @media (min-width: 1440px) {
+    @content;
+  }
+}
+
+@mixin DesktopPadrao {
+  @media (min-width: 1920px) {
+    @content;
+  }
+}
+
+@mixin DesktopHd {
+  @media (min-width: 2560px) {
+    @content;
+  }
+}
+
 .footer {
   background-color: var(--cor-secundaria);
   color: var(--white);
@@ -13,8 +55,10 @@
     display: flex;
     justify-content: center;
     max-width: calc(90rem - 7.5rem);
+    width: 100%;
 
     > div {
+      width: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -22,8 +66,17 @@
       max-width: calc(100% - 7.5rem);
 
       > div:nth-child(1) {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        display: flex;
+        flex-direction: column;
+
+        @include tabletNormal() {
+          // display: grid;
+          // grid-template-columns: repeat(4, 1fr);
+          flex-direction: row;
+          justify-content: space-between;
+          width: 100%;
+        }
+
         gap: 2rem;
 
         > div:nth-child(1) {

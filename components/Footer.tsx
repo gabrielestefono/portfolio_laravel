@@ -15,14 +15,14 @@ export default function Home() {
                 height={61}
                 alt="Logotipo"
               />
-              <p>
+              {/* <p>
                 Explore tópicos interativos e navegue por fluxogramas de
                 conhecimento para descobrir conteúdos relacionados.
-              </p>
+              </p> */}
             </div>
 
             <div>
-              <h4>Tópicos</h4>
+              {/* <h4>Tópicos</h4>
               <ul>
                 <li>
                   <Link
@@ -56,7 +56,7 @@ export default function Home() {
                     SEO
                   </Link>
                 </li>
-              </ul>
+              </ul> */}
             </div>
 
             <div>
@@ -97,19 +97,19 @@ export default function Home() {
               </ul>
             </div>
 
-            <div>
+            {/* <div>
               <h4>Newsletter</h4>
               <p>Receba atualizações sobre novos conteúdos.</p>
               <form>
                 <input type="email" placeholder="Seu email" required />
                 <button type="submit">Inscrever-se</button>
               </form>
-            </div>
+            </div> */}
           </div>
 
           <div className="pt-8 text-center text-gray-300">
             <p>
-              &copy; {new Date().getFullYear()} BlogConhecimento. Todos os
+              &copy; {new Date().getFullYear()} Gabriel Estéfono. Todos os
               direitos reservados.
             </p>
           </div>

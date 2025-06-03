@@ -45,13 +45,15 @@
   width: 100%;
   justify-content: center;
   max-width: calc(90rem - 7.5rem);
-
+  
   > div {
     display: flex;
     width: 100%;
     max-width: calc(100% - 7.5rem);
     justify-content: space-between;
-
+    flex-direction: column;
+    gap: 2rem;
+    
     @include tabletPaisagem() {
       flex-direction: row;
       align-items: inherit;

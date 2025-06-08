@@ -1,16 +1,32 @@
+@mixin desktop {
+  @media (min-width: 1440px) {
+    @content;
+  }
+}
+
 .frontend {
   min-height: 100vh;
   width: 100%;
+  margin-top: 10px;
 
   > div:first-of-type {
     background-color: #e6f0eb;
     border-bottom: 1px solid#e5e7eb;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     > div {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 2rem 2rem;
+      padding: 2rem 0rem;
+      max-width: 90rem;
+      width: 100%;
+
+      @include desktop {
+        padding: 2rem 2rem;
+      }
 
       > div {
         display: flex;
@@ -18,8 +34,21 @@
         font-size: 14px;
         justify-content: space-between;
         gap: 2rem;
+        flex-direction: column;
+
+        @include desktop {
+          flex-direction: row;
+        }
 
         > div:first-child {
+          padding-inline: 1rem;
+          width: 100%;
+          box-sizing: border-box;
+
+          @include desktop {
+            padding-inline: initial;
+          }
+
           > nav {
             display: flex;
             align-items: center;
@@ -31,9 +60,22 @@
               color: var(--cor-primaria);
               font-weight: 500;
               text-decoration: none;
+              font-size: 0.75rem;
+
+              @include desktop {
+                flex-direction: 1rem;
+              }
 
               &:hover {
                 text-decoration: underline;
+              }
+            }
+
+            > span {
+              font-size: 0.75rem;
+
+              @include desktop {
+                font-size: 1rem;
               }
             }
 
@@ -43,22 +85,39 @@
           }
 
           > h1 {
-            font-size: 2.25rem;
+            font-size: 1.75rem;
             font-weight: bold;
             color: var(--cor-secundaria);
             font-family: "Poppins", sans-serif;
+
+            @include desktop {
+              font-size: 2.25rem;
+            }
           }
 
           > p {
             color: #6b7280;
             margin-top: 1rem;
+            font-size: 0.75rem;
+
+            @include desktop {
+              font-size: 1rem;
+            }
           }
         }
 
         > div:last-child {
           display: flex;
-          align-items: center;
+          justify-content: flex-start;
+          width: 100%;
           gap: 1rem;
+          padding-inline: 1rem;
+          box-sizing: border-box;
+
+          @include desktop {
+            justify-content: flex-end;
+            padding-inline: initial;
+          }
 
           > button {
             display: flex;
@@ -86,9 +145,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 2rem 3rem;
+    padding: 2rem 1rem;
     margin: 0 auto;
-    max-width: 80%;
+    max-width: 90rem;
+
+    @include desktop {
+      padding: 2rem 3rem;
+    }
 
     > div:first-child {
       width: 100%;
@@ -157,16 +220,24 @@
 
   > h2 {
     color: var(--cor-secundaria);
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-family: var(--poppins);
     font-weight: 700;
     margin-bottom: 1rem;
+
+    @include desktop {
+      font-size: 1.5rem;
+    }
   }
 
   > div {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     gap: 1.5rem;
+
+    @include desktop {
+      grid-template-columns: repeat(3, 1fr);
+    }
 
     > div {
       display: flex;

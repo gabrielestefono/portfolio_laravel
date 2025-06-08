@@ -5,10 +5,19 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import styles from "./Layout.module.scss";
 
-export default function Home({ children }: Readonly<PropsWithChildren>) {
+interface LayoutBaseProps {
+  blog?: boolean;
+  estudeComigo?: boolean;
+}
+
+export default function Home({
+  children,
+  blog = false,
+  estudeComigo = false,
+}: Readonly<PropsWithChildren<LayoutBaseProps>>) {
   return (
     <div className={styles.container}>
-      <Header></Header>
+      <Header blog={blog} estudeComigo={estudeComigo}></Header>
       <main>{children}</main>
       <Analytics />
       <SpeedInsights />

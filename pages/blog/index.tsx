@@ -7,6 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "./Blog.module.scss";
 import { useRouter } from "next/router";
+import LayoutBase from "@/components/layouts/LayoutBase";
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   let notFound = false;
@@ -87,122 +88,132 @@ export default function BlogPage({ data }: Readonly<{ data: BlogPost }>) {
   };
 
   return (
-    <div className={styles.blog}>
-      {/* Header do Blog */}
-      <div>
+    <LayoutBase blog={true}>
+      <div className={styles.blog}>
+        {/* Header do Blog */}
         <div>
           <div>
-            <h1>Blog de Estudos e Aprendizado</h1>
-            <p>
-              Acompanhe minha jornada de descobertas, explore novos
-              conhecimentos e aprenda junto comigo!
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div>
-        {activeTags.length > 0 && (
-          <div className={styles.activeTag}>
             <div>
-              <div>
-                <span>Filtrando por tag:</span>
-                {activeTags.map((tag, index) => (
-                  <button
-                    onClick={() =>
-                      toggleTag(allTags.find((el) => el.label === tag).id)
-                    }
-                    key={`${index}${tag}`}
-                  >
-                    {tag}
-                  </button>
-                ))}
-              </div>
-              <button onClick={clearTagFilter} aria-label="Limpar filtro">
-                <X size={16} />
-                <span>Limpar filtro</span>
-              </button>
+              <h1>Blog de Estudos e Aprendizado</h1>
+              <p>
+                Acompanhe minha jornada de descobertas, explore novos
+                conhecimentos e aprenda junto comigo!
+              </p>
             </div>
           </div>
-        )}
+        </div>
 
-        <div className={styles.gridContainer}>
+        <div>
           <div>
-            {activeTags.length === 0 && featuredPosts.length > 0 && (
-              <section className={styles.destaques}>
-                <h2>Posts em Destaque</h2>
+            {activeTags.length > 0 && (
+              <div className={styles.activeTag}>
                 <div>
-                  {featuredPosts.map((post) => (
-                    <FeaturedPostCard
-                      key={post.id}
-                      post={post}
-                      onTagClick={toggleTag}
-                    />
-                  ))}
+                  <div>
+                    <span>Filtrando por tag:</span>
+                    {activeTags.map((tag, index) => (
+                      <button
+                        onClick={() =>
+                          toggleTag(allTags.find((el) => el.label === tag).id)
+                        }
+                        key={`${index}${tag}`}
+                      >
+                        {tag}
+                      </button>
+                    ))}
+                  </div>
+                  <button onClick={clearTagFilter} aria-label="Limpar filtro">
+                    <X size={16} />
+                    <span>Limpar filtro</span>
+                  </button>
                 </div>
-              </section>
+              </div>
             )}
 
-            <section className={styles.latestPostsMenu}>
-              <h2>
-                {activeTags ? `Posts sobre ${activeTags}` : "Últimos Posts"}
-              </h2>
-
-              {latestPosts.length === 0 ? (
-                <div className={styles.emptyPosts}>
-                  <p>Nenhum post encontrado para a tag "{activeTags}".</p>
-                  <button onClick={clearTagFilter}>Ver todos os posts</button>
-                </div>
-              ) : (
-                <div className={styles.latestPosts}>
-                  {data.latestPosts.map((post) => (
-                    <PostCard
-                      key={post.id}
-                      post={post}
-                      onTagClick={toggleTag}
-                    />
-                  ))}
-                </div>
-              )}
-            </section>
-          </div>
-
-          <div className={styles.sidebar}>
-            <div className={styles.categories}>
-              <h3>Categorias</h3>
+            <div className={styles.gridContainer}>
               <div>
-                {allTags.map((tag) => (
-                  <button
-                    key={tag.id}
-                    className={isTagActive(tag.label) ? styles.active : ""}
-                    onClick={() => toggleTag(tag.id)}
-                  >
-                    {tag.label}
-                  </button>
-                ))}
+                {activeTags.length === 0 && featuredPosts.length > 0 && (
+                  <section className={styles.destaques}>
+                    <h2>Posts em Destaque</h2>
+                    <div>
+                      {featuredPosts.map((post) => (
+                        <FeaturedPostCard
+                          key={post.id}
+                          post={post}
+                          onTagClick={toggleTag}
+                        />
+                      ))}
+                    </div>
+                  </section>
+                )}
+
+                <section className={styles.latestPostsMenu}>
+                  <h2>
+                    {activeTags ? `Posts sobre ${activeTags}` : "Últimos Posts"}
+                  </h2>
+
+                  {latestPosts.length === 0 ? (
+                    <div className={styles.emptyPosts}>
+                      <p>Nenhum post encontrado para a tag "{activeTags}".</p>
+                      <button onClick={clearTagFilter}>
+                        Ver todos os posts
+                      </button>
+                    </div>
+                  ) : (
+                    <div className={styles.latestPosts}>
+                      {data.latestPosts.map((post) => (
+                        <PostCard
+                          key={post.id}
+                          post={post}
+                          onTagClick={toggleTag}
+                        />
+                      ))}
+                    </div>
+                  )}
+                </section>
               </div>
-            </div>
 
-            <div className={styles.popular}>
-              <h3>Posts Populares</h3>
-              <div>
-                {data.latestPosts.slice(0, 4).map((post) => (
-                  <Link key={post.id} href={`/blog/${post.slug}`}>
-                    <div>
-                      <Image src={post.thumbnail_post} alt={post.title} fill />
-                    </div>
-                    <div>
-                      <h4>{post.title}</h4>
-                      <p>{post.date}</p>
-                    </div>
-                  </Link>
-                ))}
+              <div className={styles.sidebar}>
+                <div className={styles.categories}>
+                  <h3>Categorias</h3>
+                  <div>
+                    {allTags.map((tag) => (
+                      <button
+                        key={tag.id}
+                        className={isTagActive(tag.label) ? styles.active : ""}
+                        onClick={() => toggleTag(tag.id)}
+                      >
+                        {tag.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                <div className={styles.popular}>
+                  <h3>Posts Populares</h3>
+                  <div>
+                    {data.latestPosts.slice(0, 4).map((post) => (
+                      <Link key={post.id} href={`/blog/${post.slug}`}>
+                        <div>
+                          <Image
+                            src={post.thumbnail_post}
+                            alt={post.title}
+                            fill
+                          />
+                        </div>
+                        <div>
+                          <h4>{post.title}</h4>
+                          <p>{post.date}</p>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </LayoutBase>
   );
 }
 

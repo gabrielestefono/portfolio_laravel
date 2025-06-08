@@ -73,15 +73,21 @@ export default function RoadmapSidebar({
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{ color: link.link_type.color }}
+                    title={`Link do tipo ${link.link_type.label}`}
                   >
-                    {link.link_type.icon ?? "Colocar um ícone aqui"}
+                    <div
+                      className={style.icon}
+                      dangerouslySetInnerHTML={{
+                        __html: link.link_type.svg_icon,
+                      }}
+                    ></div>
                     <span>{link.label}</span>
                   </Link>
                 </li>
               ))}
             </ul>
 
-            <div>
+            {/* <div>
               <h4>Legenda:</h4>
               <div>
                 <div>
@@ -105,7 +111,7 @@ export default function RoadmapSidebar({
                   <span>Documentação</span>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         )}
       </div>

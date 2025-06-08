@@ -6,8 +6,17 @@ import { useState } from "react";
 /*import SideBar from "./HeaderComponents/SideBar"; */ // NOSONAR
 import { useRouter } from "next/router";
 import Image from "next/image";
+import SideBar from "./HeaderComponents/SideBar";
 
-export default function header() {
+interface HeaderProps {
+  blog?: boolean;
+  estudeComigo?: boolean;
+}
+
+export default function header({
+  blog = false,
+  estudeComigo = false,
+}: Readonly<HeaderProps>) {
   const rotaAtual = useRouter();
 
   const [clicked, setClicked] = useState(false);
@@ -19,7 +28,9 @@ export default function header() {
     setRota(rotaAtual.pathname);
   }
 
-  /*const handleSideBar = () => {setClicked(!clicked)}; */ // NOSONAR
+  const handleSideBar = () => {
+    setClicked(!clicked);
+  };
 
   return (
     <>
@@ -148,22 +159,18 @@ export default function header() {
               Habilidades
             </Link>
             <Link
-              className={`${estilo.link} ${
-                rotaAtual.pathname == "/blog" ? estilo.active : ""
-              }`}
+              className={`${estilo.link} ${blog ? estilo.active : ""}`}
               href="/blog"
             >
               Blog
             </Link>
-            <Link
-              className={`${estilo.link} ${
-                rotaAtual.pathname == "/estude-comigo" ? estilo.active : ""
-              }`}
+            {/* <Link
+              className={`${estilo.link} ${estudeComigo ? estilo.active : ""}`}
               href="/estude-comigo"
             >
               Estude Comigo
-            </Link>
-            {/* 
+            </Link> 
+             
             <Link
               rel="preload"
               className={`${estilo.link} ${
@@ -172,7 +179,7 @@ export default function header() {
               href="/contato"
             >
               Contato
-            </Link>
+            </Link>*/}
             <div onClick={handleSideBar}>
               {clicked ? (
                 <svg
@@ -205,11 +212,19 @@ export default function header() {
                   />
                 </svg>
               )}
-            </div> */}
+            </div>
           </div>
         </div>
       </div>
-      {/* {clicked ? <SideBar rotaAtual={rotaAtual.pathname} /> : <></>} // NOSONAR */}
+      {clicked ? (
+        <SideBar
+          rotaAtual={rotaAtual.pathname}
+          blog={blog}
+          estudeComigo={estudeComigo}
+        />
+      ) : (
+        <></>
+      )}
     </>
   );
 }

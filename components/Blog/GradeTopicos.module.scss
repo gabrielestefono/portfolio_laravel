@@ -1,7 +1,17 @@
+@mixin desktop {
+  @media (min-width: 1440px) {
+    @content;
+  }
+}
+
 .motion {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   gap: 1.5rem;
+
+  @include desktop(){
+    grid-template-columns: repeat(3, 1fr);
+  }
 
   > a {
     text-decoration: none;

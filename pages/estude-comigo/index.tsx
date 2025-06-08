@@ -5,6 +5,7 @@ import styles from "./EstudeComigo.module.scss";
 import Header from "@/components/Blog/Header";
 import GradeTopicos from "@/components/Blog/GradeTopicos";
 import useController from "@/hooks/useController";
+import LayoutBase from "@/components/layouts/LayoutBase";
 // import { motion } from "framer-motion"
 
 export default function EstudeComigo() {
@@ -17,20 +18,21 @@ export default function EstudeComigo() {
   }
 
   return (
-    <div className={styles.estudeComigo}>
-      {/* Header */}
-      <Header />
+    <LayoutBase estudeComigo={true}>
+      <div className={styles.estudeComigo}>
+        {/* Header */}
+        <Header />
 
-      {/* Conteúdo Principal */}
-      <div>
+        {/* Conteúdo Principal */}
         <div>
-          <h2>Escolha um tópico para explorar</h2>
+          <div>
+            <h2>Escolha um tópico para explorar</h2>
 
-          {/* Grade de Tópicos */}
-          <GradeTopicos topicos={data} />
+            {/* Grade de Tópicos */}
+            <GradeTopicos topicos={data} />
 
-          {/* Seção de Introdução */}
-          {/* <div className="mt-16 bg-[#006732]/[0.1] p-8 rounded-lg">
+            {/* Seção de Introdução */}
+            {/* <div className="mt-16 bg-[#006732]/[0.1] p-8 rounded-lg">
             <h2 className="text-2xl font-bold mb-4 text-[#006732]">Como Navegar</h2>
             <div className="flex flex-col md:flex-row gap-8 items-center">
               <div className="md:w-1/2">
@@ -59,8 +61,8 @@ export default function EstudeComigo() {
             </div>
           </div> */}
 
-          {/* Tópicos Recentes */}
-          {/* <div className="mt-16">
+            {/* Tópicos Recentes */}
+            {/* <div className="mt-16">
             <h2 className="text-2xl font-bold mb-8 text-[#006732] text-center">Adições Recentes</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[1, 2, 3].map((item) => (
@@ -94,8 +96,9 @@ export default function EstudeComigo() {
               ))}
             </div>
           </div> */}
+          </div>
         </div>
       </div>
-    </div>
+    </LayoutBase>
   );
 }

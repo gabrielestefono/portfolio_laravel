@@ -1,24 +1,42 @@
-.header{
+@mixin desktop {
+  @media (min-width: 1440px) {
+    @content;
+  }
+}
+
+.header {
   background-color: var(--cor-primaria);
   color: var(--white);
-  padding: 64px 0;
+  padding: 2rem 0;
 
-  > div{
+  @include desktop {
+    padding: 4rem 0;
+  }
+
+  > div {
     margin: 0 auto;
     padding-inline: 16px;
     text-align: center;
 
-    > h1{
-      font-size: 2.25rem;
+    > h1 {
+      font-size: 1.5rem;
       font-weight: 700;
       margin: 0 auto;
       margin-bottom: 1rem;
+
+      @include desktop {
+        font-size: 2.25rem;
+      }
     }
 
-    > p{
-      font-size: 1.25rem;
+    > p {
+      font-size: 1rem;
       max-width: 42rem;
       margin: 0 auto;
+
+      @include desktop {
+        font-size: 1.25rem;
+      }
     }
   }
 }

@@ -1,5 +1,3 @@
-@import "../../styles/variables.module";
-
 @mixin mobile {
   @media (min-width: 360px) {
     @content;
@@ -72,14 +70,14 @@
       }
 
       h1 {
-        color: $cor-primaria;
+        color: var(--cor-primaria);
         font-size: 1.375rem;
         line-height: 1.75rem;
         font-weight: 700;
       }
 
       h2 {
-        color: $cor-secundaria;
+        color: var(--cor-secundaria);
         font-size: 1.25rem;
         font-weight: 600;
         line-height: 1.5rem;
@@ -89,7 +87,7 @@
       p {
         font-size: 0.875rem;
         font-weight: 500;
-        color: $cor-secundaria;
+        color: var(--cor-secundaria);
         line-height: 1.5rem;
         text-align: justify;
         max-width: 36.875rem;
@@ -111,7 +109,7 @@
         align-self: center;
         width: 9.375rem;
         height: 3.0625rem;
-        background-color: $cor-primaria;
+        background-color: var(--cor-primaria);
         color: white;
         border: none;
         border-radius: 0.25rem;
@@ -178,20 +176,20 @@
       }
 
       .ball1 {
-        background-color: $cor-primaria;
+        background-color: var(--cor-primaria);
         z-index: 3;
         transform: translate(15%, 7%);
       }
 
       .ball2 {
-        background-color: $cor-primaria;
+        background-color: var(--cor-primaria);
         opacity: 0.4;
         transform: translate(37.1%, -6.2%);
         z-index: 2;
       }
 
       .ball3 {
-        background-color: $cor-primaria;
+        background-color: var(--cor-primaria);
         opacity: 0.22;
         transform: translate(60.75%, -8.34%);
         z-index: 1;

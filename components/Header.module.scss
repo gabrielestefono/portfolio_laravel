@@ -1,113 +1,110 @@
-@import '../styles/variables.module';
-
 @mixin tabletPaisagem {
-    @media (min-width: 1024px) {
-        @content;
-    }
+  @media (min-width: 1024px) {
+    @content;
+  }
 }
 
 @mixin LaptopHD {
-    @media (min-width: 1440px) {
-        @content;
-    }
+  @media (min-width: 1440px) {
+    @content;
+  }
 }
 
-.header{
+.header {
+  width: 100%;
+  height: 3.8125rem;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  align-items: center;
+
+  @include LaptopHD {
+    justify-content: center;
+  }
+
+  div {
     width: 100%;
-    height: 3.8125rem;
     display: flex;
     justify-content: space-between;
-    position: relative;
-    align-items: center;
 
-    @include LaptopHD{
-        justify-content: center;
-    }
+    .left {
+      height: 3.8125rem;
+      min-width: 8.25rem;
+      max-width: 8.25rem;
+      padding-left: 1rem;
 
-    div{
+      a {
         width: 100%;
-        display: flex;
-        justify-content: space-between;
+        height: 100%;
 
-        .left{
-            height: 3.8125rem;
-            min-width: 8.25rem;
-            max-width: 8.25rem;
-            padding-left: 1rem;
-
-            a{
-                width: 100%;
-                height: 100%;
-
-                img{
-                    width: 100%;
-                    height: 100%;
-                }
-            }
+        img {
+          width: 100%;
+          height: 100%;
         }
-
-        .right{
-            display: flex;
-            justify-content: flex-end;
-            font-size: 1.25rem;
-            gap: 3.125rem;
-
-            @include tabletPaisagem{
-                margin-right: 1rem;
-            }
-
-            .link{
-                display: none;
-
-                @include tabletPaisagem {
-                    display: inherit;
-                    color: black;
-                    text-decoration: none;
-                    padding-top: 1.5625rem;
-                    padding-bottom: 0.375rem;
-                }
-
-                &:hover{
-                    box-sizing: border-box;
-                    padding-bottom: 0.25rem;
-                    border-bottom: 2px solid $cor-primaria;
-                    opacity: 0.8;
-                    color: $cor-primaria;
-                }
-            }
-
-            .active {
-                color: $cor-primaria;
-                padding-bottom: 0.25rem;
-                border-bottom: 2px solid $cor-primaria;
-            }
-
-
-            div{
-                width: 2.25rem;
-                height: 2.25rem;
-                padding-top: 1rem;
-                padding-bottom: 0.5625rem;
-                padding-inline: 1rem;
-                cursor: pointer;
-
-                @include tabletPaisagem() {
-                    display: none;
-                }
-
-                svg{
-                    width: 2.25rem;
-                    height: 2.25rem;
-                }
-            }
-        }
+      }
     }
+
+    .right {
+      display: flex;
+      justify-content: flex-end;
+      font-size: 1.25rem;
+      gap: 3.125rem;
+
+      @include tabletPaisagem {
+        margin-right: 1rem;
+      }
+
+      .link {
+        display: none;
+
+        @include tabletPaisagem {
+          display: inherit;
+          color: black;
+          text-decoration: none;
+          padding-top: 1.5625rem;
+          padding-bottom: 0.375rem;
+        }
+
+        &:hover {
+          box-sizing: border-box;
+          padding-bottom: 0.25rem;
+          border-bottom: 2px solid var(--cor-primaria);
+          opacity: 0.8;
+          color: var(--cor-primaria);
+        }
+      }
+
+      .active {
+        color: var(--cor-primaria);
+        padding-bottom: 0.25rem;
+        border-bottom: 2px solid var(--cor-primaria);
+      }
+
+      div {
+        width: 2.25rem;
+        height: 2.25rem;
+        padding-top: 1rem;
+        padding-bottom: 0.5625rem;
+        padding-inline: 1rem;
+        cursor: pointer;
+
+        @include tabletPaisagem() {
+          display: none;
+        }
+
+        svg {
+          width: 2.25rem;
+          height: 2.25rem;
+        }
+      }
+    }
+  }
 }
 
-.fixed{
-    position: fixed;
-    background-color: white;
-    z-index: 5;
-    top: 0;
-    left: 0;
+.fixed {
+  position: fixed;
+  background-color: white;
+  z-index: 5;
+  top: 0;
+  left: 0;
 }

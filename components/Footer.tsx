@@ -27,7 +27,6 @@ export default function Home() {
                 <li>
                   <Link
                     href="/estude-comigo/frontend"
-                    className="text-gray-300 hover:text-white transition-colors"
                   >
                     Frontend
                   </Link>
@@ -35,7 +34,6 @@ export default function Home() {
                 <li>
                   <Link
                     href="/estude-comigo/backend"
-                    className="text-gray-300 hover:text-white transition-colors"
                   >
                     Backend
                   </Link>
@@ -43,7 +41,6 @@ export default function Home() {
                 <li>
                   <Link
                     href="/estude-comigo/mobile"
-                    className="text-gray-300 hover:text-white transition-colors"
                   >
                     Mobile
                   </Link>
@@ -51,7 +48,6 @@ export default function Home() {
                 <li>
                   <Link
                     href="/estude-comigo/seo"
-                    className="text-gray-300 hover:text-white transition-colors"
                   >
                     SEO
                   </Link>
@@ -61,38 +57,20 @@ export default function Home() {
 
             <div>
               <h4>Links</h4>
-              <ul className="space-y-2">
+              <ul>
                 <li>
-                  <Link
-                    href="/sobre"
-                    className="text-gray-300 hover:text-white transition-colors"
-                  >
-                    Sobre
-                  </Link>
+                  <Link href="/sobre">Sobre</Link>
                 </li>
                 <li>
-                  <Link
-                    href="/contato"
-                    className="text-gray-300 hover:text-white transition-colors"
-                  >
-                    Contato
-                  </Link>
+                  <Link href="/contato">Contato</Link>
                 </li>
                 <li>
-                  <Link
-                    href="/politica-de-privacidade"
-                    className="text-gray-300 hover:text-white transition-colors"
-                  >
+                  <Link href="/politica-de-privacidade">
                     Política de Privacidade
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    href="/termos-de-uso"
-                    className="text-gray-300 hover:text-white transition-colors"
-                  >
-                    Termos de Uso
-                  </Link>
+                  <Link href="/termos-de-uso">Termos de Uso</Link>
                 </li>
               </ul>
             </div>
@@ -107,7 +85,7 @@ export default function Home() {
             </div> */}
           </div>
 
-          <div className="pt-8 text-center text-gray-300">
+          <div>
             <p>
               &copy; {new Date().getFullYear()} Gabriel Estéfono. Todos os
               direitos reservados.

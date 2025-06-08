@@ -2,26 +2,30 @@ import Link from "next/link";
 import { useState } from "react";
 import { motion } from "motion/react";
 import styles from "./GradeTopicos.module.scss";
-import { Topico } from "@/types/EstudeComigo";
+import { Category } from "@/interfaces/Estude-comigo";
 
 export default function GradeTopicos({
   topicos,
-}: Readonly<{ topicos: Topico[] }>) {
+}: Readonly<{ topicos: Category[] }>) {
   const [hoveredTopic, setHoveredTopic] = useState<string | null>(null);
   return (
     <div className={styles.motion}>
       {topicos.map((topico) => (
-        <Link href={`/estude-comigo/${topico.slug}`} key={topico.id}>
+        <Link href={`/estude-comigo/${topico.roadmap.slug}`} key={topico.id}>
           <motion.div
             className={styles.motion_container}
             style={{
               borderColor:
-                hoveredTopic === topico.slug ? topico.color : "transparent",
+                hoveredTopic === topico.roadmap.slug
+                  ? topico.color
+                  : "transparent",
               backgroundColor: `${topico.color}20`,
               transform:
-                hoveredTopic === topico.slug ? "scale(1.02)" : "scale(1)",
+                hoveredTopic === topico.roadmap.slug
+                  ? "scale(1.02)"
+                  : "scale(1)",
             }}
-            onMouseEnter={() => setHoveredTopic(topico.slug)}
+            onMouseEnter={() => setHoveredTopic(topico.roadmap.slug)}
             onMouseLeave={() => setHoveredTopic(null)}
           >
             <div>

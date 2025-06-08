@@ -3,19 +3,51 @@ import styles from "./Frontend.module.scss";
 import { ArrowLeft, Calendar, Clock, Share2 } from "lucide-react";
 import Image from "next/image";
 import { postagens } from "@/mocks/posts";
+import { GetServerSidePropsContext } from "next";
+import { Tag } from "@/helpers/BlogBackend";
 
-export async function getServerSideProps(context) {
+interface RelatedPost {
+  slug: string;
+  title: string;
+}
+
+interface Post {
+  date: string;
+  title: string;
+  slug: string;
+  description: string;
+  thumbnail: string;
+  cover: string;
+  reading_time: number;
+  body: string;
+  tags: Tag[];
+  coverImage: string;
+  relatedPosts: RelatedPost[];
+}
+
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+  let notFound = false;
   const { slug } = context.params;
-  const data = postagens[slug];
+  const fetchData = async () => {
+    return await fetch(`http://localhost:3000/api/blog/${slug}`).then((res) => {
+      if (!res.ok) {
+        notFound = true;
+        return;
+      }
+      return res.json();
+    });
+  };
+  const data: Post | undefined = await fetchData();
   return {
+    notFound,
     props: { data },
   };
 }
 
-export default function Frontend({ data }: Readonly<{ data: any }>) {
+export default function Frontend({ data }: Readonly<{ data: Post }>) {
+  console.log(data);
   return (
     <div className={styles.frontend}>
-      {/* Blog Post Header */}
       <div>
         <div>
           <div>
@@ -36,18 +68,18 @@ export default function Frontend({ data }: Readonly<{ data: any }>) {
                 </div>
                 <div>
                   <Clock size={16} />
-                  <span>{data.readTime}</span>
+                  <span>{data.reading_time} minutos</span>
                 </div>
                 <div>
                   <div>
                     <Image
-                      src={data.authorImage}
-                      alt={data.author}
+                      src="/images/profile.png"
+                      alt="Gabriel Estéfono"
                       width={24}
                       height={24}
                     />
                   </div>
-                  <span>{data.author}</span>
+                  <span>Gabriel Estéfono</span>
                 </div>
               </div>
             </div>
@@ -62,45 +94,42 @@ export default function Frontend({ data }: Readonly<{ data: any }>) {
         </div>
       </div>
 
-      {/* Featured Image */}
       <div>
         <div>
           <Image src={data.coverImage} alt={data.title} fill priority />
         </div>
 
-        {/* Content */}
         <div>
           <div>
             <div>
-              <div dangerouslySetInnerHTML={{ __html: data.content }} />
+              <div dangerouslySetInnerHTML={{ __html: data.body }} />
             </div>
 
-            {/* Tags */}
             <div>
               <h3>Tags</h3>
               <div>
                 {data.tags.map((tag) => (
                   <Link
-                    key={tag}
-                    href={`/blog/tag/${tag.toLowerCase().replace(/\s+/g, "-")}`}
+                    key={tag.id}
+                    href={`/blog?tag=${tag.label
+                      .toLowerCase()
+                      .replace(/\s+/g, "-")}`}
                   >
-                    {tag}
+                    {tag.label}
                   </Link>
                 ))}
               </div>
             </div>
           </div>
 
-          {/* Sidebar */}
           <div>
-            {/* Author */}
             <div>
               <h3>Sobre o Autor</h3>
               <div>
                 <div>
                   <Image
                     src="/images/profile.png"
-                    alt={data.author}
+                    alt="Gabriel Estéfono"
                     fill
                     className="object-cover"
                   />
@@ -116,7 +145,6 @@ export default function Frontend({ data }: Readonly<{ data: any }>) {
               </p>
             </div>
 
-            {/* Related Posts */}
             <div>
               <h3>Posts Relacionados</h3>
               <div className="space-y-4">

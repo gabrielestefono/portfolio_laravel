@@ -1,4 +1,4 @@
-import { Backend } from "@/helpers/Backend";
+import { Backend } from "@/helpers/RoadmapBackend";
 import { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handler(

@@ -1,4 +1,4 @@
-import { Backend } from "@/helpers/RoadmapBackend";
+import { BlogBackend } from "@/helpers/BlogBackend";
 import { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handler(
@@ -6,8 +6,7 @@ export default async function handler(
   res: NextApiResponse
 ) {
   if (req.method === "GET") {
-    const backend = new Backend();
-    const categories = await backend.categories();
-    return res.json(categories);
+    const backend = new BlogBackend();
+    return backend.getPosts(res, req.query);
   }
 }

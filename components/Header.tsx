@@ -147,14 +147,22 @@ export default function header() {
             >
               Habilidades
             </Link>
-            {/* <Link
+            <Link
+              className={`${estilo.link} ${
+                rotaAtual.pathname == "/blog" ? estilo.active : ""
+              }`}
+              href="/blog"
+            >
+              Blog
+            </Link>
+            <Link
               className={`${estilo.link} ${
                 rotaAtual.pathname == "/estude-comigo" ? estilo.active : ""
               }`}
               href="/estude-comigo"
             >
               Estude Comigo
-            </Link> */}
+            </Link>
             {/* 
             <Link
               rel="preload"

@@ -1,10 +1,9 @@
-@import '../../styles/variables.module';
 .itemList{
     display: flex;
     gap: .625rem;
 
     div{
-        background-color: $cor-primaria;
+        background-color: var(--cor-primaria);
         width: 1.3125rem;
         height: 1.3125rem;
         border-radius: 1rem;

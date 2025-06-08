@@ -1,7 +1,8 @@
+import { Category } from "@/interfaces/Estude-comigo";
 import { useState, useEffect, useMemo } from "react";
 
 export default function useController() {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState<Category[] | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -12,7 +13,7 @@ export default function useController() {
         if (!res.ok) {
           throw new Error("Erro ao coletar dados");
         }
-        const resData = await res.json();
+        const resData: Category[] = await res.json();
         setData(resData);
       } catch (error) {
         setError(error.message);

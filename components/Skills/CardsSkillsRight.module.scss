@@ -1,100 +1,97 @@
-@import '../../styles/variables.module';
-
 @mixin mobile {
-    @media (min-width: 360px) {
-        @content;
-    }
+  @media (min-width: 360px) {
+    @content;
+  }
 }
 
 @mixin tabletNormal {
-    @media (min-width: 768px) {
-        @content;
-    }
+  @media (min-width: 768px) {
+    @content;
+  }
 }
 
 @mixin tabletPaisagem {
-    @media (min-width: 1024px) {
-        @content;
-    }
+  @media (min-width: 1024px) {
+    @content;
+  }
 }
 
 @mixin LaptopPadrao {
-    @media (min-width: 1280px) {
-        @content;
-    }
+  @media (min-width: 1280px) {
+    @content;
+  }
 }
 
 @mixin LaptopHD {
-    @media (min-width: 1440px) {
-        @content;
-    }
+  @media (min-width: 1440px) {
+    @content;
+  }
 }
 
 @mixin DesktopPadrao {
-    @media (min-width: 1920px) {
-        @content;
-    }
+  @media (min-width: 1920px) {
+    @content;
+  }
 }
 
 @mixin DesktopHd {
-    @media (min-width: 2560px) {
-        @content;
-    }
+  @media (min-width: 2560px) {
+    @content;
+  }
 }
 
 .background {
-    position: relative;
+  position: relative;
+  width: 100%;
+  height: 10.75rem;
+  display: flex;
+  flex-direction: column;
+
+  @include tabletNormal() {
+    width: 17.25rem;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 10.75rem;
-    display: flex;
-    flex-direction: column;
+    height: 100%;
+    background-color: var(--cor-primaria);
+    opacity: 0.2;
+    z-index: -1;
+  }
 
-    @include tabletNormal(){
-        width: 17.25rem;
+  div {
+    margin-top: 1.375rem;
+    margin-left: 1.25rem;
+    display: block;
+    margin-bottom: 1.125rem;
+    width: 1.9375rem;
+    height: 1.9375rem;
+
+    img {
+      width: 100%;
+      height: auto;
     }
+  }
 
-    &::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: $cor-primaria;
-        opacity: 0.20;
-        z-index: -1; 
-    }
+  h3 {
+    margin-left: 1.25rem;
+    color: var(--cor-secundaria);
+    font-family: var(--poppins);
+    font-size: 1.375rem;
+    font-weight: 600;
+    line-height: 1.375rem;
+  }
 
-    div{
-        margin-top: 1.375rem;
-        margin-left: 1.25rem;
-        display: block;
-        margin-bottom: 1.125rem;
-        width: 1.9375rem;
-        height: 1.9375rem;
-
-        img{
-            width: 100%;
-            height: auto;
-        }
-    }
-
-    h3{
-        margin-left: 1.25rem;
-        color: $cor-secundaria;
-        font-family: $poppins;
-        font-size: 1.375rem;
-        font-weight: 600;
-        line-height: 1.375rem;
-    }
-
-    p{
-        margin: 0 1.25rem;
-        font-family: $poppins;
-        line-height: 1.5;
-        font-size: 1rem;
-        color: #323433;
-        margin-top: .75rem;
-    }
+  p {
+    margin: 0 1.25rem;
+    font-family: var(--poppins);
+    line-height: 1.5;
+    font-size: 1rem;
+    color: #323433;
+    margin-top: 0.75rem;
+  }
 }
-

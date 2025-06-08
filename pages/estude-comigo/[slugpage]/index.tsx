@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import styles from "./Frontend.module.scss";
+import styles from "./Roadmap.module.scss";
 import Link from "next/link";
 import { Share2 } from "lucide-react";
 import RoadmapSidebar from "@/components/Blog/RoadmapSidebar";
@@ -81,7 +81,6 @@ export async function getServerSideProps(context) {
   const fetchData = async () => {
     return await fetch(`http://localhost:3000/api/roadmaps/${slugpage}`).then(
       (res) => {
-        console.log(res);
         if (!res.ok) {
           notFound = true;
           return;

@@ -28,8 +28,9 @@ interface Post {
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   let notFound = false;
   const { slug } = context.params;
+  const baseUrl = process.env.FRONTEND_URL || "http://localhost:3000";
   const fetchData = async () => {
-    return await fetch(`http://localhost:3000/api/blog/${slug}`).then((res) => {
+    return await fetch(`${baseUrl}api/blog/${slug}`).then((res) => {
       if (!res.ok) {
         notFound = true;
         return;

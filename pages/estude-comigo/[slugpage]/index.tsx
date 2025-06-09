@@ -80,8 +80,9 @@ interface Roadmap {
 export async function getServerSideProps(context) {
   const { slugpage } = context.params;
   let notFound = false;
+  const baseUrl = process.env.FRONTEND_URL || "http://localhost:3000";
   const fetchData = async () => {
-    return await fetch(`http://localhost:3000/api/roadmaps/${slugpage}`).then(
+    return await fetch(`${baseUrl}api/roadmaps/${slugpage}`).then(
       (res) => {
         if (!res.ok) {
           notFound = true;

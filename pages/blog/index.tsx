@@ -16,10 +16,11 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     notFound = true;
     return { notFound };
   }
+  const baseUrl = process.env.FRONTEND_URL || "http://localhost:3000";
   const queryString: string = query?.tag ? `?tag=${query.tag}` : "";
   const queryArray = query?.tag ? query.tag.split(",") : [];
   const fetchData = async () => {
-    return await fetch(`http://localhost:3000/api/blog${queryString}`).then(
+    return await fetch(`${baseUrl}api/blog${queryString}`).then(
       (res) => {
         if (!res.ok) {
           notFound = true;

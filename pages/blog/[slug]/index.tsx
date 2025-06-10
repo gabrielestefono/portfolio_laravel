@@ -1,8 +1,8 @@
 import Link from "next/link";
 import styles from "./Post.module.scss";
-import { ArrowLeft, Calendar, Clock, Share2 } from "lucide-react";
+import { ArrowLeft, Calendar, Clock } from "lucide-react";
 import Image from "next/image";
-import { GetServerSidePropsContext, GetStaticPropsContext } from "next";
+import { GetServerSidePropsContext } from "next";
 import { Tag } from "@/helpers/BlogBackend";
 import LayoutBase from "@/components/layouts/LayoutBase";
 
@@ -25,7 +25,7 @@ interface Post {
   relatedPosts: RelatedPost[];
 }
 
-export async function getStaticProps(context: GetStaticPropsContext) {
+export async function getServerSideProps(context: GetServerSidePropsContext) {
   let notFound = false;
   const { slug } = context.params;
   const baseUrl = process.env.FRONTEND_URL || "http://localhost:3000";
@@ -42,7 +42,6 @@ export async function getStaticProps(context: GetStaticPropsContext) {
   return {
     notFound,
     props: { data },
-    revalidate: 86400 // 24 hours
   };
 }
 
@@ -111,10 +110,7 @@ export default function Frontend({ data }: Readonly<{ data: Post }>) {
                 <h3>Tags</h3>
                 <div>
                   {data.tags.map((tag) => (
-                    <Link
-                      key={tag.id}
-                      href={`/blog?tag=${tag.label}`}
-                    >
+                    <Link key={tag.id} href={`/blog?tag=${tag.label}`}>
                       {tag.label}
                     </Link>
                   ))}

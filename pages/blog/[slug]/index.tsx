@@ -2,7 +2,7 @@ import Link from "next/link";
 import styles from "./Post.module.scss";
 import { ArrowLeft, Calendar, Clock, Share2 } from "lucide-react";
 import Image from "next/image";
-import { GetServerSidePropsContext } from "next";
+import { GetServerSidePropsContext, GetStaticPropsContext } from "next";
 import { Tag } from "@/helpers/BlogBackend";
 import LayoutBase from "@/components/layouts/LayoutBase";
 
@@ -25,7 +25,7 @@ interface Post {
   relatedPosts: RelatedPost[];
 }
 
-export async function getServerSideProps(context: GetServerSidePropsContext) {
+export async function getStaticProps(context: GetStaticPropsContext) {
   let notFound = false;
   const { slug } = context.params;
   const baseUrl = process.env.FRONTEND_URL || "http://localhost:3000";
@@ -42,6 +42,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   return {
     notFound,
     props: { data },
+    revalidate: 86400 // 24 hours
   };
 }
 

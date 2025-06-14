@@ -1,92 +1,42 @@
 "use client";
 
-import { BlogPost, Post } from "@/helpers/BlogBackend";
+import { BlogBackend, BlogPost, Post } from "@/helpers/BlogBackend";
 import { Calendar, Clock, X } from "lucide-react";
-import { GetServerSidePropsContext } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./Blog.module.scss";
-import { useRouter } from "next/router";
 import LayoutBase from "@/components/layouts/LayoutBase";
 
-export async function getServerSideProps(context: GetServerSidePropsContext) {
-  let notFound = false;
-  const { query } = context;
-  if (typeof query?.tag !== "string" && typeof query?.tag !== "undefined") {
-    notFound = true;
-    return { notFound };
+export async function getStaticProps() {
+  const backend = new BlogBackend();
+  let data: BlogPost;
+  const result = await backend.getPosts();
+  if (!result) {
+    data = {
+      highlights: [],
+      latestPosts: [],
+      allTags: [],
+    };
+  } else {
+    data = result;
   }
-  const baseUrl = process.env.FRONTEND_URL || "http://localhost:3000";
-  const queryString: string = query?.tag ? `?tag=${query.tag}` : "";
-  const queryArray = query?.tag ? query.tag.split(",") : [];
-  const fetchData = async () => {
-    return await fetch(`${baseUrl}api/blog${queryString}`).then(
-      (res) => {
-        if (!res.ok) {
-          notFound = true;
-          return;
-        }
-        return res.json();
-      }
-    );
-  };
-  const data: BlogPost | undefined = await fetchData();
-  if (data) {
-    data.searched = false;
-    data.queryString = queryString;
-    data.query = { tag: queryArray };
-  }
+
   return {
-    notFound,
     props: { data },
+    revalidate: 60,
   };
 }
 
 export default function BlogPage({ data }: Readonly<{ data: BlogPost }>) {
   // Dados recebidos do servidor
-  const { allTags, highlights, latestPosts, query, queryString } = data;
+  const { allTags, highlights, latestPosts } = data;
 
-  const activeTags = (() => {
-    if (!query.tag) {
-      return [];
-    }
-    return Array.isArray(query.tag) ? query.tag : [query.tag];
-  })();
-
-  const router = useRouter();
+  const activeTags = [];
 
   // Posts em destaque
   const featuredPosts = highlights.filter((post) => post);
 
-  const isTagActive = (label: string): boolean => {
-    if (Array.isArray(query.tag)) {
-      return query.tag.some((tag) => tag === label);
-    }
-    return query.tag === label;
-  };
-
-  const toggleTag = (id: number) => {
-    const tagLabel = allTags.find((tag) => tag.id === id).label;
-    const isTagActive = activeTags.some((tag) => tag === tagLabel);
-    if (isTagActive) {
-      let newQuery = queryString.replace(`?tag=${tagLabel},`, "?tag=");
-      newQuery = newQuery.replace(`?tag=${tagLabel}`, "");
-      newQuery = newQuery.replace(`,${tagLabel}`, "");
-      router.replace(`/blog${newQuery}`);
-      return;
-    }
-    const containsQueries = queryString.includes("?");
-    if (containsQueries) {
-      const arrayQuery: string = `${queryString},${tagLabel}`;
-      router.replace(`/blog${arrayQuery}`);
-      return;
-    }
-    router.replace(`/blog?tag=${tagLabel}`);
-  };
-
-  const clearTagFilter = () => {
-    router.replace(`/blog`);
-  };
+  const isTagActive = false;
 
   return (
     <LayoutBase blog={true}>
@@ -112,20 +62,15 @@ export default function BlogPage({ data }: Readonly<{ data: BlogPost }>) {
                   <div>
                     <span>Filtrando por tag:</span>
                     {activeTags.map((tag, index) => (
-                      <button
-                        onClick={() =>
-                          toggleTag(allTags.find((el) => el.label === tag).id)
-                        }
-                        key={`${index}${tag}`}
-                      >
+                      <a href={`/blog/${tag}`} key={`${index}${tag}`}>
                         {tag}
-                      </button>
+                      </a>
                     ))}
                   </div>
-                  <button onClick={clearTagFilter} aria-label="Limpar filtro">
+                  <a href="/blog" aria-label="Limpar filtro">
                     <X size={16} />
                     <span>Limpar filtro</span>
-                  </button>
+                  </a>
                 </div>
               </div>
             )}
@@ -137,11 +82,7 @@ export default function BlogPage({ data }: Readonly<{ data: BlogPost }>) {
                     <h2>Posts em Destaque</h2>
                     <div>
                       {featuredPosts.map((post) => (
-                        <FeaturedPostCard
-                          key={post.id}
-                          post={post}
-                          onTagClick={toggleTag}
-                        />
+                        <FeaturedPostCard key={post.id} post={post} />
                       ))}
                     </div>
                   </section>
@@ -155,18 +96,12 @@ export default function BlogPage({ data }: Readonly<{ data: BlogPost }>) {
                   {latestPosts.length === 0 ? (
                     <div className={styles.emptyPosts}>
                       <p>Nenhum post encontrado para a tag "{activeTags}".</p>
-                      <button onClick={clearTagFilter}>
-                        Ver todos os posts
-                      </button>
+                      <a href="/blog">Ver todos os posts</a>
                     </div>
                   ) : (
                     <div className={styles.latestPosts}>
                       {data.latestPosts.map((post) => (
-                        <PostCard
-                          key={post.id}
-                          post={post}
-                          onTagClick={toggleTag}
-                        />
+                        <PostCard key={post.id} post={post} />
                       ))}
                     </div>
                   )}
@@ -178,13 +113,13 @@ export default function BlogPage({ data }: Readonly<{ data: BlogPost }>) {
                   <h3>Categorias</h3>
                   <div>
                     {allTags.map((tag) => (
-                      <button
+                      <a
                         key={tag.id}
-                        className={isTagActive(tag.label) ? styles.active : ""}
-                        onClick={() => toggleTag(tag.id)}
+                        className={isTagActive ? styles.active : ""}
+                        href={`/blog/${tag.label.toLowerCase()}`}
                       >
                         {tag.label}
-                      </button>
+                      </a>
                     ))}
                   </div>
                 </div>
@@ -193,7 +128,7 @@ export default function BlogPage({ data }: Readonly<{ data: BlogPost }>) {
                   <h3>Posts Populares</h3>
                   <div>
                     {data.latestPosts.slice(0, 4).map((post) => (
-                      <Link key={post.id} href={`/blog/${post.slug}`}>
+                      <Link key={post.id} href={`/post/${post.slug}`}>
                         <div>
                           <Image
                             src={post.thumbnail_post}
@@ -221,10 +156,8 @@ export default function BlogPage({ data }: Readonly<{ data: BlogPost }>) {
 // Componente para o card de post em destaque
 function FeaturedPostCard({
   post,
-  onTagClick,
 }: Readonly<{
   post: Post;
-  onTagClick: (tag: number) => void;
 }>) {
   return (
     <div className={styles.featuredPostCard}>
@@ -241,22 +174,13 @@ function FeaturedPostCard({
         <div>
           <div>
             {post.tags.map((tag) => (
-              <button
-                key={tag.id}
-                onClick={(e) => {
-                  e.preventDefault();
-                  onTagClick(tag.id);
-                  const url = new URL(window.location.href);
-                  url.searchParams.set("tag", tag.label);
-                  window.history.pushState({}, "", url);
-                }}
-              >
+              <a key={tag.id} href={`/blog/${tag.label.toLowerCase()}`}>
                 {tag.label}
-              </button>
+              </a>
             ))}
           </div>
 
-          <Link href={`/blog/${post.slug}`}>
+          <Link href={`/post/${post.slug}`}>
             <h3>{post.title}</h3>
           </Link>
 
@@ -295,10 +219,8 @@ function FeaturedPostCard({
 
 function PostCard({
   post,
-  onTagClick,
 }: Readonly<{
   post: Post;
-  onTagClick: (tag: number) => void;
 }>) {
   return (
     <div className={styles.postCards}>
@@ -308,21 +230,12 @@ function PostCard({
       <div>
         <div>
           {post.tags.map((tag) => (
-            <button
-              key={tag.id}
-              onClick={(e) => {
-                e.preventDefault();
-                onTagClick(tag.id);
-                const url = new URL(window.location.href);
-                url.searchParams.set("tag", tag.label);
-                window.history.pushState({}, "", url);
-              }}
-            >
+            <a key={tag.id} href={`/blog/${tag.label.toLowerCase()}`}>
               {tag.label}
-            </button>
+            </a>
           ))}
         </div>
-        <Link href={`/blog/${post.slug}`}>
+        <Link href={`/post/${post.slug}`}>
           <h3>{post.title}</h3>
         </Link>
         <p>{post.description}</p>

@@ -31,9 +31,7 @@ export interface BlogPost {
   highlights: Post[];
   latestPosts: Post[];
   allTags: Tag[];
-  searched: boolean;
-  queryString: string;
-  query: { tag: string[] };
+  slug?: string;
 }
 
 export class BlogBackend {
@@ -58,14 +56,10 @@ export class BlogBackend {
     return `?tag=${query.tag}`;
   }
 
-  private async posts(
-    res: NextApiResponse,
-    query: NextApiRequest["query"]
-  ): Promise<void> {
-    const queryTags = this.defineQueryTags(query);
+  private async posts(): Promise<BlogPost | undefined> {
     try {
       const token = await this.auth.getToken();
-      const response = await fetch(`${this.url}posts${queryTags}`, {
+      const response = await fetch(`${this.url}posts`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -73,16 +67,32 @@ export class BlogBackend {
         },
       });
       if (!response.ok) {
-        res.status(401);
-        return;
+        return undefined;
       }
       const data: BlogPost = await response.json();
-      res.status(200).json(data);
+      return data;
     } catch (error) {
-      res.status(500).json({
-        error: "Internal server error",
-        details: error instanceof Error ? error.message : String(error),
+      return undefined;
+    }
+  }
+
+  private async postsWithParam(slug: string): Promise<BlogPost | undefined> {
+    try {
+      const token = await this.auth.getToken();
+      const response = await fetch(`${this.url}posts/${slug}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
       });
+      if (!response.ok) {
+        return undefined;
+      }
+      const data: BlogPost = await response.json();
+      return data;
+    } catch (error) {
+      return undefined;
     }
   }
 
@@ -113,14 +123,47 @@ export class BlogBackend {
     }
   }
 
-  public async getPosts(
-    res: NextApiResponse,
-    query: NextApiRequest["query"]
-  ): Promise<void> {
-    return await this.posts(res, query);
+  private async postList(
+    res: NextApiResponse
+  ): Promise<{ slug: string; title: string }[]> {
+    try {
+      const token = await this.auth.getToken();
+      const response = await fetch(`${this.url}post-list`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      if (!response.ok) {
+        res.status(401).json({ error: "Unauthorized access" });
+        return;
+      }
+      const data: { slug: string; title: string }[] = await response.json();
+      res.status(200).json(data);
+    } catch (error) {
+      res.status(500).json({
+        error: "Internal server error",
+        details: error instanceof Error ? error.message : String(error),
+      });
+    }
+  }
+
+  public async getPosts(): Promise<BlogPost | undefined> {
+    return await this.posts();
+  }
+
+  public async getPostsWithParams(slug: string): Promise<BlogPost | undefined> {
+    return await this.postsWithParam(slug);
   }
 
   public async getPost(res: NextApiResponse, slug: string): Promise<void> {
     return await this.post(res, slug);
+  }
+
+  public async getPostList(
+    res: NextApiResponse
+  ): Promise<{ slug: string; title: string }[]> {
+    return await this.postList(res);
   }
 }

@@ -1,157 +1,169 @@
-import Link from "next/link";
-import styles from "./Post.module.scss";
-import { ArrowLeft, Calendar, Clock } from "lucide-react";
+"use client";
+
+import { BlogBackend, BlogPost, Post } from "@/helpers/BlogBackend";
+import { Calendar, Clock, X } from "lucide-react";
 import Image from "next/image";
-import { GetServerSidePropsContext } from "next";
-import { Tag } from "@/helpers/BlogBackend";
+import Link from "next/link";
+import styles from "./Blog.module.scss";
+import { useRouter } from "next/router";
 import LayoutBase from "@/components/layouts/LayoutBase";
+import { GetStaticPropsContext } from "next";
+import { TagsBackend } from "@/helpers/TagsBackend";
 
-interface RelatedPost {
-  slug: string;
-  title: string;
+export async function getStaticPaths() {
+  const backend = new TagsBackend();
+  const tags: string[] = await backend.getAllTags();
+  const paths = tags.map((tag) => ({
+    params: { slug: tag.toLocaleLowerCase() },
+  }));
+  return {
+    paths,
+    fallback: false,
+  };
 }
 
-interface Post {
-  date: string;
-  title: string;
-  slug: string;
-  description: string;
-  thumbnail: string;
-  cover: string;
-  reading_time: number;
-  body: string;
-  tags: Tag[];
-  coverImage: string;
-  relatedPosts: RelatedPost[];
-}
-
-export async function getServerSideProps(context: GetServerSidePropsContext) {
+export async function getStaticProps(context: GetStaticPropsContext) {
   let notFound = false;
   const { slug } = context.params;
-  const baseUrl = process.env.FRONTEND_URL || "http://localhost:3000";
-  const fetchData = async () => {
-    return await fetch(`${baseUrl}api/blog/${slug}`).then((res) => {
-      if (!res.ok) {
-        notFound = true;
-        return;
-      }
-      return res.json();
-    });
-  };
-  const data: Post | undefined = await fetchData();
+  const backend = new BlogBackend();
+  let data: BlogPost;
+  const result = await backend.getPostsWithParams(slug as string);
+  if (!result) {
+    notFound = true;
+  }
+  data = result;
+  data.slug = slug as string;
+
   return {
-    notFound,
     props: { data },
+    notFound,
+    revalidate: 60,
   };
 }
 
-export default function Frontend({ data }: Readonly<{ data: Post }>) {
+export default function BlogPage({ data }: Readonly<{ data: BlogPost }>) {
+  // Dados recebidos do servidor
+  const { allTags, highlights, latestPosts, slug } = data;
+
+  const activeTags = (() => {
+    if (!slug) {
+      return [];
+    }
+    return [slug];
+  })();
+
+  // Posts em destaque
+  const featuredPosts = highlights.filter((post) => post);
+
+  const isTagActive = (label: string): boolean => {
+    return slug === label;
+  };
+
   return (
     <LayoutBase blog={true}>
-      <div className={styles.frontend}>
+      <div className={styles.blog}>
+        {/* Header do Blog */}
         <div>
           <div>
             <div>
-              <div>
-                <nav>
-                  <Link href="/blog">
-                    <ArrowLeft size={16} />
-                    <span>Voltar para o blog</span>
-                  </Link>
-                </nav>
-
-                <h1>{data.title}</h1>
-
-                <div>
-                  <div>
-                    <Calendar size={16} />
-                    <span>{data.date}</span>
-                  </div>
-                  <div>
-                    <Clock size={16} />
-                    <span>{data.reading_time} minutos</span>
-                  </div>
-                  <div>
-                    <div>
-                      <Image
-                        src="/images/profile.png"
-                        alt="Gabriel Estéfono"
-                        width={24}
-                        height={24}
-                      />
-                    </div>
-                    <span>Gabriel Estéfono</span>
-                  </div>
-                </div>
-              </div>
-
-              <div>
-                {/* <button title="Compartilhar">
-                  <Share2 size={18} />
-                  <span>Compartilhar</span>
-                </button> */}
-              </div>
+              <h1>Blog de Estudos e Aprendizado</h1>
+              <p>
+                Acompanhe minha jornada de descobertas, explore novos
+                conhecimentos e aprenda junto comigo!
+              </p>
             </div>
           </div>
         </div>
 
         <div>
           <div>
-            <Image src={data.coverImage} alt={data.title} fill priority />
-          </div>
-
-          <div>
-            <div>
-              <div>
-                <div dangerouslySetInnerHTML={{ __html: data.body }} />
-              </div>
-
-              <div>
-                <h3>Tags</h3>
-                <div>
-                  {data.tags.map((tag) => (
-                    <Link key={tag.id} href={`/blog?tag=${tag.label}`}>
-                      {tag.label}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <div>
-                <h3>Sobre o Autor</h3>
+            {activeTags.length > 0 && (
+              <div className={styles.activeTag}>
                 <div>
                   <div>
-                    <Image
-                      src="/images/profile.png"
-                      alt="Gabriel Estéfono"
-                      fill
-                      className="object-cover"
-                    />
+                    <span>Filtrando por tag:</span>
+                    {activeTags.map((tag, index) => (
+                      <a href={`/blog/${tag}`} key={`${index}${tag}`}>
+                        {tag}
+                      </a>
+                    ))}
                   </div>
-                  <div>
-                    <h4>Gabriel Estéfono</h4>
-                    <p>Desenvolvedor Web</p>
-                  </div>
+                  <a href="/blog" aria-label="Limpar filtro">
+                    <X size={16} />
+                    <span>Limpar filtro</span>
+                  </a>
                 </div>
-                <p>
-                  Desenvolvedor com mais de 3 anos de experiência em HTML, CSS e
-                  JavaScript.
-                </p>
+              </div>
+            )}
+
+            <div className={styles.gridContainer}>
+              <div>
+                {activeTags.length === 0 && featuredPosts.length > 0 && (
+                  <section className={styles.destaques}>
+                    <h2>Posts em Destaque</h2>
+                    <div>
+                      {featuredPosts.map((post) => (
+                        <FeaturedPostCard key={post.id} post={post} />
+                      ))}
+                    </div>
+                  </section>
+                )}
+
+                <section className={styles.latestPostsMenu}>
+                  <h2>
+                    {activeTags ? `Posts sobre ${activeTags}` : "Últimos Posts"}
+                  </h2>
+
+                  {latestPosts.length === 0 ? (
+                    <div className={styles.emptyPosts}>
+                      <p>Nenhum post encontrado para a tag "{activeTags}".</p>
+                      <a href="/blog">Ver todos os posts</a>
+                    </div>
+                  ) : (
+                    <div className={styles.latestPosts}>
+                      {data.latestPosts.map((post) => (
+                        <PostCard key={post.id} post={post} />
+                      ))}
+                    </div>
+                  )}
+                </section>
               </div>
 
-              <div>
-                <h3>Posts Relacionados</h3>
-                <div className="space-y-4">
-                  {data.relatedPosts.map((relatedPost) => (
-                    <Link
-                      key={relatedPost.slug}
-                      href={`/blog/${relatedPost.slug}`}
-                    >
-                      <h4>{relatedPost.title}</h4>
-                    </Link>
-                  ))}
+              <div className={styles.sidebar}>
+                <div className={styles.categories}>
+                  <h3>Categorias</h3>
+                  <div>
+                    {allTags.map((tag) => (
+                      <a
+                        key={tag.id}
+                        className={isTagActive ? styles.active : ""}
+                        href={`/blog/${tag.label.toLowerCase()}`}
+                      >
+                        {tag.label}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+
+                <div className={styles.popular}>
+                  <h3>Posts Populares</h3>
+                  <div>
+                    {data.latestPosts.slice(0, 4).map((post) => (
+                      <Link key={post.id} href={`/post/${post.slug}`}>
+                        <div>
+                          <Image
+                            src={post.thumbnail_post}
+                            alt={post.title}
+                            fill
+                          />
+                        </div>
+                        <div>
+                          <h4>{post.title}</h4>
+                          <p>{post.date}</p>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
@@ -159,5 +171,105 @@ export default function Frontend({ data }: Readonly<{ data: Post }>) {
         </div>
       </div>
     </LayoutBase>
+  );
+}
+
+// Componente para o card de post em destaque
+function FeaturedPostCard({
+  post,
+}: Readonly<{
+  post: Post;
+}>) {
+  return (
+    <div className={styles.featuredPostCard}>
+      <div>
+        <div>
+          <Image
+            src={post.thumbnail_post}
+            alt={post.title}
+            width={390}
+            height={172}
+            priority={false}
+          />
+        </div>
+        <div>
+          <div>
+            {post.tags.map((tag) => (
+              <a key={tag.id} href={`/blog/${tag.label.toLowerCase()}`}>
+                {tag.label}
+              </a>
+            ))}
+          </div>
+
+          <Link href={`/post/${post.slug}`}>
+            <h3>{post.title}</h3>
+          </Link>
+
+          <p>{post.description}</p>
+
+          <div>
+            <div>
+              <div>
+                <Image
+                  src="/images/profile.png"
+                  alt="Gabriel Estéfono"
+                  width={32}
+                  height={32}
+                  priority={false}
+                />
+              </div>
+              <span>Gabriel Estéfono</span>
+            </div>
+
+            <div>
+              <div>
+                <Calendar size={14} />
+                <span>{post.date.split(",")[0]}</span>
+              </div>
+              <div>
+                <Clock size={14} />
+                <span>{post.reading_time} min de leitura</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function PostCard({
+  post,
+}: Readonly<{
+  post: Post;
+}>) {
+  return (
+    <div className={styles.postCards}>
+      <div>
+        <Image src={post.thumbnail_post} alt={post.title} fill />
+      </div>
+      <div>
+        <div>
+          {post.tags.map((tag) => (
+            <a key={tag.id} href={`/blog/${tag.label.toLowerCase()}`}>
+              {tag.label}
+            </a>
+          ))}
+        </div>
+        <Link href={`/post/${post.slug}`}>
+          <h3>{post.title}</h3>
+        </Link>
+        <p>{post.description}</p>
+        <div>
+          <div>
+            <div>
+              <Image src="/images/profile.png" alt="Gabriel Estéfono" fill />
+            </div>
+            <span>Gabriel Estéfono</span>
+          </div>
+          <div>{post.date.split(",")[0]}</div>
+        </div>
+      </div>
+    </div>
   );
 }

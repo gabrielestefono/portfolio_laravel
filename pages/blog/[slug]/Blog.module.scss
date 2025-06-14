@@ -97,8 +97,9 @@
               color: #4a5565;
             }
 
-            > button:not(:first-child) {
+            > a:not(:first-child) {
               background-color: #e5efea;
+              text-decoration: none;
               color: var(--cor-primaria);
               padding-inline: 0.75rem;
               padding-block: 0.25rem;
@@ -116,9 +117,10 @@
             }
           }
 
-          > button {
+          > a {
             display: flex;
             align-items: center;
+            text-decoration: none;
             gap: 0.25rem;
             color: #6a7282;
             transition: all 0.2s;

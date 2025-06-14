@@ -166,7 +166,7 @@
       display: grid;
       grid-template-columns: repeat(1, 1fr);
       max-width: 90rem;
-      
+
       @include desktop() {
         grid-template-columns: repeat(3, 1fr);
         gap: 2rem;
@@ -192,36 +192,75 @@
             h2 {
               color: var(--cor-secundaria);
               font-family: var(--poppins);
-              margin-top: 1.5em;
-              margin-bottom: 0.8em;
+              margin-top: 1.5rem;
+              margin-bottom: 0.8rem;
               font-weight: 600;
+              font-size: 1.75rem;
             }
 
             h3 {
               color: var(--cor-primaria);
               font-family: var(--poppins);
-              margin-top: 1.2em;
-              margin-bottom: 0.6em;
+              margin-top: 1.2rem;
+              margin-bottom: 0.6rem;
+              font-size: 1.25rem;
+              font-weight: 600;
+            }
+
+            ul{
+              list-style: disc;
+              padding-left: 1.5rem;
+              margin-top: 0.5rem;
+              margin-bottom: 0.5rem;
+
+              li {
+                margin-bottom: 0.5rem;
+              }
+            }
+
+            ol{
+              list-style: decimal;
+              padding-left: 2rem;
+              margin-top: 0.5rem;
+              margin-bottom: 0.5rem;
+
+              li {
+                margin-bottom: 0.5rem;
+              }
+            }
+
+            a{
+              color: var(--cor-primaria);
+
+              &:hover {
+                color: var(--cor-secundaria);
+              }
             }
 
             code {
               background-color: #f1f1f1;
-              padding: 0.2em 0.4em;
+              padding: 0.2rem 0.4rem;
               border-radius: 0.25rem;
-              font-size: 0.875em;
+              font-size: 0.875rem;
             }
 
             pre {
-              background-color: #f1f1f1;
-              padding: 0.2em 0.4em;
+              background-color: #242424;
+              padding: 0.2rem 0.4rem;
               border-radius: 0.5rem;
-              font-size: 0.875em;
+              font-size: 0.875rem;
               margin-top: 1rem;
               margin-bottom: 1rem;
+              color: #f1f1f1;
             }
 
             strong {
               font-weight: 700;
+            }
+
+            p{
+              margin-top: 1rem;
+              margin-bottom: 1rem;
             }
           }
         }

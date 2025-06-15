@@ -17,9 +17,11 @@
   justify-content: space-between;
   position: relative;
   align-items: center;
-
+  
   @include LaptopHD {
     justify-content: center;
+    padding-inline: 2rem;
+    box-sizing: border-box;
   }
 
   div {

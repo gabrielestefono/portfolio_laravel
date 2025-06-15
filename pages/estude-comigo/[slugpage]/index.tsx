@@ -189,9 +189,9 @@ export default function Frontend({
 
                     if (!sourceNode || !targetNode) return null;
 
-                    const sourceX = sourceNode.x + 75;
+                    const sourceX = sourceNode.x + 125;
                     const sourceY = sourceNode.y + 30;
-                    const targetX = targetNode.x + 75;
+                    const targetX = targetNode.x + 125;
                     const targetY = targetNode.y + 30;
 
                     return (

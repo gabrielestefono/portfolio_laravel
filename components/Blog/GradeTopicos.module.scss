@@ -13,6 +13,18 @@
     grid-template-columns: repeat(3, 1fr);
   }
 
+  > .noTopics{
+    grid-column: 1 / -1;
+
+    > p{
+      text-align: center;
+      font-size: 1.25rem;
+      line-height: 1.75rem;
+      color: #505050;
+      margin-top: 2rem;
+    }
+  }
+
   > a {
     text-decoration: none;
 

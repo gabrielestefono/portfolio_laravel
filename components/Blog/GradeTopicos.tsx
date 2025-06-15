@@ -10,6 +10,12 @@ export default function GradeTopicos({
   const [hoveredTopic, setHoveredTopic] = useState<string | null>(null);
   return (
     <div className={styles.motion}>
+      {topicos.length === 0 && (
+        <div className={styles.noTopics}>
+          <p>Parece que não há tópicos disponíveis no momento.</p>
+          <p> Fique ligado para atualizações!</p>
+        </div>
+      )}
       {topicos.map((topico) => (
         <Link href={`/estude-comigo/${topico.roadmap.slug}`} key={topico.id}>
           <motion.div

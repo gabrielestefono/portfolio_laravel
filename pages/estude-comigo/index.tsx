@@ -4,19 +4,23 @@ import styles from "./EstudeComigo.module.scss";
 
 import Header from "@/components/Blog/Header";
 import GradeTopicos from "@/components/Blog/GradeTopicos";
-import useController from "@/hooks/useController";
 import LayoutBase from "@/components/layouts/LayoutBase";
+import { RoadmapBackend } from "@/helpers/RoadmapBackend";
+import { Category } from "@/interfaces/Estude-comigo";
 // import { motion } from "framer-motion"
 
-export default function EstudeComigo() {
-  // Dados de exemplo para os tópicos principais
+export async function getStaticProps() {
+  let notFound = false;
+  const roadmapBackend = new RoadmapBackend();
+  const data: Category[] = await roadmapBackend.categories();
+  return {
+    props: { data },
+    revalidate: 60,
+    notFound,
+  };
+}
 
-  const { data, loading } = useController();
-
-  if (loading) {
-    return <div>Carregando...</div>;
-  }
-
+export default function EstudeComigo({ data }: Readonly<{ data: Category[] }>) {
   return (
     <LayoutBase estudeComigo={true}>
       <div className={styles.estudeComigo}>

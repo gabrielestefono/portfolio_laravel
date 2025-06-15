@@ -5,7 +5,6 @@ import { Calendar, Clock, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./Blog.module.scss";
-import { useRouter } from "next/router";
 import LayoutBase from "@/components/layouts/LayoutBase";
 import { GetStaticPropsContext } from "next";
 import { TagsBackend } from "@/helpers/TagsBackend";

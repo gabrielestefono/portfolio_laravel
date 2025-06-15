@@ -95,8 +95,7 @@ export default function BlogPage({ data }: Readonly<{ data: BlogPost }>) {
 
                   {latestPosts.length === 0 ? (
                     <div className={styles.emptyPosts}>
-                      <p>Nenhum post encontrado para a tag "{activeTags}".</p>
-                      <a href="/blog">Ver todos os posts</a>
+                      <p>Aparentemente ainda não existem posts no blog, fique atento!</p>
                     </div>
                   ) : (
                     <div className={styles.latestPosts}>

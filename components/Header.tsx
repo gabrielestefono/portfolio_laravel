@@ -164,14 +164,14 @@ export default function header({
             >
               Blog
             </Link>
-            {/* <Link
+            <Link
               className={`${estilo.link} ${estudeComigo ? estilo.active : ""}`}
               href="/estude-comigo"
             >
               Estude Comigo
             </Link> 
              
-            <Link
+            {/* <Link
               rel="preload"
               className={`${estilo.link} ${
                 rotaAtual.pathname == "/contato" ? estilo.active : ""

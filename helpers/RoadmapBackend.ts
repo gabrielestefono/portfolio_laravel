@@ -2,7 +2,7 @@ import { NextApiResponse } from "next";
 import { AuthenticationBackend } from "./AuthenticationBackend";
 import { Category, Roadmap } from "@/interfaces/Estude-comigo";
 
-export class Backend {
+export class RoadmapBackend {
   private readonly auth: AuthenticationBackend;
 
   private readonly url: string;
@@ -12,7 +12,7 @@ export class Backend {
     this.url = this.auth.getUrl();
   }
 
-  public async categories(): Promise<Category[] | string> {
+  public async categories(): Promise<Category[]> {
     try {
       const token = await this.auth.getToken();
       const response = await fetch(`${this.url}category`, {
@@ -24,13 +24,13 @@ export class Backend {
       });
 
       if (!response.ok) {
-        return "Categoria não encontrada!";
+        return [];
       }
 
       const data: Category[] = await response.json();
       return data;
     } catch (error) {
-      console.error(error);
+      return [];
     }
   }
 

@@ -3,9 +3,11 @@
 import { useRef, useState } from "react";
 import styles from "./Roadmap.module.scss";
 import Link from "next/link";
-import { Share2 } from "lucide-react";
 import RoadmapSidebar from "@/components/Blog/RoadmapSidebar";
 import LayoutBase from "@/components/layouts/LayoutBase";
+import { RoadmapBackend } from "@/helpers/RoadmapBackend";
+import { GetStaticPropsContext } from "next";
+import { Roadmap as RoadmapExtenal } from "@/interfaces/Estude-comigo";
 
 interface NodeType {
   id: number;
@@ -77,22 +79,28 @@ interface Roadmap {
   edges: Edge[];
 }
 
-export async function getServerSideProps(context) {
-  const { slugpage } = context.params;
-  let notFound = false;
-  const baseUrl = process.env.FRONTEND_URL || "http://localhost:3000";
-  const fetchData = async () => {
-    return await fetch(`${baseUrl}api/roadmaps/${slugpage}`).then(
-      (res) => {
-        if (!res.ok) {
-          notFound = true;
-          return;
-        }
-        return res.json();
-      }
-    );
+export async function getStaticPaths() {
+  const roadmapBackend = new RoadmapBackend();
+  const slugs = await roadmapBackend.getRoadmapsSlugs();
+  const paths = slugs.map((slug) => ({
+    params: { slugpage: slug },
+  }));
+  return {
+    paths,
+    fallback: false,
   };
-  const data: Roadmap = await fetchData();
+}
+
+export async function getStaticProps(context: GetStaticPropsContext) {
+  const { slugpage } = context.params as { slugpage: string };
+  let notFound = false;
+  const roadmapBackend = new RoadmapBackend();
+  const data: RoadmapExtenal | undefined = await roadmapBackend.roadmap(
+    slugpage
+  );
+  if (!data) {
+    notFound = true;
+  }
   return {
     notFound,
     props: { data },

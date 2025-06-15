@@ -34,7 +34,29 @@ export class RoadmapBackend {
     }
   }
 
-  public async roadmaps(slug: string, res: NextApiResponse): Promise<void> {
+  public async getRoadmapsSlugs(): Promise<string[]> {
+    try {
+      const token = await this.auth.getToken();
+      const response = await fetch(`${this.url}roadmaps`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      if (!response.ok) {
+        return [];
+      }
+
+      const data: string[] = await response.json();
+      return data;
+    } catch (error) {
+      return [];
+    }
+  }
+
+  public async roadmap(slug: string): Promise<Roadmap | undefined> {
     try {
       const token = await this.auth.getToken();
       const response = await fetch(`${this.url}roadmap/${slug}`, {
@@ -46,16 +68,13 @@ export class RoadmapBackend {
       });
 
       if (!response.ok) {
-        res.status(404).end();
-        return;
+        return undefined;
       }
 
       const data: Roadmap = await response.json();
-      res.status(200).json(data);
-      return;
+      return data;
     } catch (error) {
-      console.error(error);
-      res.status(500).json({ message: "Internal server error" });
+      return undefined;
     }
   }
 }

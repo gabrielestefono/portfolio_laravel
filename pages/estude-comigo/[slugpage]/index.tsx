@@ -225,7 +225,7 @@ export default function Frontend({
                         className={styles.gElement}
                       >
                         <rect
-                          width="150"
+                          width="250"
                           height="60"
                           rx="6"
                           ry="6"
@@ -234,12 +234,14 @@ export default function Frontend({
                           strokeWidth="2"
                         />
                         <text
-                          x="75"
-                          y="35"
+                          x="125"
+                          y="30"
                           textAnchor="middle"
                           fill="white"
                           fontSize="14"
                           fontWeight={isSelected ? "bold" : "normal"}
+                          alignmentBaseline="middle"
+                          dominantBaseline="middle"
                         >
                           {node.label}
                         </text>

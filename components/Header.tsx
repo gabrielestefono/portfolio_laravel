@@ -137,7 +137,7 @@ export default function header({
               className={`${estilo.link} ${
                 rotaAtual.pathname == "/sobre" ? estilo.active : ""
               }`}
-              href="#sobre"
+              href="/#sobre"
             >
               Sobre mim
             </Link>
@@ -146,7 +146,7 @@ export default function header({
               className={`${estilo.link} ${
                 rotaAtual.pathname == "/projetos" ? estilo.active : ""
               }`}
-              href="#projetos"
+              href="/#projetos"
             >
               Projetos
             </Link>
@@ -154,7 +154,7 @@ export default function header({
               className={`${estilo.link} ${
                 rotaAtual.pathname == "/skills" ? estilo.active : ""
               }`}
-              href="#habilidades"
+              href="/#habilidades"
             >
               Habilidades
             </Link>

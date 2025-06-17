@@ -1,12 +1,12 @@
 import styles from "./TopPresentation.module.scss";
 import Image from "next/image";
-import { PresentationTop } from "@/types";
+import { PresentationTop } from "@/interfaces/Landing";
+import Link from "next/link";
 
 export default function presentation({
-  greating,
-  profession,
-  description,
-}: Readonly<PresentationTop>) {
+  presentationTop,
+}: Readonly<{ presentationTop: PresentationTop }>) {
+  const { greating, profession, description } = presentationTop;
   return (
     <section className={styles.presentation}>
       <div className={styles.center}>
@@ -16,13 +16,12 @@ export default function presentation({
           {description.map((desc) => (
             <p key={String(desc.id)}>{desc.text}</p>
           ))}
-          <a
-            href="https://github.com/gabrielestefono?tab=repositories"
-            target="_blank"
+          <Link
+            href="/#projetos"
             rel="noopener noreferrer"
           >
             Veja meus projetos
-          </a>
+          </Link>
         </div>
         <div className={styles.right}>
           <div className={styles.ball1}></div>

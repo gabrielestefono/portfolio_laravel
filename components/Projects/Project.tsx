@@ -1,7 +1,7 @@
 import estilo from "./Project.module.scss";
 import Direita from "./Direita";
 import Esquerda from "./Esquerda";
-import { Project as ProjectArray } from "@/types";
+import { Project as ProjectArray } from "@/interfaces/Landing";
 
 export default function Project({
   projects,

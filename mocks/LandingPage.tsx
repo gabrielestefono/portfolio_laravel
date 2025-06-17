@@ -1,6 +1,6 @@
-import { Dashboard } from "@/types";
+import { Dashboard } from "@/interfaces/Landing";
 
-export const indexMocks: Dashboard = {
+export const landingMocks: Dashboard = {
   presentation: {
     presentationTop: {
       greating: "Olá! Eu sou Gabriel Estéfono",

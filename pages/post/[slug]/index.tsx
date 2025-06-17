@@ -2,7 +2,7 @@ import Link from "next/link";
 import styles from "./Post.module.scss";
 import { ArrowLeft, Calendar, Clock } from "lucide-react";
 import Image from "next/image";
-import { GetServerSidePropsContext, GetStaticPropsContext } from "next";
+import { GetStaticPropsContext } from "next";
 import { Tag } from "@/helpers/BlogBackend";
 import LayoutBase from "@/components/layouts/LayoutBase";
 

@@ -1,13 +1,12 @@
 'use client"';
 
-import { PresentationBottom } from "@/types";
+import { PresentationBottom } from "@/interfaces/Landing";
 import styles from "./InfoPresentation.module.scss";
 
 export default function InfoPresentation({
-  initialDate,
-  projects,
-  support,
-}: Readonly<PresentationBottom>) {
+  presentationBottom,
+}: Readonly<{ presentationBottom: PresentationBottom }>) {
+  const { initialDate, projects, support } = presentationBottom;
   const yearText = initialDate > 1 ? "anos" : "ano";
   return (
     <div className={styles.infopresentation}>

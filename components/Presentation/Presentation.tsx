@@ -1,15 +1,19 @@
-import { Presentation } from "@/types";
+import { Presentation } from "@/interfaces/Landing";
 import TopPresentation from "./TopPresentation";
 import InfoPresentation from "./InfoPresentation";
 
+interface PresentationProps {
+  presentation: Presentation;
+}
+
 export default function presentation({
-  presentationTop,
-  presentationBottom,
-}: Readonly<Presentation>) {
+  presentation,
+}: Readonly<PresentationProps>) {
+  const { presentationBottom, presentationTop } = presentation;
   return (
     <>
-      <TopPresentation {...presentationTop} />
-      <InfoPresentation {...presentationBottom} />
+      <TopPresentation presentationTop={presentationTop} />
+      <InfoPresentation presentationBottom={presentationBottom} />
     </>
   );
 }

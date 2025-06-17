@@ -114,7 +114,7 @@ export default function header({
       <div className={`${estilo.header} ${clicked ? estilo.fixed : ""}`}>
         <div>
           <div className={estilo.left}>
-            <a href="/">
+            <Link href="/">
               <Image
                 src={imagem}
                 alt="Logotipo WeBest"
@@ -122,7 +122,7 @@ export default function header({
                 height={61}
                 priority={true}
               />
-            </a>
+            </Link>
           </div>
           <div className={estilo.right}>
             <Link

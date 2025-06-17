@@ -84,18 +84,21 @@
     }
   }
 
-  button {
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
     background-color: var(--cor-primaria);
-    font-family: var(--dm-sans);
-    color: white;
-    width: 8.625rem;
-    height: 3.5rem;
     border: none;
     border-radius: 0.25rem;
-    font-weight: 500;
-    cursor: pointer;
-    font-size: 14px;
+    color: white;
+    font-family: var(--dm-sans);
+    font-size: 1.125rem;
     line-height: 1.125rem;
+    font-weight: 700;
+    width: 16.375rem;
+    height: 4.125rem;
 
     @include tabletPaisagem() {
       margin: 0;

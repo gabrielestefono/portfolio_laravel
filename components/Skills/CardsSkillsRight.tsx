@@ -1,6 +1,6 @@
 import Image from "next/image";
 import estilo from "./CardsSkillsRight.module.scss";
-import { SkillsElement } from "@/types";
+import { SkillsElement } from "@/interfaces/Landing";
 
 export default function CardsSkillsRight({alt, id, image, text, title}: Readonly<SkillsElement>) {
     return(

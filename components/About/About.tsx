@@ -31,7 +31,7 @@ export default function About() {
               <button className={styles.first} onClick={downloadCurriculum}>
                 Baixar currículo
               </button>
-              {/* <a href="/sobre" className={styles.second}>Leia mais</a> */}
+              {/* <Link href="/sobre" className={styles.second}>Leia mais</Link> */}
             </div>
           </div>
           <div className={styles.right}>

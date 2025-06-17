@@ -62,15 +62,15 @@ export default function BlogPage({ data }: Readonly<{ data: BlogPost }>) {
                   <div>
                     <span>Filtrando por tag:</span>
                     {activeTags.map((tag, index) => (
-                      <a href={`/blog/${tag}`} key={`${index}${tag}`}>
+                      <Link href={`/blog/${tag}`} key={`${index}${tag}`}>
                         {tag}
-                      </a>
+                      </Link>
                     ))}
                   </div>
-                  <a href="/blog" aria-label="Limpar filtro">
+                  <Link href="/blog" aria-label="Limpar filtro">
                     <X size={16} />
                     <span>Limpar filtro</span>
-                  </a>
+                  </Link>
                 </div>
               </div>
             )}
@@ -112,13 +112,13 @@ export default function BlogPage({ data }: Readonly<{ data: BlogPost }>) {
                   <h3>Categorias</h3>
                   <div>
                     {allTags.map((tag) => (
-                      <a
+                      <Link
                         key={tag.id}
                         className={isTagActive ? styles.active : ""}
                         href={`/blog/${tag.label.toLowerCase()}`}
                       >
                         {tag.label}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>
@@ -173,9 +173,9 @@ function FeaturedPostCard({
         <div>
           <div>
             {post.tags.map((tag) => (
-              <a key={tag.id} href={`/blog/${tag.label.toLowerCase()}`}>
+              <Link key={tag.id} href={`/blog/${tag.label.toLowerCase()}`}>
                 {tag.label}
-              </a>
+              </Link>
             ))}
           </div>
 
@@ -229,9 +229,9 @@ function PostCard({
       <div>
         <div>
           {post.tags.map((tag) => (
-            <a key={tag.id} href={`/blog/${tag.label.toLowerCase()}`}>
+            <Link key={tag.id} href={`/blog/${tag.label.toLowerCase()}`}>
               {tag.label}
-            </a>
+            </Link>
           ))}
         </div>
         <Link href={`/post/${post.slug}`}>

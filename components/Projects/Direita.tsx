@@ -1,7 +1,8 @@
 import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 import estilo from "./ProjectDireita.module.scss";
 import { useState } from "react";
-import { Project } from "@/types";
+import { Project } from "@/interfaces/Landing";
+import Link from "next/link";
 
 export default function Direita({
   projects,
@@ -44,9 +45,9 @@ export default function Direita({
             </div>
             <div className={active === 0 ? estilo.active : estilo.inactive}>
               <h3>{project.title}</h3>
-              <a href={project.link} target="_blank">
+              <Link href={project.link} target="_blank">
                 Ver mais
-              </a>
+              </Link>
             </div>
           </SwiperSlide>
         ))}

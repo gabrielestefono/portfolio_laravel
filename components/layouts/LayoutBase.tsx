@@ -4,9 +4,10 @@ import { PropsWithChildren, ReactNode } from "react";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import styles from "./Layout.module.scss";
+import NoIndexMeta from "../meta/NoIndexMeta";
 
 interface LayoutBaseProps {
-  metaTags: ReactNode;
+  metaTags?: ReactNode;
   blog?: boolean;
   estudeComigo?: boolean;
 }
@@ -22,7 +23,7 @@ export default function LayoutBase({
       <Header
         blog={blog}
         estudeComigo={estudeComigo}
-        metaTags={metaTags}
+        metaTags={metaTags ?? <NoIndexMeta/>}
       ></Header>
       <main>{children}</main>
       <Analytics />

@@ -49,7 +49,7 @@
 		line-height: 1.875rem;
 		font-family: $poppins;
 		color: $cor-secundaria;
-		max-width: calc(100vw - 3rem);
+		max-width: calc(100% - 3rem);
 		text-align: center;
 
 		@include tabletPaisagem(){

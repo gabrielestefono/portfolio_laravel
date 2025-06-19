@@ -75,7 +75,7 @@
 			}
 
 			input{
-				width: calc(100vw - 6rem);
+				width: calc(100% - 6rem);
 				padding: 0 1.5rem;
 				outline-color: $cor-primaria;
 				color: #000;
@@ -102,7 +102,7 @@
 		}
 
 		textArea{
-			width: calc(100vw - 6rem);
+			width: calc(100% - 6rem);
 			outline-color: $cor-primaria;
 			padding: 1.5rem 1.5rem;
 			color: #000;

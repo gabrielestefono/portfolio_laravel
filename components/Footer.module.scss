@@ -44,7 +44,6 @@
   background-color: var(--cor-secundaria);
   color: var(--white);
   font-family: var(--poppins);
-  margin-top: 6.25rem;
   line-height: 1.5;
   display: flex;
   justify-content: center;
@@ -69,8 +68,6 @@
         gap: 2rem;
 
         @include tabletNormal() {
-          // display: grid;
-          // grid-template-columns: repeat(4, 1fr);
           flex-direction: row;
           justify-content: space-between;
           width: 100%;

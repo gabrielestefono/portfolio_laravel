@@ -47,7 +47,7 @@
 	min-height: 5.125rem;
 	align-items: center;
 	justify-content: space-between;
-	width: calc(100vw - 3rem);
+	width: calc(100% - 3rem);
 	border: 1px solid #505050;
 	border-radius: .75rem;
 
@@ -80,7 +80,7 @@
 
 .openedQuestion{
 	display: flex;
-	width: calc(100vw - 3rem);
+	width: calc(100% - 3rem);
 	min-height: 9.5rem;
 	border-radius: .75rem;
 	position: relative;

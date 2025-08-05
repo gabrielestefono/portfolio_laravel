@@ -19,6 +19,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     return res.json({ revalidated: true, path });
   } catch (err) {
+    console.log(err)
     return res.status(500).json({ message: 'Error revalidating', error: err });
   }
 }

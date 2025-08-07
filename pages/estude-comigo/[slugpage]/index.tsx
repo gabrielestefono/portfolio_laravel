@@ -87,7 +87,7 @@ export async function getStaticPaths() {
   }));
   return {
     paths,
-    fallback: false,
+    fallback: "blocking",
   };
 }
 
@@ -99,10 +99,9 @@ export async function getStaticProps(context: GetStaticPropsContext) {
     slugpage
   );
   if (!data) {
-    notFound = true;
+    return { notFound: true };
   }
   return {
-    notFound,
     props: { data },
     revalidate: 60,
   };

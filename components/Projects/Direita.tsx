@@ -14,9 +14,9 @@ export default function Direita({
   };
 
   return (
-    <div className={estilo.swiperContainer}>
+    <div className={estilo["swiperContainer"]}>
       <Swiper
-        className={estilo.swiperDireita}
+        className={estilo["swiperDireita"]}
         slidesPerView={1}
         spaceBetween={15}
         loop={true}
@@ -35,15 +35,17 @@ export default function Direita({
         }}
       >
         {projects.map((project) => (
-          <SwiperSlide className={estilo.slides} key={project.id}>
+          <SwiperSlide className={estilo["slides"]} key={project.id}>
             <div>
               <img
-                className={estilo.imagem}
+                className={estilo["imagem"]}
                 src={project.image}
                 alt={project.alt}
               />
             </div>
-            <div className={active === 0 ? estilo.active : estilo.inactive}>
+            <div
+              className={active === 0 ? estilo["active"] : estilo["inactive"]}
+            >
               <h3>{project.title}</h3>
               <Link href={project.link} target="_blank">
                 Ver mais

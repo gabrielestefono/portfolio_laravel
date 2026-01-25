@@ -9,4 +9,5 @@ export default async function handler(
     const backend = new ContactBackend();
     return await backend.createContact(request, response);
   }
+  return response.status(405).json({ message: "Method Not Allowed" });
 }

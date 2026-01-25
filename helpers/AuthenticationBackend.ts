@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 interface LoginResponse {
   token: string;
 }

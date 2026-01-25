@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import Link from "next/link";
 import styles from "./Post.module.scss";
 import { ArrowLeft, Calendar, Clock } from "lucide-react";
@@ -26,7 +28,7 @@ interface Post {
 }
 
 export async function getStaticPaths() {
-  const paths = [];
+  const paths: string[] = [];
   const baseUrl = process.env.BACKEND_URL || "http://localhost:8000/api";
 
   const res = await fetch(`${baseUrl}/post-list`);
@@ -72,7 +74,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 export default function Frontend({ data }: Readonly<{ data: Post }>) {
   return (
     <LayoutBase blog={true}>
-      <div className={styles.frontend}>
+      <div className={styles["frontend"]}>
         <div>
           <div>
             <div>

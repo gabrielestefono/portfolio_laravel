@@ -1,4 +1,5 @@
 import { Category } from "@/interfaces/Estude-comigo";
+import Error from "next/error";
 import { useState, useEffect, useMemo } from "react";
 
 export default function useController() {
@@ -11,11 +12,11 @@ export default function useController() {
       try {
         const res = await fetch("/api/categories");
         if (!res.ok) {
-          throw new Error("Erro ao coletar dados");
+          throw new Error({ statusCode: res.status });
         }
         const resData: Category[] = await res.json();
         setData(resData);
-      } catch (error) {
+      } catch (error: Error | any) {
         setError(error.message);
       } finally {
         setLoading(false);

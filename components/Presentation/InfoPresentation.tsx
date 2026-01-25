@@ -9,11 +9,11 @@ export default function InfoPresentation({
   const { initialDate, projects, support } = presentationBottom;
   const yearText = initialDate > 1 ? "anos" : "ano";
   return (
-    <div className={styles.infopresentation}>
+    <div className={styles["infopresentation"]}>
       <div>
         <div>
-          <div className={`${styles.primaryIcon} ${styles.icon1}`}></div>
-          <div className={styles.text}>
+          <div className={`${styles["primaryIcon"]} ${styles["icon1"]}`}></div>
+          <div className={styles["text"]}>
             <h3>
               {initialDate} {yearText}
             </h3>
@@ -23,8 +23,8 @@ export default function InfoPresentation({
       </div>
       <div>
         <div>
-          <div className={`${styles.primaryIcon} ${styles.icon2}`}></div>
-          <div className={styles.text}>
+          <div className={`${styles["primaryIcon"]} ${styles["icon2"]}`}></div>
+          <div className={styles["text"]}>
             <h3>{projects}+ Projetos</h3>
             <p>Completos</p>
           </div>
@@ -32,8 +32,8 @@ export default function InfoPresentation({
       </div>
       <div>
         <div>
-          <div className={`${styles.primaryIcon} ${styles.icon3}`}></div>
-          <div className={styles.text}>
+          <div className={`${styles["primaryIcon"]} ${styles["icon3"]}`}></div>
+          <div className={styles["text"]}>
             <h3>{support}</h3>
             <p>Suporte</p>
           </div>

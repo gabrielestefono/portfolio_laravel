@@ -31,7 +31,7 @@ export default function BlogPage({ data }: Readonly<{ data: BlogPost }>) {
   // Dados recebidos do servidor
   const { allTags, highlights, latestPosts } = data;
 
-  const activeTags = [];
+  const activeTags: string[] = [];
 
   // Posts em destaque
   const featuredPosts = highlights.filter((post) => post);
@@ -40,7 +40,7 @@ export default function BlogPage({ data }: Readonly<{ data: BlogPost }>) {
 
   return (
     <LayoutBase blog={true}>
-      <div className={styles.blog}>
+      <div className={styles["blog"]}>
         {/* Header do Blog */}
         <div>
           <div>
@@ -57,7 +57,7 @@ export default function BlogPage({ data }: Readonly<{ data: BlogPost }>) {
         <div>
           <div>
             {activeTags.length > 0 && (
-              <div className={styles.activeTag}>
+              <div className={styles["activeTag"]}>
                 <div>
                   <div>
                     <span>Filtrando por tag:</span>
@@ -75,10 +75,10 @@ export default function BlogPage({ data }: Readonly<{ data: BlogPost }>) {
               </div>
             )}
 
-            <div className={styles.gridContainer}>
+            <div className={styles["gridContainer"]}>
               <div>
                 {activeTags.length === 0 && featuredPosts.length > 0 && (
-                  <section className={styles.destaques}>
+                  <section className={styles["destaques"]}>
                     <h2>Posts em Destaque</h2>
                     <div>
                       {featuredPosts.map((post) => (
@@ -88,17 +88,20 @@ export default function BlogPage({ data }: Readonly<{ data: BlogPost }>) {
                   </section>
                 )}
 
-                <section className={styles.latestPostsMenu}>
+                <section className={styles["latestPostsMenu"]}>
                   <h2>
                     {activeTags ? `Posts sobre ${activeTags}` : "Últimos Posts"}
                   </h2>
 
                   {latestPosts.length === 0 ? (
-                    <div className={styles.emptyPosts}>
-                      <p>Aparentemente ainda não existem posts no blog, fique atento!</p>
+                    <div className={styles["emptyPosts"]}>
+                      <p>
+                        Aparentemente ainda não existem posts no blog, fique
+                        atento!
+                      </p>
                     </div>
                   ) : (
-                    <div className={styles.latestPosts}>
+                    <div className={styles["latestPosts"]}>
                       {data.latestPosts.map((post) => (
                         <PostCard key={post.id} post={post} />
                       ))}
@@ -107,14 +110,14 @@ export default function BlogPage({ data }: Readonly<{ data: BlogPost }>) {
                 </section>
               </div>
 
-              <div className={styles.sidebar}>
-                <div className={styles.categories}>
+              <div className={styles["sidebar"]}>
+                <div className={styles["categories"]}>
                   <h3>Categorias</h3>
                   <div>
                     {allTags.map((tag) => (
                       <Link
                         key={tag.id}
-                        className={isTagActive ? styles.active : ""}
+                        className={isTagActive ? styles["active"] : ""}
                         href={`/blog/${tag.label.toLowerCase()}`}
                       >
                         {tag.label}
@@ -123,7 +126,7 @@ export default function BlogPage({ data }: Readonly<{ data: BlogPost }>) {
                   </div>
                 </div>
 
-                <div className={styles.popular}>
+                <div className={styles["popular"]}>
                   <h3>Posts Populares</h3>
                   <div>
                     {data.latestPosts.slice(0, 4).map((post) => (
@@ -159,7 +162,7 @@ function FeaturedPostCard({
   post: Post;
 }>) {
   return (
-    <div className={styles.featuredPostCard}>
+    <div className={styles["featuredPostCard"]}>
       <div>
         <div>
           <Image
@@ -222,7 +225,7 @@ function PostCard({
   post: Post;
 }>) {
   return (
-    <div className={styles.postCards}>
+    <div className={styles["postCards"]}>
       <div>
         <Image src={post.thumbnail_post} alt={post.title} fill />
       </div>

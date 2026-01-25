@@ -1,4 +1,4 @@
-import estilo from "./HeroSection.module.scss";
+import style from "./HeroSection.module.scss";
 import { useEffect, useRef, useState } from "react";
 import bg1 from "./bg1.webp";
 import bg2 from "./bg2.webp";
@@ -6,12 +6,16 @@ import bg3 from "./bg3.webp";
 import bg4 from "./bg4.webp";
 import bg5 from "./bg5.webp";
 
-export default function HeroSection(props) {
+interface HeroSectionProps {
+  text: string;
+}
+
+export default function HeroSection({ text }: Readonly<HeroSectionProps>) {
   const divBg = useRef(null);
   const [bgLoaded, setBgLoaded] = useState(false);
 
   useEffect(() => {
-    const elementoRecebido = divBg.current;
+    const elementoRecebido = divBg.current as unknown as HTMLDivElement;
     const larguraTela = window.innerWidth;
 
     let backgroundImageSrc = "";
@@ -37,8 +41,8 @@ export default function HeroSection(props) {
   }, []);
 
   return (
-    <div className={estilo.herosection} ref={divBg}>
-      {bgLoaded && <div>{props.text}</div>}
+    <div className={style["herosection"]} ref={divBg}>
+      {bgLoaded && <div>{text}</div>}
     </div>
   );
 }

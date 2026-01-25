@@ -22,7 +22,7 @@ export async function getStaticProps() {
 export default function EstudeComigo({ data }: Readonly<{ data: Category[] }>) {
   return (
     <LayoutBase estudeComigo={true}>
-      <div className={styles.estudeComigo}>
+      <div className={styles["estudeComigo"]}>
         <Header />
         <div>
           <div>

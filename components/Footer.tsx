@@ -1,10 +1,10 @@
 import Link from "next/link";
-import estilo from "./Footer.module.scss";
+import style from "./Footer.module.scss";
 import Image from "next/image";
 
 export default function Home() {
   return (
-    <footer className={estilo.footer}>
+    <footer className={style["footer"]}>
       <div>
         <div>
           <div>

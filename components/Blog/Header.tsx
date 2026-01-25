@@ -1,8 +1,8 @@
-import styles from './Header.module.scss';
+import styles from "./Header.module.scss";
 
 export default function Header() {
   return (
-    <header className={styles.header}>
+    <header className={styles["header"]}>
       <div className="container mx-auto px-4 text-center">
         <h1 className="text-4xl md:text-5xl font-bold mb-4">
           Mapa de Conhecimento

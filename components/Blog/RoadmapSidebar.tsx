@@ -37,8 +37,8 @@ export default function RoadmapSidebar({
   };
 
   return (
-    <div className={style.desktopGeral}>
-      <div className={style.desktopClass}>
+    <div className={style["desktopGeral"]}>
+      <div className={style["desktopClass"]}>
         <div>
           <button onClick={onClose}>
             <X className="h-5 w-5 cursor-pointer" />
@@ -76,7 +76,7 @@ export default function RoadmapSidebar({
                     title={`Link do tipo ${link.link_type.label}`}
                   >
                     <div
-                      className={style.icon}
+                      className={style["icon"]}
                       dangerouslySetInnerHTML={{
                         __html: link.link_type.svg_icon,
                       }}

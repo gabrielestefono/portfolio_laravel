@@ -95,9 +95,8 @@ export async function getStaticProps(context: GetStaticPropsContext) {
   const { slugpage } = context.params as { slugpage: string };
   let notFound = false;
   const roadmapBackend = new RoadmapBackend();
-  const data: RoadmapExtenal | undefined = await roadmapBackend.roadmap(
-    slugpage
-  );
+  const data: RoadmapExtenal | undefined =
+    await roadmapBackend.roadmap(slugpage);
   if (!data) {
     return { notFound: true };
   }
@@ -130,7 +129,7 @@ export default function Frontend({
 
   return (
     <LayoutBase estudeComigo={true}>
-      <div className={styles.frontend}>
+      <div className={styles["frontend"]}>
         {/* Header */}
         <div>
           <div>
@@ -138,7 +137,7 @@ export default function Frontend({
               <div>
                 <nav>
                   <Link href="/estude-comigo">Estude comigo</Link>
-                  <span className={styles.separator}>/</span>
+                  <span className={styles["separator"]}>/</span>
                   <span>{topicTitle}</span>
                 </nav>
 
@@ -180,10 +179,10 @@ export default function Frontend({
                 >
                   {edges.map((edge) => {
                     const sourceNode = nodes.find(
-                      (n) => n.id === edge.id_node_source
+                      (n) => n.id === edge.id_node_source,
                     );
                     const targetNode = nodes.find(
-                      (n) => n.id === edge.id_node_target
+                      (n) => n.id === edge.id_node_target,
                     );
 
                     if (!sourceNode || !targetNode) return null;
@@ -221,7 +220,7 @@ export default function Frontend({
                         key={node.id}
                         transform={`translate(${node.x}, ${node.y})`}
                         onClick={() => handleNodeClick(node)}
-                        className={styles.gElement}
+                        className={styles["gElement"]}
                       >
                         <rect
                           width="250"
@@ -253,7 +252,7 @@ export default function Frontend({
           </div>
 
           {/* Instructions */}
-          <div className={styles.instructions}>
+          <div className={styles["instructions"]}>
             <h2>Como usar este mapa</h2>
             <div>
               <div>

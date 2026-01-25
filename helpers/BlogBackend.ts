@@ -45,15 +45,15 @@ export class BlogBackend {
   }
 
   private defineQueryTags(query: NextApiRequest["query"]): string {
-    if (!query?.tag) {
+    if (!query?.["tag"]) {
       return "";
     }
-    if (Array.isArray(query.tag)) {
-      return query.tag
+    if (Array.isArray(query["tag"])) {
+      return query["tag"]
         .map((tag, index) => (index === 0 ? `?tag=${tag}` : `&tag=${tag}`))
         .join("");
     }
-    return `?tag=${query.tag}`;
+    return `?tag=${query["tag"]}`;
   }
 
   private async posts(): Promise<BlogPost | undefined> {
@@ -124,7 +124,7 @@ export class BlogBackend {
   }
 
   private async postList(
-    res: NextApiResponse
+    res: NextApiResponse,
   ): Promise<{ slug: string; title: string }[]> {
     try {
       const token = await this.auth.getToken();
@@ -137,15 +137,17 @@ export class BlogBackend {
       });
       if (!response.ok) {
         res.status(401).json({ error: "Unauthorized access" });
-        return;
+        return [];
       }
       const data: { slug: string; title: string }[] = await response.json();
       res.status(200).json(data);
+      return data;
     } catch (error) {
       res.status(500).json({
         error: "Internal server error",
         details: error instanceof Error ? error.message : String(error),
       });
+      return [];
     }
   }
 
@@ -162,7 +164,7 @@ export class BlogBackend {
   }
 
   public async getPostList(
-    res: NextApiResponse
+    res: NextApiResponse,
   ): Promise<{ slug: string; title: string }[]> {
     return await this.postList(res);
   }

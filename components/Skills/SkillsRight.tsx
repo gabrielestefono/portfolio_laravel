@@ -1,10 +1,10 @@
 import { Skills } from "@/interfaces/Landing";
 import CardsSkillsRight from "./CardsSkillsRight";
-import estilo from "./SkillsRight.module.scss";
+import style from "./SkillsRight.module.scss";
 
 export default function SkillsRight(skills: Readonly<Skills>) {
   return (
-    <div className={estilo.SkillsRight}>
+    <div className={style["SkillsRight"]}>
       {skills.SkillsElements.map((skill) => {
         const { id, image, alt, text, title } = skill;
         return (

@@ -7,6 +7,6 @@ export default async function handler(
 ) {
   if (req.method === "GET") {
     const backend = new BlogBackend();
-    return backend.getPostList(res);
+    return await backend.getPostList(res);
   }
 }

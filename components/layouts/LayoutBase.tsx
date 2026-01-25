@@ -19,11 +19,11 @@ export default function LayoutBase({
   estudeComigo = false,
 }: Readonly<PropsWithChildren<LayoutBaseProps>>) {
   return (
-    <div className={styles.container}>
+    <div className={styles["container"]}>
       <Header
         blog={blog}
         estudeComigo={estudeComigo}
-        metaTags={metaTags ?? <NoIndexMeta/>}
+        metaTags={metaTags ?? <NoIndexMeta />}
       ></Header>
       <main>{children}</main>
       <Analytics />

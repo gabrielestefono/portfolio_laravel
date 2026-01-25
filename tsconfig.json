@@ -1,36 +1,56 @@
 {
   "compilerOptions": {
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": false,
-    "noEmit": true,
-    "incremental": true,
+    /* Base */
+    "target": "ES2022",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+
+    /* Type Safety */
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "strictPropertyInitialization": true,
+    "useUnknownInCatchVariables": true,
+
+    /* Code Quality */
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "noPropertyAccessFromIndexSignature": true,
+
+    /* Modules & Interop */
     "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
+
+    /* Build */
+    "noEmit": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "incremental": true,
+
+    /* JS */
+    "allowJs": false,
+    "checkJs": false,
+
+    /* Paths */
+    "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "./*"
-      ]
+      "@/*": ["./*"]
     },
-    "target": "ES2017"
+
+    /* Performance / DX */
+    "skipLibCheck": false,
+    "forceConsistentCasingInFileNames": true,
+
+    /* React / Next */
+    "jsx": "preserve"
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "**/*.js",
-    "**/*.jsx"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+
+  "exclude": ["node_modules"]
 }

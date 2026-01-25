@@ -1,4 +1,4 @@
-import estilo from "./Header.module.scss";
+import style from "./Header.module.scss";
 import Link from "next/link"; // NOSONAR
 import imagem from "./logo.svg";
 import { ReactNode, useState } from "react";
@@ -36,9 +36,9 @@ export default function Header({
   return (
     <>
       {metaTags}
-      <div className={`${estilo.header} ${clicked ? estilo.fixed : ""}`}>
+      <div className={`${style["header"]} ${clicked ? style["fixed"] : ""}`}>
         <div>
-          <div className={estilo.left}>
+          <div className={style["left"]}>
             <Link href="/">
               <Image
                 src={imagem}
@@ -49,18 +49,18 @@ export default function Header({
               />
             </Link>
           </div>
-          <div className={estilo.right}>
+          <div className={style["right"]}>
             <Link
-              className={`${estilo.link} ${
-                rotaAtual.pathname == "/" ? estilo.active : ""
+              className={`${style["link"]} ${
+                rotaAtual.pathname == "/" ? style["active"] : ""
               }`}
               href="/"
             >
               Início
             </Link>
             <Link
-              className={`${estilo.link} ${
-                rotaAtual.pathname == "/sobre" ? estilo.active : ""
+              className={`${style["link"]} ${
+                rotaAtual.pathname == "/sobre" ? style["active"] : ""
               }`}
               href="/sobre"
             >
@@ -68,43 +68,43 @@ export default function Header({
             </Link>
             <Link
               rel="preload"
-              className={`${estilo.link} ${
-                rotaAtual.pathname == "/projetos" ? estilo.active : ""
+              className={`${style["link"]} ${
+                rotaAtual.pathname == "/projetos" ? style["active"] : ""
               }`}
               href="/#projetos"
             >
               Projetos
             </Link>
             <Link
-              className={`${estilo.link} ${
-                rotaAtual.pathname == "/skills" ? estilo.active : ""
+              className={`${style["link"]} ${
+                rotaAtual.pathname == "/skills" ? style["active"] : ""
               }`}
               href="/#habilidades"
             >
               Habilidades
             </Link>
             <Link
-              className={`${estilo.link} ${blog ? estilo.active : ""}`}
+              rel="preload"
+              className={`${style["link"]} ${
+                rotaAtual.pathname == "/contato" ? style["active"] : ""
+              }`}
+              href="/contato"
+            >
+              Contato
+            </Link>
+            <Link
+              className={`${style["link"]} ${blog ? style["active"] : ""}`}
               href="/blog"
             >
               Blog
             </Link>
             <Link
-              className={`${estilo.link} ${estudeComigo ? estilo.active : ""}`}
+              className={`${style["link"]} ${estudeComigo ? style["active"] : ""}`}
               href="/estude-comigo"
             >
               Estude Comigo
             </Link>
-
-            {/* <Link
-              rel="preload"
-              className={`${estilo.link} ${
-                rotaAtual.pathname == "/contato" ? estilo.active : ""
-              }`}
-              href="/contato"
-            >
-              Contato
-            </Link>*/}
+            {/* //TODO: Colocar um botão aqui */}
             <div onClick={handleSideBar}>
               {clicked ? (
                 <svg

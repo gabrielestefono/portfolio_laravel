@@ -7,6 +7,7 @@ export default function SkillsRight(skills: Readonly<Skills>) {
     <div className={style["SkillsRight"]}>
       {skills.SkillsElements.map((skill) => {
         const { id, image, alt, text, title } = skill;
+        
         return (
           <CardsSkillsRight
             key={id}

@@ -12,6 +12,7 @@ const About = lazy(() => import("@/components/About/About"));
 
 export default function Home() {
   const { presentation, projects, skills } = landingMocks;
+
   return (
     <Layout metaTags={<LandingMeta />}>
       <Presentation presentation={presentation} />

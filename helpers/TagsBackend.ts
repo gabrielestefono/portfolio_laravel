@@ -24,9 +24,10 @@ export class TagsBackend {
         return [];
       }
       const data: string[] = await response.json();
+      
       return data;
-    } catch (error) {
-      return [];
+    } catch (error: unknown) {
+      return error ? [] : [];
     }
   }
 

@@ -8,7 +8,7 @@ export class AuthenticationBackend {
   private readonly email: string;
 
   private readonly password: string;
-  
+
   private readonly url: string;
 
   constructor() {
@@ -36,9 +36,10 @@ export class AuthenticationBackend {
       }
 
       const data: LoginResponse = await response.json();
+      
       return data.token;
     } catch (error) {
-      console.error(error);
+      return error ? "Erro de rede ou servidor" : "Erro desconhecido";
     }
   }
 

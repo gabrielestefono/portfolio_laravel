@@ -1,4 +1,4 @@
-import { FormEventHandler, useState } from "react";
+import React, { FormEventHandler, useState } from "react";
 import style from "./ContactMeMiddleRight.module.scss";
 
 export default function ContactMeMiddleRight() {
@@ -15,7 +15,7 @@ export default function ContactMeMiddleRight() {
 
   const handleInputName: FormEventHandler<HTMLInputElement> = (e) => {
     const target = e.target as HTMLInputElement;
-    const value = target.value;
+    const { value } = target;
     if (value.length > 0) {
       setErrorName(false);
     }
@@ -24,7 +24,7 @@ export default function ContactMeMiddleRight() {
 
   const handleInputEmail: FormEventHandler<HTMLInputElement> = (e) => {
     const target = e.target as HTMLInputElement;
-    const value = target.value;
+    const { value } = target;
     if (value.length > 0) {
       setErrorEmail(false);
     }
@@ -33,7 +33,7 @@ export default function ContactMeMiddleRight() {
 
   const handleInputMessage: FormEventHandler<HTMLTextAreaElement> = (e) => {
     const target = e.target as HTMLTextAreaElement;
-    const value = target.value;
+    const { value } = target;
     if (value.length > 0) {
       setErrorMessage(false);
     }
@@ -42,7 +42,7 @@ export default function ContactMeMiddleRight() {
 
   const handleInputWhatsapp: FormEventHandler<HTMLInputElement> = (e) => {
     const target = e.target as HTMLInputElement;
-    const value = target.value;
+    const { value } = target;
     if (value.length > 0) {
       setErrorWhatsapp(false);
     }
@@ -51,27 +51,32 @@ export default function ContactMeMiddleRight() {
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    const validateEmail = (email: string) => {
+    const validateEmail = (emailValidate: string) => {
       const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      return re.test(String(email).toLowerCase());
+
+      return re.test(String(emailValidate).toLowerCase());
     };
     if (!name) {
       setErrorName(true);
+
       return;
     }
     if (!email || !validateEmail(email)) {
       setErrorName(false);
       setErrorEmail(true);
+
       return;
     }
     if (!message) {
       setErrorEmail(false);
       setErrorMessage(true);
+
       return;
     }
     if (!whatsapp) {
       setErrorMessage(false);
       setErrorWhatsapp(true);
+
       return;
     }
     setErrorEmail(false);
@@ -83,14 +88,14 @@ export default function ContactMeMiddleRight() {
       body: JSON.stringify({ name, email, message, whatsapp, budget }),
     });
     if (response.ok) {
-      alert("Mensagem enviada com sucesso!");
+      // alert("Mensagem enviada com sucesso!");
       setName("");
       setEmail("");
       setMessage("");
       setWhatsapp("");
       setBudget("");
     } else {
-      alert("Erro ao enviar a mensagem. Tente novamente mais tarde.");
+      // alert("Erro ao enviar a mensagem. Tente novamente mais tarde.");
     }
   };
 

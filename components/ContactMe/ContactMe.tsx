@@ -1,11 +1,7 @@
 import ContactMeTop from "./ContactMeTop";
 import ContactMeMiddle from "./ContactMeMiddle";
 
-interface ContactMeProps {
-  espaco?: boolean;
-}
-
-export default function ContactMe({ espaco }: Readonly<ContactMeProps>) {
+export default function ContactMe() {
   return (
     <div>
       <ContactMeTop />

@@ -85,6 +85,7 @@ export async function getStaticPaths() {
   const paths = slugs.map((slug) => ({
     params: { slugpage: slug },
   }));
+
   return {
     paths,
     fallback: "blocking",
@@ -93,13 +94,13 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context: GetStaticPropsContext) {
   const { slugpage } = context.params as { slugpage: string };
-  let notFound = false;
   const roadmapBackend = new RoadmapBackend();
   const data: RoadmapExtenal | undefined =
     await roadmapBackend.roadmap(slugpage);
   if (!data) {
     return { notFound: true };
   }
+
   return {
     props: { data },
     revalidate: 60,
@@ -125,7 +126,7 @@ export default function Frontend({
 
   const topicTitle = data.label;
 
-  const toggleNodeCompletion = (nodeId: Node) => {};
+  const toggleNodeCompletion = () => {};
 
   return (
     <LayoutBase estudeComigo={true}>
@@ -185,7 +186,9 @@ export default function Frontend({
                       (n) => n.id === edge.id_node_target,
                     );
 
-                    if (!sourceNode || !targetNode) return null;
+                    if (!sourceNode || !targetNode) {
+                      return null;
+                    }
 
                     const sourceX = sourceNode.x + 125;
                     const sourceY = sourceNode.y + 30;

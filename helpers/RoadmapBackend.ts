@@ -1,4 +1,3 @@
-import { NextApiResponse } from "next";
 import { AuthenticationBackend } from "./AuthenticationBackend";
 import { Category, Roadmap } from "@/interfaces/Estude-comigo";
 
@@ -28,9 +27,10 @@ export class RoadmapBackend {
       }
 
       const data: Category[] = await response.json();
+
       return data;
-    } catch (error) {
-      return [];
+    } catch (error: unknown) {
+      return error ? [] : [];
     }
   }
 
@@ -50,9 +50,10 @@ export class RoadmapBackend {
       }
 
       const data: string[] = await response.json();
+
       return data;
-    } catch (error) {
-      return [];
+    } catch (error: unknown) {
+      return error ? [] : [];
     }
   }
 
@@ -72,9 +73,10 @@ export class RoadmapBackend {
       }
 
       const data: Roadmap = await response.json();
+
       return data;
     } catch (error) {
-      return undefined;
+      return error ? undefined : undefined;
     }
   }
 }

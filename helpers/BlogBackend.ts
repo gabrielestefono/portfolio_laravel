@@ -53,6 +53,7 @@ export class BlogBackend {
         .map((tag, index) => (index === 0 ? `?tag=${tag}` : `&tag=${tag}`))
         .join("");
     }
+
     return `?tag=${query["tag"]}`;
   }
 
@@ -70,9 +71,10 @@ export class BlogBackend {
         return undefined;
       }
       const data: BlogPost = await response.json();
+
       return data;
-    } catch (error) {
-      return undefined;
+    } catch (error: unknown) {
+      return error ? undefined : undefined;
     }
   }
 
@@ -90,9 +92,10 @@ export class BlogBackend {
         return undefined;
       }
       const data: BlogPost = await response.json();
+
       return data;
-    } catch (error) {
-      return undefined;
+    } catch (error: unknown) {
+      return error ? undefined : undefined;
     }
   }
 
@@ -111,6 +114,7 @@ export class BlogBackend {
       });
       if (!response.ok) {
         res.status(401);
+
         return;
       }
       const data: Post = await response.json();
@@ -137,16 +141,19 @@ export class BlogBackend {
       });
       if (!response.ok) {
         res.status(401).json({ error: "Unauthorized access" });
+
         return [];
       }
       const data: { slug: string; title: string }[] = await response.json();
       res.status(200).json(data);
+
       return data;
     } catch (error) {
       res.status(500).json({
         error: "Internal server error",
         details: error instanceof Error ? error.message : String(error),
       });
+
       return [];
     }
   }

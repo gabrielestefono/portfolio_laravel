@@ -1,12 +1,12 @@
-import estilo from './Faq.module.scss';
-import FaqQuestions from './FaqQuestions';
-import FaqTitle from './FaqTitle';
+import estilo from "./Faq.module.scss";
+import FaqQuestions from "./FaqQuestions";
+import FaqTitle from "./FaqTitle";
 
 export default function Faq() {
-	return (
-		<div className={estilo.faq}>
-			<FaqTitle />
-			<FaqQuestions />
-		</div>
-	)
+  return (
+    <div className={estilo.faq}>
+      <FaqTitle />
+      <FaqQuestions />
+    </div>
+  );
 }

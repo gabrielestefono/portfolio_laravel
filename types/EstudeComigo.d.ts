@@ -7,7 +7,7 @@ export interface Topico {
   title: string;
   description: string;
   icon: string;
-  color: "#006732" | "#15295f";
+  color: '#006732' | '#15295f';
   slug: string;
   created_at: string;
   updated_at: string;

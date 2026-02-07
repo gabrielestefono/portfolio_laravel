@@ -7,6 +7,7 @@ export default function presentation({
   presentationTop,
 }: Readonly<{ presentationTop: PresentationTop }>) {
   const { greating, profession, description } = presentationTop;
+
   return (
     <section className={styles["presentation"]}>
       <div className={styles["center"]}>

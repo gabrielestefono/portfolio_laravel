@@ -137,8 +137,8 @@ const projects: Project[] = [
 ];
 
 export default function projetos() {
-  const text =
-    "Lorem ipsum dolor sit amet consectetur adipiscing elit semper dalar elementum tempus hac tellus libero accumsan.";
+  // const text = "Lorem ipsum dolor sit amet consectetur adipiscing elit semper dalar elementum tempus hac tellus libero accumsan.";
+
   return (
     <LayoutBase>
       <main className={style["projects"]}>

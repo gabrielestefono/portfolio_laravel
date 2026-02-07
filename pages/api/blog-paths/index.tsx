@@ -7,7 +7,9 @@ export default async function handler(
 ) {
   if (req.method === "GET") {
     const backend = new BlogBackend();
+
     return await backend.getPostList(res);
   }
+  
   return res.status(405).json({ message: "Method Not Allowed" });
 }

@@ -8,6 +8,7 @@ export default function InfoPresentation({
 }: Readonly<{ presentationBottom: PresentationBottom }>) {
   const { initialDate, projects, support } = presentationBottom;
   const yearText = initialDate > 1 ? "anos" : "ano";
+  
   return (
     <div className={styles["infopresentation"]}>
       <div>

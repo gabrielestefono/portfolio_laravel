@@ -35,7 +35,7 @@ export async function getStaticPaths() {
   if (res.ok) {
     const data: string[] = await res.json();
     data.forEach((slug) => {
-      paths.push({ params: { slug: slug } });
+      paths.push({ params: { slug } });
     });
   }
 
@@ -52,15 +52,16 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 
   const baseUrl = process.env.FRONTEND_URL || "http://localhost:3000";
 
-  const fetchData = async () => {
-    return await fetch(`${baseUrl}api/blog/${slug}`).then((res) => {
+  const fetchData = async () =>
+    fetch(`${baseUrl}api/blog/${slug}`).then((res) => {
       if (!res.ok) {
         notFound = true;
+
         return;
       }
+
       return res.json();
     });
-  };
 
   const data: Post | undefined = await fetchData();
 

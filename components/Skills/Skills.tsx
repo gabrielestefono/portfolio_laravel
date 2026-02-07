@@ -5,6 +5,7 @@ import { Skills as SkillProps } from "@/interfaces/Landing";
 
 export default function Skills({ skills }: Readonly<{ skills: SkillProps }>) {
   const { SkillsElements } = skills;
+  
   return (
     <div className={style["skills"]} id="habilidades">
       <div>

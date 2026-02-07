@@ -9,9 +9,10 @@ import { RoadmapBackend } from "@/helpers/RoadmapBackend";
 import { Category } from "@/interfaces/Estude-comigo";
 
 export async function getStaticProps() {
-  let notFound = false;
+  const notFound = false;
   const roadmapBackend = new RoadmapBackend();
   const data: Category[] = await roadmapBackend.categories();
+
   return {
     props: { data },
     revalidate: 60,

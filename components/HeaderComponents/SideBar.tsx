@@ -14,14 +14,14 @@ export default function SideBar({
   return (
     <div className={styles["sidebar"]}>
       <Link
-        className={`${styles["link"]} ${rotaAtual == "/" ? styles["active"] : ""}`}
+        className={`${styles["link"]} ${rotaAtual === "/" ? styles["active"] : ""}`}
         href="/"
       >
         Início
       </Link>
       <Link
         className={`${styles["link"]} ${
-          rotaAtual == "/sobre" ? styles["active"] : ""
+          rotaAtual === "/sobre" ? styles["active"] : ""
         }`}
         href="/#sobre"
       >
@@ -29,7 +29,7 @@ export default function SideBar({
       </Link>
       <Link
         className={`${styles["link"]} ${
-          rotaAtual == "/projetos" ? styles["active"] : ""
+          rotaAtual === "/projetos" ? styles["active"] : ""
         }`}
         href="/#projetos"
       >
@@ -37,7 +37,7 @@ export default function SideBar({
       </Link>
       <Link
         className={`${styles["link"]} ${
-          rotaAtual == "/habilidades" ? styles["active"] : ""
+          rotaAtual === "/habilidades" ? styles["active"] : ""
         }`}
         href="/#habilidades"
       >
@@ -45,7 +45,7 @@ export default function SideBar({
       </Link>
       <Link
         className={`${styles["link"]} ${
-          rotaAtual == "/contato" ? styles["active"] : ""
+          rotaAtual === "/contato" ? styles["active"] : ""
         }`}
         href="/#contato"
       >

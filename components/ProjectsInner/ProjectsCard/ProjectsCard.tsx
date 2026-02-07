@@ -1,7 +1,8 @@
-import Image, { StaticImageData } from "next/image";
-import style from "./ProjectsCard.module.scss";
-import { Link } from "lucide-react";
+import Image from "next/image";
+import { ExternalLink, Github, Link } from "lucide-react";
 import { Project } from "../ProjectsContent";
+import { Button } from "@/components/Projects/button";
+import { Badge } from "@/components/Projects/badge";
 
 interface ProjectCardProps {
   project: Project;

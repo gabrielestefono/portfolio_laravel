@@ -29,9 +29,10 @@ export class ContactBackend {
         response.status(result.status).end();
       }
       const data = await result.json();
+      
       return response.status(201).json(data);
-    } catch (error) {
-      return response.status(500).end();
+    } catch (error: unknown) {
+      return error ? response.status(500).end() : response.status(500).end();
     }
   }
 }

@@ -24,7 +24,7 @@ export default function Header({
 
   const [rota, setRota] = useState(rotaAtual.pathname);
 
-  if (rotaAtual.pathname != rota) {
+  if (rotaAtual.pathname !== rota) {
     setClicked(false);
     setRota(rotaAtual.pathname);
   }
@@ -52,7 +52,7 @@ export default function Header({
           <div className={style["right"]}>
             <Link
               className={`${style["link"]} ${
-                rotaAtual.pathname == "/" ? style["active"] : ""
+                rotaAtual.pathname === "/" ? style["active"] : ""
               }`}
               href="/"
             >
@@ -60,7 +60,7 @@ export default function Header({
             </Link>
             <Link
               className={`${style["link"]} ${
-                rotaAtual.pathname == "/sobre" ? style["active"] : ""
+                rotaAtual.pathname === "/sobre" ? style["active"] : ""
               }`}
               href="/sobre"
             >
@@ -69,7 +69,7 @@ export default function Header({
             <Link
               rel="preload"
               className={`${style["link"]} ${
-                rotaAtual.pathname == "/projetos" ? style["active"] : ""
+                rotaAtual.pathname === "/projetos" ? style["active"] : ""
               }`}
               href="/projetos"
             >
@@ -77,7 +77,7 @@ export default function Header({
             </Link>
             <Link
               className={`${style["link"]} ${
-                rotaAtual.pathname == "/skills" ? style["active"] : ""
+                rotaAtual.pathname === "/skills" ? style["active"] : ""
               }`}
               href="/#habilidades"
             >
@@ -86,7 +86,7 @@ export default function Header({
             <Link
               rel="preload"
               className={`${style["link"]} ${
-                rotaAtual.pathname == "/contato" ? style["active"] : ""
+                rotaAtual.pathname === "/contato" ? style["active"] : ""
               }`}
               href="/contato"
             >

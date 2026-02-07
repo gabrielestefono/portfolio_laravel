@@ -4,7 +4,7 @@ import { useState, useEffect, useMemo } from "react";
 export default function useControllerRoadmap({ slug }: { slug: string }) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -15,19 +15,17 @@ export default function useControllerRoadmap({ slug }: { slug: string }) {
         }
         const resData = await res.json();
         setData(resData);
-      } catch (error: Error | any) {
-        setError(error.message);
+      } catch (err: unknown) {
+        setError((err as { message: string }).message);
       } finally {
         setLoading(false);
       }
     };
 
     fetchData();
-  }, []);
+  }, [slug]);
 
-  const memoizedData = useMemo(() => {
-    return data;
-  }, [data]);
+  const memoizedData = useMemo(() => data, [data]);
 
   return { data: memoizedData, loading, error };
 }

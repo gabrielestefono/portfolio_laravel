@@ -3,38 +3,24 @@
 import Link from "next/link";
 import style from "./RoadmapSidebar.module.scss";
 
-import {
-  X,
-  ExternalLink,
-  CheckCircle,
-  Circle,
-  Code,
-  Briefcase,
-  Link2,
-  FileText,
-} from "lucide-react";
-import { LinkItem, Node } from "@/pages/estude-comigo/[slugpage]";
+import { X } from "lucide-react";
+import { Node } from "@/pages/estude-comigo/[slugpage]";
 
 interface RoadmapSidebarProps {
   isOpen: boolean;
   onClose: () => void;
   node: Node | null;
-  onToggleCompletion: (nodeId: Node) => void;
+  onToggleCompletion: () => void;
 }
 
 export default function RoadmapSidebar({
   isOpen,
   onClose,
   node,
-  onToggleCompletion,
 }: Readonly<RoadmapSidebarProps>) {
   if (!isOpen || !node) {
     return null;
   }
-
-  const handleToggleCompletion = () => {
-    onToggleCompletion(node);
-  };
 
   return (
     <div className={style["desktopGeral"]}>
@@ -117,22 +103,4 @@ export default function RoadmapSidebar({
       </div>
     </div>
   );
-}
-
-// Função auxiliar para obter o ícone do tipo de link
-function getLinkTypeIcon(type: string) {
-  switch (type) {
-    case "external":
-      return <ExternalLink className="text-blue-400" />;
-    case "internal":
-      return <Link2 className="text-green-400" />;
-    case "skill":
-      return <Code className="text-yellow-400" />;
-    case "resource":
-      return <Briefcase className="text-purple-400" />;
-    case "documentation":
-      return <FileText className="text-pink-400" />;
-    default:
-      return <ExternalLink className="text-blue-400" />;
-  }
 }

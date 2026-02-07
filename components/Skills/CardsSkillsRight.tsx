@@ -4,7 +4,6 @@ import { SkillsElement } from "@/interfaces/Landing";
 
 export default function CardsSkillsRight({
   alt,
-  id,
   image,
   text,
   title,

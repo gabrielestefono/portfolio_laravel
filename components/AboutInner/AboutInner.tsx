@@ -211,6 +211,7 @@ export default function AboutInner() {
       bgColor: "#011D41",
     },
   ];
+
   return (
     <div className={style["aboutinner"]}>
       <div>

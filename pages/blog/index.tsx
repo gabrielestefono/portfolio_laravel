@@ -27,6 +27,105 @@ export async function getStaticProps() {
   };
 }
 
+function FeaturedPostCard({
+  post,
+}: Readonly<{
+  post: Post;
+}>) {
+  return (
+    <div className={styles["featuredPostCard"]}>
+      <div>
+        <div>
+          <Image
+            src={post.thumbnail_post}
+            alt={post.title}
+            width={390}
+            height={172}
+            priority={false}
+          />
+        </div>
+        <div>
+          <div>
+            {post.tags.map((tag) => (
+              <Link key={tag.id} href={`/blog/${tag.label.toLowerCase()}`}>
+                {tag.label}
+              </Link>
+            ))}
+          </div>
+
+          <Link href={`/post/${post.slug}`}>
+            <h3>{post.title}</h3>
+          </Link>
+
+          <p>{post.description}</p>
+
+          <div>
+            <div>
+              <div>
+                <Image
+                  src="/images/profile.png"
+                  alt="Gabriel Estéfono"
+                  width={32}
+                  height={32}
+                  priority={false}
+                />
+              </div>
+              <span>Gabriel Estéfono</span>
+            </div>
+
+            <div>
+              <div>
+                <Calendar size={14} />
+                <span>{post.date.split(",")[0]}</span>
+              </div>
+              <div>
+                <Clock size={14} />
+                <span>{post.reading_time} min de leitura</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function PostCard({
+  post,
+}: Readonly<{
+  post: Post;
+}>) {
+  return (
+    <div className={styles["postCards"]}>
+      <div>
+        <Image src={post.thumbnail_post} alt={post.title} fill />
+      </div>
+      <div>
+        <div>
+          {post.tags.map((tag) => (
+            <Link key={tag.id} href={`/blog/${tag.label.toLowerCase()}`}>
+              {tag.label}
+            </Link>
+          ))}
+        </div>
+        <Link href={`/post/${post.slug}`}>
+          <h3>{post.title}</h3>
+        </Link>
+        <p>{post.description}</p>
+        <div>
+          <div>
+            <div>
+              <Image src="/images/profile.png" alt="Gabriel Estéfono" fill />
+            </div>
+            <span>Gabriel Estéfono</span>
+          </div>
+          <div>{post.date.split(",")[0]}</div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function BlogPage({ data }: Readonly<{ data: BlogPost }>) {
   // Dados recebidos do servidor
   const { allTags, highlights, latestPosts } = data;
@@ -34,7 +133,7 @@ export default function BlogPage({ data }: Readonly<{ data: BlogPost }>) {
   const activeTags: string[] = [];
 
   // Posts em destaque
-  const featuredPosts = highlights.filter((post) => post);
+  const featuredPosts = highlights.filter(Boolean);
 
   const isTagActive = false;
 
@@ -156,101 +255,3 @@ export default function BlogPage({ data }: Readonly<{ data: BlogPost }>) {
 }
 
 // Componente para o card de post em destaque
-function FeaturedPostCard({
-  post,
-}: Readonly<{
-  post: Post;
-}>) {
-  return (
-    <div className={styles["featuredPostCard"]}>
-      <div>
-        <div>
-          <Image
-            src={post.thumbnail_post}
-            alt={post.title}
-            width={390}
-            height={172}
-            priority={false}
-          />
-        </div>
-        <div>
-          <div>
-            {post.tags.map((tag) => (
-              <Link key={tag.id} href={`/blog/${tag.label.toLowerCase()}`}>
-                {tag.label}
-              </Link>
-            ))}
-          </div>
-
-          <Link href={`/post/${post.slug}`}>
-            <h3>{post.title}</h3>
-          </Link>
-
-          <p>{post.description}</p>
-
-          <div>
-            <div>
-              <div>
-                <Image
-                  src="/images/profile.png"
-                  alt="Gabriel Estéfono"
-                  width={32}
-                  height={32}
-                  priority={false}
-                />
-              </div>
-              <span>Gabriel Estéfono</span>
-            </div>
-
-            <div>
-              <div>
-                <Calendar size={14} />
-                <span>{post.date.split(",")[0]}</span>
-              </div>
-              <div>
-                <Clock size={14} />
-                <span>{post.reading_time} min de leitura</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function PostCard({
-  post,
-}: Readonly<{
-  post: Post;
-}>) {
-  return (
-    <div className={styles["postCards"]}>
-      <div>
-        <Image src={post.thumbnail_post} alt={post.title} fill />
-      </div>
-      <div>
-        <div>
-          {post.tags.map((tag) => (
-            <Link key={tag.id} href={`/blog/${tag.label.toLowerCase()}`}>
-              {tag.label}
-            </Link>
-          ))}
-        </div>
-        <Link href={`/post/${post.slug}`}>
-          <h3>{post.title}</h3>
-        </Link>
-        <p>{post.description}</p>
-        <div>
-          <div>
-            <div>
-              <Image src="/images/profile.png" alt="Gabriel Estéfono" fill />
-            </div>
-            <span>Gabriel Estéfono</span>
-          </div>
-          <div>{post.date.split(",")[0]}</div>
-        </div>
-      </div>
-    </div>
-  );
-}

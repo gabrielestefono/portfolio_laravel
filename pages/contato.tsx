@@ -9,7 +9,7 @@ export default function contato() {
     <LayoutBase metaTags={<ContactMeta />}>
       <HeroSection text="Contato" />
       <Separator titulo="Contate-me" />
-      <ContactMe espaco={true} />
+      <ContactMe />
     </LayoutBase>
   );
 }

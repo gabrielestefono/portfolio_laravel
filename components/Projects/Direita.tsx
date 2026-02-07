@@ -3,6 +3,7 @@ import estilo from "./ProjectDireita.module.scss";
 import { useState } from "react";
 import { Project } from "@/interfaces/Landing";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Direita({
   projects,
@@ -37,10 +38,12 @@ export default function Direita({
         {projects.map((project) => (
           <SwiperSlide className={estilo["slides"]} key={project.id}>
             <div>
-              <img
+              <Image
                 className={estilo["imagem"]}
                 src={project.image}
                 alt={project.alt}
+                width={400}
+                height={300}
               />
             </div>
             <div

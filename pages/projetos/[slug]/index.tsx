@@ -17,6 +17,7 @@ export async function getStaticProps({ params }: ProjectPageProps) {
   if (!getProjectBySlug(slug)) {
     return { notFound: true };
   }
+
   return { props: { params } };
 }
 
@@ -48,7 +49,10 @@ export default function ProjectPage({ params }: Readonly<ProjectPageProps>) {
 
           <div>
             {/* Left: Gallery */}
-            <ProjectGallery images={project.images} projectName={project.name} />
+            <ProjectGallery
+              images={project.images}
+              projectName={project.name}
+            />
 
             <div>
               <Badge variant="secondary">{project.category}</Badge>

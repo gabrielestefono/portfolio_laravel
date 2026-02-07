@@ -1,6 +1,4 @@
 import ProjectsCard from "./ProjectsCard/ProjectsCard";
-import style from "./ProjectsContent.module.scss";
-import project1 from "./project1.webp";
 
 export interface Project {
   id: string;
@@ -19,7 +17,8 @@ export interface Project {
 const projects: Project[] = [];
 
 export default function ProjectsContent() {
-  const titulo = "Doctor Appointment web";
+  // const titulo = "Doctor Appointment web";
+
   return (
     <div>
       <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

@@ -78,7 +78,7 @@ export async function getStaticProps({ params }: { params: Params }) {
     return { notFound: true };
   }
 
-  return { props: { project } };
+  return { props: { project }, revalidate: 60 };
 }
 
 export default function ProjectPage({ project }: Readonly<ProjectPageProps>) {

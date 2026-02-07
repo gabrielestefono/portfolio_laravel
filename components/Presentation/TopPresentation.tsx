@@ -17,7 +17,7 @@ export default function presentation({
           {description.map((desc) => (
             <p key={String(desc.id)}>{desc.text}</p>
           ))}
-          <Link href="/#projetos" rel="noopener noreferrer">
+          <Link href="/projetos" rel="noopener noreferrer" className={styles['project-button']}>
             Veja meus projetos
           </Link>
         </div>

@@ -6,10 +6,11 @@ export default async function handler(
   response: NextApiResponse,
 ) {
   if (request.method === "GET") {
-    const projetoBackend = new ProjetosBackend();
-    const projeto = await projetoBackend.obterProjetoPorSlug(request);
+    const projetosClass = new ProjetosBackend();
 
-    return response.status(200).json(projeto);
+    const data = await projetosClass.obterSlugs();
+
+    return response.status(200).json(data);
   }
 
   return response.status(405).json({ message: "Method Not Allowed" });

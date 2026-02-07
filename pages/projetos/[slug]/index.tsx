@@ -1,41 +1,89 @@
-import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, ExternalLink, Github } from "lucide-react";
-import { projects, getProjectBySlug } from "@/lib/projects-data";
 import { Badge } from "@/components/Projects/badge";
 import { Button } from "@/components/Projects/button";
 import style from "../../../styles/projectsChild.module.scss";
 import LayoutBase from "@/components/layouts/LayoutBase";
 import { ProjectGallery } from "@/components/Projects/ProjectGallery";
+import { AuthenticationBackend } from "@/helpers/AuthenticationBackend";
+import { Projeto, Slug } from "@/helpers/ProjetosBackend";
 
-interface ProjectPageProps {
-  params: { slug: string };
+interface Params {
+  slug: string;
 }
 
-export async function getStaticProps({ params }: ProjectPageProps) {
-  const { slug } = params;
-  if (!getProjectBySlug(slug)) {
-    return { notFound: true };
-  }
+interface ProjectPageProps {
+  project: Projeto | null;
+}
 
-  return { props: { params } };
+async function getSlugs(): Promise<Slug[]> {
+  const auth = new AuthenticationBackend();
+  const url = auth.frontendUrl;
+  if (!url) {
+    return [];
+  }
+  let project: Slug[] = [];
+  await fetch(`${url}/api/projetos-slugs`)
+    .then(async (res) => {
+      if (res.ok) {
+        project = await res.json();
+      }
+
+      return [];
+    })
+    .catch(() => {
+      project = [];
+    });
+
+  return project;
 }
 
 export async function getStaticPaths() {
+  const slugList = await getSlugs();
+
   return {
-    paths: projects.map((p) => ({
+    paths: slugList.map((p) => ({
       params: { slug: p.slug },
     })),
     fallback: false,
   };
 }
 
-export default function ProjectPage({ params }: Readonly<ProjectPageProps>) {
-  const { slug } = params;
-  const project = getProjectBySlug(slug);
+async function getProjectBySlug(slug: string): Promise<Projeto | null> {
+  const auth = new AuthenticationBackend();
+  const url = auth.frontendUrl;
+  if (!url) {
+    return null;
+  }
+  let project: Projeto | null = null;
+  await fetch(`${url}/api/projetos/${slug}`)
+    .then(async (res) => {
+      if (res.ok) {
+        project = await res.json();
+      }
 
+      return null;
+    })
+    .catch(() => {
+      project = null;
+    });
+
+  return project;
+}
+
+export async function getStaticProps({ params }: { params: Params }) {
+  const { slug } = params;
+  const project = await getProjectBySlug(slug);
   if (!project) {
-    notFound();
+    return { notFound: true };
+  }
+
+  return { props: { project } };
+}
+
+export default function ProjectPage({ project }: Readonly<ProjectPageProps>) {
+  if (!project) {
+    return <div>Carregando...</div>;
   }
 
   return (
@@ -50,33 +98,32 @@ export default function ProjectPage({ params }: Readonly<ProjectPageProps>) {
           <div>
             {/* Left: Gallery */}
             <ProjectGallery
-              images={project.images}
-              projectName={project.name}
+              images={project.imagens.map((img) => img.filename)}
+              projectName={project.nome}
             />
 
             <div>
-              <Badge variant="secondary">{project.category}</Badge>
+              <Badge variant="secondary">{project.categoria.nome}</Badge>
 
-              <h1>{project.name}</h1>
+              <h1>{project.nome}</h1>
 
-              <p>{project.description}</p>
-
+              <p>{project.descricao_breve}</p>
               <div>
                 <h2>Tecnologias utilizadas</h2>
                 <div>
-                  {project.technologies.map((tech) => (
-                    <Badge key={tech} variant="outline">
-                      {tech}
+                  {project.tecnologias.map((tech) => (
+                    <Badge key={tech.id} variant="outline">
+                      {tech.nome}
                     </Badge>
                   ))}
                 </div>
               </div>
 
               <div>
-                {project.liveUrl && (
+                {project.link_site && (
                   <Button size="lg" asChild>
                     <a
-                      href={project.liveUrl}
+                      href={project.link_site}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -85,10 +132,10 @@ export default function ProjectPage({ params }: Readonly<ProjectPageProps>) {
                     </a>
                   </Button>
                 )}
-                {project.githubUrl && (
+                {project.link_github && (
                   <Button variant="outline" size="lg" asChild>
                     <a
-                      href={project.githubUrl}
+                      href={project.link_github}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -104,7 +151,7 @@ export default function ProjectPage({ params }: Readonly<ProjectPageProps>) {
           {/* Full Description */}
           <div>
             <h2>Sobre o projeto</h2>
-            <p>{project.longDescription}</p>
+            <p>{project.descricao}</p>
           </div>
         </div>
       </main>

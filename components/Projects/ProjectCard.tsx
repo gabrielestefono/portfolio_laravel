@@ -14,7 +14,7 @@ export function ProjectCard({ project }: Readonly<ProjectCardProps>) {
   return (
     <div className={style["project-card"]}>
       {/* Image Container */}
-      <Link href={`/projetos/${project.nome}`}>
+      <Link href={`/projetos/${project.slug}`}>
         <Image
           src={project.imagens[0]?.filename || "/placeholder.svg"}
           alt={project.nome}
@@ -28,7 +28,7 @@ export function ProjectCard({ project }: Readonly<ProjectCardProps>) {
       {/* Content */}
       <div>
         <div>
-          <Link href={`/projetos/${project.nome}`}>
+          <Link href={`/projetos/${project.slug}`}>
             <h3>{project.nome}</h3>
           </Link>
           <p>{project.categoria.nome}</p>

@@ -1,3 +1,4 @@
+import { NextApiRequest } from "next";
 import { AuthenticationBackend } from "./AuthenticationBackend";
 
 export interface TecnologiaPivot {
@@ -42,6 +43,12 @@ export interface Projeto {
   categoria: Categoria;
   tecnologias: Tecnologia[];
   imagens: Imagem[];
+  slug: string;
+}
+
+export interface Slug {
+  id: number;
+  slug: string;
 }
 
 export class ProjetosBackend {
@@ -68,6 +75,49 @@ export class ProjetosBackend {
         return [];
       }
       const data: Projeto[] = await response.json();
+
+      return data;
+    } catch (error: unknown) {
+      return error ? [] : [];
+    }
+  }
+
+  public async obterProjetoPorSlug(req: NextApiRequest) {
+    try {
+      const token = await this.auth.getToken();
+      const { slug } = req.query;
+      const response = await fetch(`${this.url}project/id/${slug}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      if (!response.ok) {
+        return [];
+      }
+      const data: Projeto = await response.json();
+
+      return data;
+    } catch (error: unknown) {
+      return error ? undefined : undefined;
+    }
+  }
+
+  async obterSlugs() {
+    try {
+      const token = await this.auth.getToken();
+      const response = await fetch(`${this.url}project/list-slugs`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      if (!response.ok) {
+        return [];
+      }
+      const data: Slug[] = await response.json();
 
       return data;
     } catch (error: unknown) {

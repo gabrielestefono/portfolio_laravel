@@ -2,10 +2,13 @@
   "compilerOptions": {
     /* Base */
     "target": "ES2022",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "module": "ESNext",
     "moduleResolution": "bundler",
-
     /* Type Safety */
     "strict": true,
     "noImplicitAny": true,
@@ -14,43 +17,42 @@
     "strictBindCallApply": true,
     "strictPropertyInitialization": true,
     "useUnknownInCatchVariables": true,
-
     /* Code Quality */
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true,
     "noPropertyAccessFromIndexSignature": true,
-
     /* Modules & Interop */
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
-
     /* Build */
     "noEmit": true,
     "isolatedModules": true,
     "incremental": true,
-
     /* JS */
     "allowJs": false,
     "checkJs": false,
-
     /* Paths */
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"]
+      "@/*": [
+        "./*"
+      ]
     },
-
     /* Performance / DX */
     "skipLibCheck": false,
     "forceConsistentCasingInFileNames": true,
-
     /* React / Next */
-    "jsx": "preserve"
+    "jsx": "react-jsx"
   },
-
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

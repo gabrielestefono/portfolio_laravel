@@ -3,8 +3,22 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     remotePatterns: [
-      new URL("https://gabrielestefono.webestcoding.com.br/storage/**"),
-      new URL("http://localhost:8000/storage/**"),
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "gabrielestefono.webestcoding.com.br",
+        pathname: "/storage/**",
+      },
+      {
+        protocol: "http",
+        hostname: "localhost",
+        port: "8000",
+        pathname: "/storage/**",
+      },
     ],
   },
 };

@@ -71,7 +71,7 @@ export default function Header({
               className={`${style["link"]} ${
                 rotaAtual.pathname == "/projetos" ? style["active"] : ""
               }`}
-              href="/#projetos"
+              href="/projetos"
             >
               Projetos
             </Link>

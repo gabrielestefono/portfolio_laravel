@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
 :root{
   --cor-primaria: #006732;
@@ -32,7 +30,6 @@ time, mark, audio, video {
 	padding: 0;
 	border: 0;
 	font-size: 100%;
-	font: inherit;
 	vertical-align: baseline;
     font-family: 'Poppins', sans-serif;
 }
@@ -43,6 +40,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+  overflow-x: hidden;
 }
 ol, ul {
 	list-style: none;
@@ -58,10 +56,6 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
-}
-
-body{
-	overflow-x: hidden;
 }
 
 .swiper-wrapper{

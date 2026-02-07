@@ -1,0 +1,74 @@
+.projects {
+  min-height: 100vh;
+  background: oklch(0.99 0.002 240);
+
+  /* container */
+  > div {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 1rem;
+  }
+
+  @media (min-width: 768px) {
+    > div {
+      padding: 6rem 1rem;
+    }
+  }
+
+  /* GRID DE PROJETOS */
+  > div > div:nth-of-type(2) {
+    margin-top: 3rem;
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    > div > div:nth-of-type(2) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    > div > div:nth-of-type(2) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  /* EMPTY STATE */
+  > div > div:nth-of-type(3) {
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  /* CÍRCULO DO ÍCONE */
+  > div > div:nth-of-type(3) > div:first-of-type {
+    border-radius: 9999px;
+    background: oklch(0.96 0.01 240);
+    padding: 1.5rem;
+  }
+
+  /* SVG */
+  > div > div:nth-of-type(3) svg {
+    width: 3rem;
+    height: 3rem;
+    color: oklch(0.55 0.02 240);
+  }
+
+  /* TÍTULO */
+  > div > div:nth-of-type(3) > h3 {
+    margin-top: 1rem;
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: oklch(0.25 0.05 250);
+  }
+
+  /* TEXTO */
+  > div > div:nth-of-type(3) > p {
+    margin-top: 0.5rem;
+    color: oklch(0.55 0.02 240);
+  }
+}

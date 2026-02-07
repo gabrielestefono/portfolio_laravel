@@ -1,0 +1,67 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+
+  padding: 2px 8px;
+  font-size: 12px;
+  font-weight: 500;
+
+  border-radius: 6px;
+  border: 1px solid transparent;
+
+  white-space: nowrap;
+  width: fit-content;
+  overflow: hidden;
+
+  transition:
+    color 0.15s ease,
+    box-shadow 0.15s ease,
+    background 0.15s ease;
+
+  svg {
+    width: 12px;
+    height: 12px;
+    pointer-events: none;
+  }
+
+  /* VARIANTS */
+
+  &[data-variant="default"] {
+    background: oklch(0.28 0.08 250);
+    color: oklch(0.99 0 0);
+    border-color: transparent;
+
+    a:hover & {
+      filter: brightness(0.9);
+    }
+  }
+
+  &[data-variant="secondary"] {
+    background: oklch(0.96 0.01 240);
+    color: oklch(0.28 0.08 250);
+    border-color: transparent;
+
+    a:hover & {
+      filter: brightness(0.9);
+    }
+  }
+
+  &[data-variant="destructive"] {
+    background: oklch(0.577 0.245 27.325);
+    color: white;
+    border-color: transparent;
+  }
+
+  &[data-variant="outline"] {
+    background: transparent;
+    color: oklch(0.25 0.05 250);
+    border-color: oklch(0.92 0.01 240);
+
+    a:hover & {
+      background: oklch(0.55 0.12 175);
+      color: oklch(0.99 0 0);
+    }
+  }
+}

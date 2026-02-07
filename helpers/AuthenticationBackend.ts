@@ -11,10 +11,13 @@ export class AuthenticationBackend {
 
   private readonly url: string;
 
+  public readonly frontendUrl: string|undefined;
+
   constructor() {
     const url = process.env.BACKEND_URL;
     const password = process.env.BACKEND_PASSWORD;
     const email = process.env.BACKEND_EMAIL;
+    this.frontendUrl = process.env.FRONTEND_URL;
     if (!url || !password || !email) {
       throw new Error("Credenciais não encontradas!");
     }

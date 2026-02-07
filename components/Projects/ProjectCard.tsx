@@ -1,23 +1,23 @@
-import { Project } from "@/pages/projetos";
 import { ExternalLink, Github } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Badge } from "./badge";
 import { Button } from "./button";
 import style from "./ProjectCard.module.scss";
+import { Projeto } from "@/helpers/ProjetosBackend";
 
 interface ProjectCardProps {
-  project: Project;
+  project: Projeto;
 }
 
 export function ProjectCard({ project }: Readonly<ProjectCardProps>) {
   return (
     <div className={style["project-card"]}>
       {/* Image Container */}
-      <Link href={`/projetos/${project.slug}`}>
+      <Link href={`/projetos/${project.nome}`}>
         <Image
-          src={project.images[0] || "/placeholder.svg"}
-          alt={project.name}
+          src={project.imagens[0]?.filename || "/placeholder.svg"}
+          alt={project.nome}
           fill
         />
         <div>
@@ -28,34 +28,32 @@ export function ProjectCard({ project }: Readonly<ProjectCardProps>) {
       {/* Content */}
       <div>
         <div>
-          <Link href={`/projetos/${project.slug}`}>
-            <h3>{project.name}</h3>
+          <Link href={`/projetos/${project.nome}`}>
+            <h3>{project.nome}</h3>
           </Link>
-          <p>{project.category}</p>
+          <p>{project.categoria.nome}</p>
         </div>
 
-        <p>{project.description}</p>
+        <p>{project.descricao_breve}</p>
 
         {/* Tech Badges */}
         <div>
-          {project.technologies.slice(0, 4).map((tech) => (
-            <Badge key={tech} variant="secondary">
-              {tech}
+          {project.tecnologias.slice(0, 4).map((tech) => (
+            <Badge key={tech.id} variant="secondary">
+              {tech.nome}
             </Badge>
           ))}
-          {project.technologies.length > 4 && (
-            <Badge variant="secondary">
-              +{project.technologies.length - 4}
-            </Badge>
+          {project.tecnologias.length > 4 && (
+            <Badge variant="secondary">+{project.tecnologias.length - 4}</Badge>
           )}
         </div>
 
         {/* Actions */}
         <div>
-          {project.githubUrl && (
+          {project.link_github && (
             <Button variant="outline" size="sm" asChild>
               <a
-                href={project.githubUrl}
+                href={project.link_github}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -64,10 +62,10 @@ export function ProjectCard({ project }: Readonly<ProjectCardProps>) {
               </a>
             </Button>
           )}
-          {project.liveUrl && (
+          {project.link_site && (
             <Button size="sm" asChild>
               <a
-                href={project.liveUrl}
+                href={project.link_site}
                 target="_blank"
                 rel="noopener noreferrer"
               >

@@ -35,6 +35,7 @@ export function ProjectGallery({
               key={index}
               onClick={() => setSelectedIndex(index)}
               data-active={selectedIndex === index || undefined}
+              className={styles["thumbnail"]}
             >
               <Image
                 src={image || "/placeholder.svg"}

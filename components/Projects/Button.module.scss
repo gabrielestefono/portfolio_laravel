@@ -27,7 +27,7 @@
 /* VARIANTS */
 
 .default {
-  background: oklch(0.28 0.08 250);
+  background: oklch(0.55 0.12 175);
   color: oklch(0.99 0 0);
 
   &:hover {
@@ -56,7 +56,7 @@
 
 .secondary {
   background: oklch(0.96 0.01 240);
-  color: oklch(0.28 0.08 250);
+  color: oklch(0.55 0.12 175);
 
   &:hover {
     filter: brightness(0.95);
@@ -74,7 +74,7 @@
 
 .link {
   background: transparent;
-  color: oklch(0.28 0.08 250);
+  color: oklch(0.55 0.12 175);
   text-decoration: none;
 
   &:hover {

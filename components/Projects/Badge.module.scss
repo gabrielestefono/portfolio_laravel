@@ -29,7 +29,7 @@
   /* VARIANTS */
 
   &[data-variant="default"] {
-    background: oklch(0.28 0.08 250);
+    background: oklch(0.55 0.12 175);
     color: oklch(0.99 0 0);
     border-color: transparent;
 
@@ -40,7 +40,7 @@
 
   &[data-variant="secondary"] {
     background: oklch(0.96 0.01 240);
-    color: oklch(0.28 0.08 250);
+    color: oklch(0.55 0.12 175);
     border-color: transparent;
 
     a:hover & {

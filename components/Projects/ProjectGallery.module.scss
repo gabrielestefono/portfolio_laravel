@@ -9,13 +9,19 @@
     aspect-ratio: 4 / 3;
     overflow: hidden;
     border-radius: 12px;
-    border: 1px solid var(--border);
-    background: var(--muted);
+    border: 1px solid oklch(0.922 0 0);
+    background: oklch(0.97 0 0);
   }
 
   /* garante cover no next/image */
   img {
     object-fit: cover;
+    object-position: top left;
+  }
+
+  .thumbnail {
+    max-width: 76px;
+    max-height: 56px;
   }
 
   /* THUMBNAILS WRAPPER */
@@ -34,7 +40,7 @@
     flex-shrink: 0;
     overflow: hidden;
     border-radius: 10px;
-    border: 2px solid var(--border);
+    border: 2px solid oklch(0.922 0 0);
     opacity: 0.7;
     transition: all 0.2s ease;
     background: none;
@@ -51,14 +57,14 @@
 
   /* hover */
   > div:last-child > button:hover {
-    border-color: color-mix(in srgb, var(--accent) 50%, transparent);
+    border-color: color-mix(in srgb, oklch(0.55 0.12 175) 50%, transparent);
     opacity: 1;
   }
 
   /* ACTIVE */
   > div:last-child > button[data-active] {
-    border-color: var(--accent);
-    box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 20%, transparent);
+    border-color: oklch(0.55 0.12 175);
+    box-shadow: 0 0 0 2px color-mix(in srgb, oklch(0.55 0.12 175) 20%, transparent);
     opacity: 1;
   }
 }

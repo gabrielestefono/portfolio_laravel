@@ -121,11 +121,12 @@ export default function ProjectPage({ project }: Readonly<ProjectPageProps>) {
 
               <div>
                 {project.link_site && (
-                  <Button size="lg" asChild>
+                  <Button size="lg" asChild variant="default">
                     <a
                       href={project.link_site}
                       target="_blank"
                       rel="noopener noreferrer"
+                      className={style['link']}
                     >
                       <ExternalLink />
                       Ver em Produção
